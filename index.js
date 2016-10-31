@@ -6,18 +6,15 @@ var prompt = require('prompt');
 var env = new nunjucks.Environment(new nunjucks.FileSystemLoader('templates'));
 NODE_DEBUG = fs, nunjucks, glob;
 var inputPath = '../../htdocs/frontend/dist/npm-dw-styleguide/markup/';
-var inputPath = 'markup/';
 
 if (process.env.npm_config_input) {
     inputPath = process.env.npm_config_input;
 }
 var docPath = '../../htdocs/frontend/dist/npm-dw-styleguide/doc/'
-var docPath = 'doc/'
 if (process.env.npm_config_doc) {
     docPath = process.env.npm_config_doc;
 }
 var outputPath = '../../htdocs/frontend/dist/npm-dw-styleguide/reduced/';
-var outputPath = 'reduced/';
 if (process.env.npm_config_output) {
     outputPath = process.env.npm_config_output;
 }
