@@ -1,0 +1,21 @@
+{
+  "name": "npm-dw-styleguide",
+  "version": "0.0.5",
+  "description": "automatically generate a static styleguide from html pattern",
+  "main": "index.js",
+  "scripts": {
+    "build": "node index.js"
+  },
+  "keywords": [
+    "pattern",
+    "pattern-library",
+    "styleguide",
+    "living"
+  ],
+  "author": "Erik Marstaeller",
+  "license": "MIT",
+  "dependencies": {
+    "glob": "^7.1.0",
+    "nunjucks": "^2.5.2"
+  }
+}
