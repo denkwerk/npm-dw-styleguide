@@ -5,16 +5,19 @@ var prompt = require('prompt');
 
 var env = new nunjucks.Environment(new nunjucks.FileSystemLoader('templates'));
 NODE_DEBUG = fs, nunjucks, glob;
-var navi = '';
 var inputPath = '../../htdocs/frontend/dist/npm-dw-styleguide/markup/';
+var inputPath = 'markup/';
+
 if (process.env.npm_config_input) {
     inputPath = process.env.npm_config_input;
 }
 var docPath = '../../htdocs/frontend/dist/npm-dw-styleguide/doc/'
+var docPath = 'doc/'
 if (process.env.npm_config_doc) {
     docPath = process.env.npm_config_doc;
 }
 var outputPath = '../../htdocs/frontend/dist/npm-dw-styleguide/reduced/';
+var outputPath = 'reduced/';
 if (process.env.npm_config_output) {
     outputPath = process.env.npm_config_output;
 }
@@ -29,9 +32,20 @@ prompt.get(['inputPath', 'docPath', 'outputPath'], function(err, result) {
     console.log('  inputPath: ' + result.inputPath);
     console.log('  docPath: ' + result.docPath);
     console.log('  Email: ' + result.outputPath);
-    (!result.inputPath) ? null: inputPath = result.inputPath;
-    (!result.docPath) ? null: docPath = result.docPath;
-    (!result.outputPath) ? null: outputPath = result.outputPath;
+
+    //set paths if user input and ad attached '/' if not prompted
+    if (result.inputPath) {
+        inputPath = result.inputPath;
+        (inputPath.slice(-1) == '/') ? null: inputPath += '/';
+    }
+    if (result.docPath) {
+        docPath = result.docPath;
+        (docPath.slice(-1) == '/') ? null: docPath += '/';
+    }
+    if (result.outputPath) {
+        outputPath = result.outputPath;
+        (outputPath.slice(-1) == '/') ? null: outputPath += '/';
+    }
     style(inputPath, docPath, outputPath);
 });
 
@@ -45,11 +59,10 @@ function style(inputPath, docPath, outputPath) {
     glob('**/*.html', {
         cwd: inputPath
     }, function(err, files) {
+        console.log(inputPath, docPath, outputPath);
         if (err) {
-            return log(er);
+            return console.log(err);
         }
-        console.log(inputPath);
-
         //build structure for navigation
         var navTree = [];
 
@@ -58,7 +71,7 @@ function style(inputPath, docPath, outputPath) {
             if (splitPath.length === 0) {
                 children.push({
                     name: rawItem,
-                    link: rawItem.split('.')[0]
+                    link: outputPath + rawItem.split('.')[0]
                 });
             } else {
                 var item = children.filter(function(item) {
