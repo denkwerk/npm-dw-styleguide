@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/frontend/dist/css/main.css">
+    <link rel="stylesheet" href="/frontend/dist/dw-styleguide/css/sg-style.css">
+    <link rel="stylesheet" href="/frontend/dist/dw-styleguide/css/github-markdown.css">
+
+    <link rel="stylesheet" href="/frontend/dist/dw-styleguide/css/font-awesome.min.css">
+
+    <!-- prism Syntax Highlighting Styles -->
+    <link rel="stylesheet" href="/frontend/dist/dw-styleguide/vendor/prism/prism.css">
+    <script src="/frontend/dist/dw-styleguide/vendor/prism/prism.js"></script>
+
+
+
+  </head>
+  <body>
+    {% import "single.njk" as singleView %}
+    {{ singleView.render( element ) }}
+      <script src="/frontend/dist/dw-styleguide/js/sg-scripts.js"></script>
+  </body>
+</html>

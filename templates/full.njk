@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{{ title }}</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+        <!-- Style Guide Boilerplate Styles -->
+        <link rel="stylesheet" href="css/sg-style.css">
+        <!--[if lt IE 9]><link rel="stylesheet" href="css/sg-style-old-ie.css"><![endif]-->
+
+        <!-- https://github.com/sindresorhus/github-markdown-css -->
+        <link rel="stylesheet" href="css/github-markdown.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+
+        <!-- Replace below stylesheet with your own stylesheet -->
+        <link rel="stylesheet" href="../css/main.css">
+
+        <!-- prism Syntax Highlighting Styles -->
+        <link rel="stylesheet" href="vendor/prism/prism.css">
+    </head>
+    <body>
+        <nav class="sg-sidebar">
+            {% import "navigation.njk" as nav %}
+            {{ nav.navigation(navigation) }}
+            {# {{ renderNavigation('markup/') | safe }} #}
+        </nav>
+        <main class="sg-main">
+            <div class="sg-container">
+                <div class="sg-section-group">
+                    <div class="sg-section-group">
+
+                        {% import "single.njk" as singleView %}
+                        {% for element in elements %}
+                            {{ singleView.render( element ) }}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!--[if gt IE 8]><!-->
+        <script src="vendor/prism/prism.js"></script>
+        <!--<![endif]-->
+        <script src="js/sg-scripts.js"></script>
+        <script>
+            // $('.sg-nav-group .sg-nav-group h3').siblings().children().toggle();
+            // add folding and switching icons to groups
+            $('.sg-nav-group h3').click(function () {
+                $(this).siblings().children().toggle();
+                $(this).children().toggleClass('fa-minus').toggleClass('fa-plus');
+                $(this).siblings('h3 i').toggleClass('fa-minus').toggleClass('fa-plus');
+            });
+        </script>
+
+        <script>
+            $(document).ready(function () {
+                // highlight active pattern in navi
+                $(".sg-section").mouseenter(function () {
+                    var id = $(this).attr('id');
+                    $('a').removeClass('active');
+                    $("[href=#" + id + "]").addClass('active');
+                });
+                // collapse navi
+                $('.sg-sidebar .sg-nav-group li h3').siblings().children().toggle();
+            });
+        </script>
+    </body>
+</html>

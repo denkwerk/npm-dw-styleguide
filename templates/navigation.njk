@@ -1,0 +1,18 @@
+{% macro navigation(tree) %}
+  <ul class="sg-nav-group">
+    {% for item in tree %}
+      <li>
+        {{ navigationItem(item) }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{% macro navigationItem(item) %}
+  {% if item.children %}
+    <h3 class="sg-h3"><i class="fa fa-plus" aria-hidden="true"></i> {{ item.name }}</h3>
+    {{ navigation(item.children)}}
+  {% else %}
+    <a href="#{{ item.link }}">{{ item.link }}</a>
+  {% endif %}
+{% endmacro %}
