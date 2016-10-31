@@ -5,6 +5,8 @@ this module creates a static styleguide from pattern defined in separated .html 
 ##usage
   
   npm run-script build --params=value
+  
+  e.g. `npm run-script build --input=markup/ --doc=../documentation/ --output=../path/to/output/folder/`
 
 ##params
 
