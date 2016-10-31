@@ -4,15 +4,18 @@ var nunjucks = require('nunjucks');
 var env = new nunjucks.Environment(new nunjucks.FileSystemLoader('templates'));
 NODE_DEBUG = fs, nunjucks, glob;
 var navi = '';
-var inputPath = '../../htdocs/frontend/dist/dw-styleguide/markup/';
+var inputPath = '../../htdocs/frontend/dist/npm-dw-styleguide/markup/';
+var inputPath = 'markup-full/';
 if (process.env.npm_config_input) {
     inputPath = process.env.npm_config_input;
 }
-var docPath = '../../htdocs/frontend/dist/dw-styleguide/doc/'
+var docPath = '../../htdocs/frontend/dist/npm-dw-styleguide/doc/'
+var docPath = 'doc/'
 if (process.env.npm_config_doc) {
     docPath = process.env.npm_config_doc;
 }
-var outputPath = '../../htdocs/frontend/dist/dw-styleguide/reduced/';
+var outputPath = '../../htdocs/frontend/dist/npm-dw-styleguide/reduced/';
+var outputPath = 'reduced/';
 if (process.env.npm_config_output) {
     outputPath = process.env.npm_config_output;
 }
