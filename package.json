@@ -13,9 +13,13 @@
     "living"
   ],
   "author": "Erik Marstaeller",
-  "license": "MIT",
+  "license": {
+    "type": "MIT",
+    "url": "http://www.opensource.org/licenses/mit-license.php"
+  },
   "dependencies": {
     "glob": "^7.1.0",
-    "nunjucks": "^2.5.2"
+    "nunjucks": "^2.5.2",
+    "prompt": "^1.0.0"
   }
 }
