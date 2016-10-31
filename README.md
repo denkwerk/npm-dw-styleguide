@@ -4,7 +4,7 @@ this module creates a static styleguide from pattern defined in separated .html 
 
 ##usage
   
-  npm run-script build (--params)
+  npm run-script build (--params=value)
 
 ##params
 
