@@ -21,7 +21,8 @@ function style(inputPath, docPath, outputPath) {
             if (splitPath.length === 0) {
                 children.push({
                     name: rawItem,
-                    link: outputPath + rawItem.split('.')[0]
+                    link: outputPath + rawItem.split('.')[0],
+                    hash: rawItem.split('.')[0]
                 });
             } else {
                 var item = children.filter(function(item) {
@@ -72,7 +73,7 @@ function style(inputPath, docPath, outputPath) {
             elements: fileContents,
             navigation: navTree
         });
-        fs.writeFile('index.html', full);
+        fs.writeFile(outputPath + 'index.html', full);
 
         if (!fs.existsSync(outputPath)) {
             fs.mkdirSync(outputPath);
