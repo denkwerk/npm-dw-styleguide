@@ -73,11 +73,12 @@ function style(inputPath, docPath, outputPath) {
             elements: fileContents,
             navigation: navTree
         });
-        fs.writeFile(outputPath + 'index.html', full);
 
         if (!fs.existsSync(outputPath)) {
             fs.mkdirSync(outputPath);
         }
+
+        fs.writeFile(outputPath + 'index.html', full);
 
         fileContents.forEach(function(file, i) {
             var reduced = env.render('reduced.njk', {
