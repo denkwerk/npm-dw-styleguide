@@ -13,9 +13,9 @@
     "living"
   ],
   "author": "Erik Marstaeller",
-  "license": {
-    "type": "MIT",
-    "url": "http://www.opensource.org/licenses/mit-license.php"
+  "license": "MIT",
+  "bin": {
+    "dw-styleguide": "bin/dw-styleguide"
   },
   "dependencies": {
     "glob": "^7.1.0",

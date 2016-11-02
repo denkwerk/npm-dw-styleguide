@@ -1,0 +1,55 @@
+#!/usr/bin/env node
+
+'use strict';
+
+process.title = 'dw-styleguide';
+
+var prompt = require('prompt');
+var styleguide = require('../index.js');
+
+var inputPath = '../../htdocs/frontend/dist/npm-dw-styleguide/markup/';
+
+if (process.env.npm_config_input) {
+    inputPath = process.env.npm_config_input;
+}
+var docPath = '../../htdocs/frontend/dist/npm-dw-styleguide/doc/'
+if (process.env.npm_config_doc) {
+    docPath = process.env.npm_config_doc;
+}
+var outputPath = '../../htdocs/frontend/dist/npm-dw-styleguide/reduced/';
+if (process.env.npm_config_output) {
+    outputPath = process.env.npm_config_output;
+}
+
+prompt.start();
+
+prompt.get(['inputPath', 'docPath', 'outputPath'], function(err, result) {
+    if (err) {
+        return onErr(err);
+    }
+
+    console.log('Command-line input received:');
+    console.log('  inputPath: ' + result.inputPath);
+    console.log('  docPath: ' + result.docPath);
+    console.log('  Email: ' + result.outputPath);
+
+    //set paths if user input and ad attached '/' if not prompted
+    if (result.inputPath) {
+        inputPath = result.inputPath;
+        (inputPath.slice(-1) == '/') ? null: inputPath += '/';
+    }
+    if (result.docPath) {
+        docPath = result.docPath;
+        (docPath.slice(-1) == '/') ? null: docPath += '/';
+    }
+    if (result.outputPath) {
+        outputPath = result.outputPath;
+        (outputPath.slice(-1) == '/') ? null: outputPath += '/';
+    }
+    style(inputPath, docPath, outputPath);
+});
+
+function onErr(err) {
+    console.log(err);
+    return 1;
+}

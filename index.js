@@ -1,62 +1,14 @@
 var glob = require('glob');
 var fs = require('fs');
 var nunjucks = require('nunjucks');
-var prompt = require('prompt');
 
 var env = new nunjucks.Environment(new nunjucks.FileSystemLoader('templates'));
-NODE_DEBUG = fs, nunjucks, glob;
-var inputPath = '../../htdocs/frontend/dist/npm-dw-styleguide/markup/';
-
-if (process.env.npm_config_input) {
-    inputPath = process.env.npm_config_input;
-}
-var docPath = '../../htdocs/frontend/dist/npm-dw-styleguide/doc/'
-if (process.env.npm_config_doc) {
-    docPath = process.env.npm_config_doc;
-}
-var outputPath = '../../htdocs/frontend/dist/npm-dw-styleguide/reduced/';
-if (process.env.npm_config_output) {
-    outputPath = process.env.npm_config_output;
-}
-
-prompt.start();
-
-prompt.get(['inputPath', 'docPath', 'outputPath'], function(err, result) {
-    if (err) {
-        return onErr(err);
-    }
-    console.log('Command-line input received:');
-    console.log('  inputPath: ' + result.inputPath);
-    console.log('  docPath: ' + result.docPath);
-    console.log('  Email: ' + result.outputPath);
-
-    //set paths if user input and ad attached '/' if not prompted
-    if (result.inputPath) {
-        inputPath = result.inputPath;
-        (inputPath.slice(-1) == '/') ? null: inputPath += '/';
-    }
-    if (result.docPath) {
-        docPath = result.docPath;
-        (docPath.slice(-1) == '/') ? null: docPath += '/';
-    }
-    if (result.outputPath) {
-        outputPath = result.outputPath;
-        (outputPath.slice(-1) == '/') ? null: outputPath += '/';
-    }
-    style(inputPath, docPath, outputPath);
-});
-
-function onErr(err) {
-    console.log(err);
-    return 1;
-}
 
 //read html files
 function style(inputPath, docPath, outputPath) {
     glob('**/*.html', {
         cwd: inputPath
     }, function(err, files) {
-        console.log(inputPath, docPath, outputPath);
         if (err) {
             return console.log(err);
         }
@@ -139,4 +91,4 @@ function style(inputPath, docPath, outputPath) {
         })
     })
 }
-module.exports = 'npm-dw-styleguide';
+module.exports = style;
