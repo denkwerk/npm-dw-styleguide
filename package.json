@@ -1,6 +1,6 @@
 {
   "name": "npm-dw-styleguide",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "automatically generate a static styleguide from html pattern",
   "main": "index.js",
   "scripts": {
