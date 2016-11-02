@@ -12,6 +12,7 @@ function style(inputPath, docPath, outputPath) {
         if (err) {
             return console.log(err);
         }
+
         //build structure for navigation
         var navTree = [];
 
@@ -38,11 +39,12 @@ function style(inputPath, docPath, outputPath) {
 
                 buildNav(splitPath, item.children);
             }
-        }
+        };
+
         files.forEach(function(file) {
             var element = file.split('/');
-            var tree = buildNav(element, navTree);
-        })
+            buildNav(element, navTree);
+        });
 
         var fileContents = [];
 
@@ -61,7 +63,8 @@ function style(inputPath, docPath, outputPath) {
                 doc: doc,
                 path: file
             })
-        })
+        });
+
         env.addGlobal('renderSingle', function(inputPath) {});
 
         var full = env.render('full.njk', {
@@ -71,7 +74,9 @@ function style(inputPath, docPath, outputPath) {
         });
         fs.writeFile('index.html', full);
 
-        fs.existsSync(outputPath) ? null : fs.mkdirSync(outputPath);
+        if (!fs.existsSync(outputPath)) {
+            fs.mkdirSync(outputPath);
+        }
 
         fileContents.forEach(function(file, i) {
             var reduced = env.render('reduced.njk', {
@@ -84,11 +89,15 @@ function style(inputPath, docPath, outputPath) {
             paths.forEach(function(path, i, paths) {
                 if (i + 1 < paths.length) {
                     p += path + '/';
-                    fs.existsSync(outputPath + p) ? null : fs.mkdirSync(outputPath + p);
+                    if(!fs.existsSync(outputPath + p)) {
+                        fs.mkdirSync(outputPath + p);
+                    }
                 }
-            })
+            });
+
             fs.writeFile(outputPath + file.path, reduced);
         })
     })
 }
+
 module.exports = style;
