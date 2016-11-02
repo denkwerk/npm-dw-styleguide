@@ -31,7 +31,7 @@ prompt.get(['inputPath', 'docPath', 'outputPath'], function(err, result) {
     console.log('Command-line input received:');
     console.log('  inputPath: ' + result.inputPath);
     console.log('  docPath: ' + result.docPath);
-    console.log('  Email: ' + result.outputPath);
+    console.log('  outputPath: ' + result.outputPath);
 
     //set paths if user input and ad attached '/' if not prompted
     if (result.inputPath) {
