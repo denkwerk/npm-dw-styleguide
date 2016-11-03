@@ -2,6 +2,7 @@
 
 var glob = require('glob');
 var fs = require('fs');
+var path = require('path');
 var nunjucks = require('nunjucks');
 var showdown = require('showdown');
 
@@ -25,9 +26,11 @@ function style(options) {
         throw new Error('You have to specify an output path');
     }
 
-    var inputPath = options.inputPath,
-        docPath = options.docPath,
-        outputPath = options.outputPath;
+    var inputPath = path.normalize(options.inputPath) + path.sep,
+        docPath = (typeof options.docPath === 'string') ?
+            path.normalize(options.docPath) + path.sep :
+            options.docPath,
+        outputPath = path.normalize(options.outputPath) + path.sep;
 
     var stylesheets = [
         '/css/main.css'
