@@ -99,7 +99,36 @@ function style(inputPath, docPath, outputPath) {
 
             fs.writeFile(outputPath + file.path, reduced);
         })
+
+        if (!fs.existsSync(outputPath + 'css')) {
+            fs.mkdirSync(outputPath + 'css');
+        }
+
+        if (!fs.existsSync(outputPath + 'js')) {
+            fs.mkdirSync(outputPath + 'js');
+        }
+
+        glob('css/**/*.css', {
+            cwd: __dirname
+        }, function(err, files) {
+            files.forEach(function (file) {
+                fs.createReadStream(__dirname + '/' + file).pipe(
+                    fs.createWriteStream(outputPath + file)
+                );
+            });
+        });
+
+        glob('js/**/*.js', {
+            cwd: __dirname
+        }, function(err, files) {
+            files.forEach(function (file) {
+                fs.createReadStream(__dirname + '/' + file).pipe(
+                    fs.createWriteStream(outputPath + file)
+                );
+            });
+        });
     })
+
 }
 
 module.exports = style;
