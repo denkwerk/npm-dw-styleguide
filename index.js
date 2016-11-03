@@ -16,6 +16,15 @@ function pathExists(path) {
 
 //read html files
 function style(options) {
+
+    if (!options.inputPath) {
+        throw new Error('You have to specify an input path');
+    }
+
+    if (!options.outputPath) {
+        throw new Error('You have to specify an output path');
+    }
+
     var inputPath = options.inputPath,
         docPath = options.docPath,
         outputPath = options.outputPath;
