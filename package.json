@@ -4,9 +4,6 @@
   "description": "automatically generate a static styleguide from html pattern",
   "repository": "https://github.com/denkwerk/npm-dw-styleguide.git",
   "main": "index.js",
-  "scripts": {
-    "build": "node index.js"
-  },
   "keywords": [
     "pattern",
     "pattern-library",
