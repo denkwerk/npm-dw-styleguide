@@ -18,6 +18,7 @@ function pathExists(path) {
 //read html files
 function style(options) {
 
+    // Check for required options
     if (!options.inputPath) {
         throw new Error('You have to specify an input path');
     }
@@ -78,6 +79,7 @@ function style(options) {
         //build structure for navigation
         var navTree = [];
 
+        // Build navigation using infinite recursion
         var buildNav = function(splitPath, children) {
             var rawItem = splitPath.shift();
             if (splitPath.length === 0) {
@@ -112,6 +114,7 @@ function style(options) {
         var fileContents = [],
             mdConverter = new showdown.Converter();
 
+        // Build data structure for rendering
         files.forEach(function(file, i, ar) {
             var split = file.split("/");
 
@@ -131,6 +134,7 @@ function style(options) {
             })
         });
 
+        // Render full styleguide
         var full = env.render(options.fullTemplate, {
             title: 'Full styleguide',
             elements: fileContents,
@@ -139,12 +143,15 @@ function style(options) {
             webPath: options.webPath
         });
 
+        // Create target directory if it does not exist
         if (!pathExists(outputPath)) {
             fs.mkdirSync(outputPath);
         }
 
+        // Write full styleguide to file
         fs.writeFile(outputPath + 'index.html', full);
 
+        // Render single views
         fileContents.forEach(function(file, i) {
             var reduced = env.render(options.reducedTemplate, {
                 title: 'Reduced Module ' + file.name,
@@ -168,6 +175,7 @@ function style(options) {
             fs.writeFile(outputPath + file.path, reduced);
         });
 
+        // Check for existance of css/js paths in target folder
         if (!pathExists(outputPath + 'css')) {
             fs.mkdirSync(outputPath + 'css');
         }
@@ -176,6 +184,7 @@ function style(options) {
             fs.mkdirSync(outputPath + 'js');
         }
 
+        // Copy css and js files
         glob('css/**/*.css', {
             cwd: __dirname
         }, function(err, files) {
