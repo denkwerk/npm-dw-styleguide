@@ -15,7 +15,11 @@ function pathExists(path) {
 }
 
 //read html files
-function style(inputPath, docPath, outputPath) {
+function style(options) {
+    var inputPath = options.inputPath,
+        docPath = options.docPath,
+        outputPath = options.outputPath;
+
     glob('**/*.html', {
         cwd: inputPath
     }, function(err, files) {

@@ -47,7 +47,11 @@ prompt.get(['inputPath', 'docPath', 'outputPath'], function(err, result) {
         (outputPath.slice(-1) == '/') ? null: outputPath += '/';
     }
 
-    styleguide(inputPath, docPath, outputPath);
+    styleguide({
+        inputPath: inputPath,
+        docPath: docPath,
+        outputPath: outputPath
+    });
 });
 
 function onErr(err) {
