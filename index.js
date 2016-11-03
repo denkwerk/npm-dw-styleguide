@@ -131,8 +131,6 @@ function style(options) {
             })
         });
 
-        env.addGlobal('renderSingle', function(inputPath) {});
-
         var full = env.render(options.fullTemplate, {
             title: 'Full styleguide',
             elements: fileContents,
