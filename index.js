@@ -63,7 +63,7 @@ function style(inputPath, docPath, outputPath) {
 
             var contents = pathExists(inputPath + file) ?
                 fs.readFileSync(inputPath + file) : '';
-            var doc = pathExists(docPath + file.split('.')[0] + '.md') ?
+            var doc = (docPath && pathExists(docPath + file.split('.')[0] + '.md')) ?
                 fs.readFileSync(docPath + file.split('.')[0] + '.md') :
                 'Bitte Dokumentation für ' + file + ' anlegen';
             fileContents.push({
