@@ -1,3 +1,5 @@
+'use strict';
+
 var glob = require('glob');
 var fs = require('fs');
 var nunjucks = require('nunjucks');
@@ -125,7 +127,7 @@ function style(options) {
                 title: 'Reduced Module ' + file.name,
                 element: file
             });
-            paths = file.path.split('/');
+            var paths = file.path.split('/');
             var p = '';
 
             paths.forEach(function(path, i, paths) {
