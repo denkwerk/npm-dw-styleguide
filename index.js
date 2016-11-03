@@ -108,7 +108,7 @@ function style(inputPath, docPath, outputPath) {
             });
 
             fs.writeFile(outputPath + file.path, reduced);
-        })
+        });
 
         if (!pathExists(outputPath + 'css')) {
             fs.mkdirSync(outputPath + 'css');
@@ -137,7 +137,7 @@ function style(inputPath, docPath, outputPath) {
                 );
             });
         });
-    })
+    });
 
 }
 
