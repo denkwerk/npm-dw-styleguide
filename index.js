@@ -4,6 +4,15 @@ var nunjucks = require('nunjucks');
 
 var env = new nunjucks.Environment(new nunjucks.FileSystemLoader('templates'));
 
+function pathExists(path) {
+    try {
+        fs.statSync(path);
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
 //read html files
 function style(inputPath, docPath, outputPath) {
     glob('**/*.html', {
@@ -52,9 +61,9 @@ function style(inputPath, docPath, outputPath) {
         files.forEach(function(file, i, ar) {
             var split = file.split("/");
 
-            var contents = fs.existsSync(inputPath + file) ?
+            var contents = pathExists(inputPath + file) ?
                 fs.readFileSync(inputPath + file) : '';
-            var doc = (fs.existsSync(docPath + file.split('.')[0] + '.md')) ?
+            var doc = pathExists(docPath + file.split('.')[0] + '.md') ?
                 fs.readFileSync(docPath + file.split('.')[0] + '.md') :
                 'Bitte Dokumentation für ' + file + ' anlegen';
             fileContents.push({
@@ -74,7 +83,7 @@ function style(inputPath, docPath, outputPath) {
             navigation: navTree
         });
 
-        if (!fs.existsSync(outputPath)) {
+        if (!pathExists(outputPath)) {
             fs.mkdirSync(outputPath);
         }
 
@@ -91,7 +100,8 @@ function style(inputPath, docPath, outputPath) {
             paths.forEach(function(path, i, paths) {
                 if (i + 1 < paths.length) {
                     p += path + '/';
-                    if(!fs.existsSync(outputPath + p)) {
+
+                    if(!pathExists(outputPath + p)) {
                         fs.mkdirSync(outputPath + p);
                     }
                 }
@@ -100,11 +110,11 @@ function style(inputPath, docPath, outputPath) {
             fs.writeFile(outputPath + file.path, reduced);
         })
 
-        if (!fs.existsSync(outputPath + 'css')) {
+        if (!pathExists(outputPath + 'css')) {
             fs.mkdirSync(outputPath + 'css');
         }
 
-        if (!fs.existsSync(outputPath + 'js')) {
+        if (!pathExists(outputPath + 'js')) {
             fs.mkdirSync(outputPath + 'js');
         }
 
