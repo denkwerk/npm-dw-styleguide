@@ -29,6 +29,18 @@ function style(options) {
         docPath = options.docPath,
         outputPath = options.outputPath;
 
+    var stylesheets = [
+        '/css/main.css'
+    ];
+
+    if (Array.isArray(options.stylesheets)) {
+        stylesheets = options.stylesheets;
+    } else if (typeof options.stylesheets === 'string') {
+        stylesheets = [
+            options.stylesheets
+        ];
+    }
+
     if (!options.fullTemplate) {
         options.fullTemplate = 'full.njk';
     }
@@ -113,7 +125,8 @@ function style(options) {
         var full = env.render(options.fullTemplate, {
             title: 'Full styleguide',
             elements: fileContents,
-            navigation: navTree
+            navigation: navTree,
+            stylesheets: stylesheets
         });
 
         if (!pathExists(outputPath)) {
@@ -125,7 +138,8 @@ function style(options) {
         fileContents.forEach(function(file, i) {
             var reduced = env.render(options.reducedTemplate, {
                 title: 'Reduced Module ' + file.name,
-                element: file
+                element: file,
+                stylesheets: stylesheets
             });
             var paths = file.path.split('/');
             var p = '';
