@@ -57,6 +57,10 @@ function style(options) {
 
     var env = new nunjucks.Environment(new nunjucks.FileSystemLoader(templatesPath));
 
+    if (typeof options.docNotFoundTemplate !== 'string') {
+        options.docNotFoundTemplate = 'Documentation for {{ file }} not found. Please add documentation file';
+    }
+
     glob('**/*.html', {
         cwd: inputPath
     }, function(err, files) {
@@ -110,7 +114,7 @@ function style(options) {
                 mdConverter.makeHtml(
                     fs.readFileSync(docPath + file.split('.')[0] + '.md').toString()
                 ) :
-                'Bitte Dokumentation für ' + file + ' anlegen';
+                env.renderString(options.docNotFoundTemplate, { file: file });
             fileContents.push({
                 name: split[split.length - 1]
                     .split(".")[file.split(".").length - 2],
