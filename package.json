@@ -19,8 +19,8 @@
   },
   "dependencies": {
     "glob": "^7.1.0",
+    "nopt": "^3.0.6",
     "nunjucks": "^2.5.2",
-    "prompt": "^1.0.0",
     "showdown": "^1.4.4"
   }
 }

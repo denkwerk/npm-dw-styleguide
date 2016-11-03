@@ -4,57 +4,100 @@
 
 process.title = 'dw-styleguide';
 
-var prompt = require('prompt');
+var path = require('path');
+var nopt = require('nopt');
 var styleguide = require('../index.js');
 
-var inputPath = '../../htdocs/frontend/dist/npm-dw-styleguide/markup/';
+var knownOpts = {
+    'output': path,
+    'documentation': path,
+    'stylesheets': [String, Array],
+    'templates-path': path,
+    'full-template': path,
+    'reduced-template': path,
+    'doc-not-found': String,
+    'web-root': String,
+    'help': Boolean
+};
 
-if (process.env.npm_config_input) {
-    inputPath = process.env.npm_config_input;
+var shortHands = {
+    'o': ['--output'],
+    'd': ['--documentation'],
+    's': ['--stylesheets'],
+    'h': ['--help']
+};
+
+function renderHelp() {
+    console.log('dw-styleguide CLI');
+    console.log('');
+    console.log('  Usage:');
+    console.log('    dw-styleguide [opts] input-path output-path');
+    console.log('    dw-styleguide [opts] -o|--output output-path input-path');
+    console.log('');
+    console.log('  Avalilable Options:');
+    console.log('    -o, --output            The output path');
+    console.log('    -d, --documentation     The documentation path');
+    console.log('    -s, --stylesheets       Array of stylesheets');
+    console.log('        --templates-path    The root of the template files');
+    console.log('        --full-template     The template file for the full styleguide page');
+    console.log('        --reduced-template  The template file for the reduced styleguide pages');
+    console.log('        --doc-not-found     The template string for the documentation not found hint');
+    console.log('        --web-root          The web-root of the styleguide');
+    console.log('    -h, --help              This help page');
 }
-var docPath = '../../htdocs/frontend/dist/npm-dw-styleguide/doc/'
-if (process.env.npm_config_doc) {
-    docPath = process.env.npm_config_doc;
+
+var opts = nopt(knownOpts, shortHands, process.argv, 2);
+
+if (!(opts.output || opts.argv.remain.length >= 2) && !opts.help) {
+    console.log('No output path was specified. This option is not mandatory');
+    renderHelp();
+    process.exit(1);
 }
-var outputPath = '../../htdocs/frontend/dist/npm-dw-styleguide/reduced/';
-if (process.env.npm_config_output) {
-    outputPath = process.env.npm_config_output;
+
+if (opts.argv.remain.length === 0 && !opts.help) {
+    console.log('No input path was specified. You have to specify an input path');
+    renderHelp();
+    process.exit(1);
 }
 
-prompt.start();
+if (opts.help) {
+    renderHelp();
+} else {
+    var inputPath = opts.argv.remain[0],
+        outputPath = opts.output || opts.argv.remain[1],
+        docsPath = opts.documentation;
 
-prompt.get(['inputPath', 'docPath', 'outputPath'], function(err, result) {
-    if (err) {
-        return onErr(err);
+    if (path.isAbsolute(inputPath)) {
+        inputPath = path.normalize(
+            path.relative(process.cwd(), inputPath)
+        ) + path.sep;
     }
 
-    console.log('Command-line input received:');
-    console.log('  inputPath: ' + result.inputPath);
-    console.log('  docPath: ' + result.docPath);
-    console.log('  outputPath: ' + result.outputPath);
-
-    //set paths if user input and ad attached '/' if not prompted
-    if (result.inputPath) {
-        inputPath = result.inputPath;
-        (inputPath.slice(-1) == '/') ? null: inputPath += '/';
-    }
-    if (result.docPath) {
-        docPath = result.docPath;
-        (docPath.slice(-1) == '/') ? null: docPath += '/';
-    }
-    if (result.outputPath) {
-        outputPath = result.outputPath;
-        (outputPath.slice(-1) == '/') ? null: outputPath += '/';
+    if (path.isAbsolute(outputPath)) {
+        inputPath = path.normalize(
+            path.relative(process.cwd(), outputPath)
+        ) + path.sep;
     }
 
-    styleguide({
+    if (docsPath && path.isAbsolute(docsPath)) {
+        docsPath = path.normalize(
+            path.relative(process.cwd(), docsPath)
+        ) + path.sep;
+    }
+
+    var styleguideOpts = {
         inputPath: inputPath,
-        docPath: docPath,
-        outputPath: outputPath
-    });
-});
+        outputPath: outputPath,
+        docPath: docsPath,
+        stylesheets: opts.stylesheets,
+        templatesPath: opts['templates-path'],
+        fullTemplate: opts['full-template'],
+        reducedTemplate: opts['reduced-template'],
+        docNotFoundTemplate: opts['doc-not-found'],
+        webPath: opts['web-root']
+    };
 
-function onErr(err) {
-    console.log(err);
-    return 1;
+    styleguide(styleguideOpts);
+
+    console.log('dw-styleguide successfuly rendered');
 }
