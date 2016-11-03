@@ -52,10 +52,14 @@ Using the styleguide as a node.js package is really easy. Require the package an
 ```javascript
 var dwStyleguide = require('dw-styleguide');
 
+function callback() {
+  console.log('styleguide is ready');
+}
+
 dwStyleguide({
   inputPath: 'markup',
   outputPath: 'styleguide'
-});
+}, callback);
 ```
 
 There are a bunch of options you can use:
@@ -69,6 +73,8 @@ There are a bunch of options you can use:
 - `reducedTemplate`: The filename/relative path to the reduced (single view) template
 - `docNotFoundTemplate`: The template rendered when no documentation file is found
 - `webPath`: The relative path to the styleguide from the web-root
+
+Also you can pass a callback to the function to get notified asyncronously about the success.
 
 ### As a grunt-plugin
 
