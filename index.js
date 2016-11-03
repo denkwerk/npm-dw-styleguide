@@ -3,8 +3,6 @@ var fs = require('fs');
 var nunjucks = require('nunjucks');
 var showdown = require('showdown');
 
-var env = new nunjucks.Environment(new nunjucks.FileSystemLoader('templates'));
-
 function pathExists(path) {
     try {
         fs.statSync(path);
@@ -28,6 +26,22 @@ function style(options) {
     var inputPath = options.inputPath,
         docPath = options.docPath,
         outputPath = options.outputPath;
+
+    if (!options.fullTemplate) {
+        options.fullTemplate = 'full.njk';
+    }
+
+    if (!options.reducedTemplate) {
+        options.reducedTemplate = 'reduced.njk';
+    }
+
+    var templatesPath = __dirname + '/templates';
+
+    if (options.templatesPath) {
+        templatesPath = options.templatesPath;
+    }
+
+    var env = new nunjucks.Environment(new nunjucks.FileSystemLoader(templatesPath));
 
     glob('**/*.html', {
         cwd: inputPath
@@ -94,7 +108,7 @@ function style(options) {
 
         env.addGlobal('renderSingle', function(inputPath) {});
 
-        var full = env.render('full.njk', {
+        var full = env.render(options.fullTemplate, {
             title: 'Full styleguide',
             elements: fileContents,
             navigation: navTree
@@ -107,7 +121,7 @@ function style(options) {
         fs.writeFile(outputPath + 'index.html', full);
 
         fileContents.forEach(function(file, i) {
-            var reduced = env.render('reduced.njk', {
+            var reduced = env.render(options.reducedTemplate, {
                 title: 'Reduced Module ' + file.name,
                 element: file
             });
