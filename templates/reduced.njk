@@ -3,12 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>{{ title }}</title>
-    <!-- Replace below stylesheet with your own stylesheet -->
-    {% for stylesheet in stylesheets %}
-        <link rel="stylesheet" href="{{ stylesheet }}">
-    {% endfor %}
+    <!-- Style Guide Boilerplate Styles -->
+    <link rel="stylesheet" href="{{ webPath }}/css/sg-style.css">
+    <!--[if lt IE 9]><link rel="stylesheet" href="{{ webPath }}/css/sg-style-old-ie.css"><![endif]-->
 
-    <link rel="stylesheet" href="/{{ webPath }}/css/sg-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.4.1/github-markdown.min.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,18 +14,26 @@
     <!-- prism Syntax Highlighting Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism-okaidia.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-markup.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-css.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-clike.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-javascript.min.js"></script>
 
+    <!-- Replace below stylesheet with your own stylesheet -->
+    {% for stylesheet in stylesheets %}
+      <link rel="stylesheet" href="{{ stylesheet }}">
+    {% endfor %}
 
 
   </head>
   <body>
     {% import "single.njk" as singleView %}
     {{ singleView.render( element ) }}
-      <script src="{{ webPath }}/js/sg-scripts.js"></script>
+
+    <!--[if gt IE 8]><!-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-clike.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-javascript.min.js"></script>
+    <!--<![endif]-->
+
+    <script src="{{ webPath }}/js/sg-scripts.js"></script>
   </body>
 </html>
