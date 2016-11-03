@@ -16,7 +16,7 @@ function pathExists(path) {
 }
 
 //read html files
-function style(options) {
+function style(options, callback) {
 
     // Check for required options
     if (!options.inputPath) {
@@ -193,15 +193,19 @@ function style(options) {
                     fs.createWriteStream(outputPath + file)
                 );
             });
-        });
 
-        glob('js/**/*.js', {
-            cwd: __dirname
-        }, function(err, files) {
-            files.forEach(function (file) {
-                fs.createReadStream(__dirname + '/' + file).pipe(
-                    fs.createWriteStream(outputPath + file)
-                );
+            glob('js/**/*.js', {
+                cwd: __dirname
+            }, function(err, files) {
+                files.forEach(function (file) {
+                    fs.createReadStream(__dirname + '/' + file).pipe(
+                        fs.createWriteStream(outputPath + file)
+                    );
+                });
+
+                if (typeof callback === 'function') {
+                    callback();
+                }
             });
         });
     });
