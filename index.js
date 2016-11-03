@@ -1,6 +1,7 @@
 var glob = require('glob');
 var fs = require('fs');
 var nunjucks = require('nunjucks');
+var showdown = require('showdown');
 
 var env = new nunjucks.Environment(new nunjucks.FileSystemLoader('templates'));
 
@@ -56,7 +57,8 @@ function style(inputPath, docPath, outputPath) {
             buildNav(element, navTree);
         });
 
-        var fileContents = [];
+        var fileContents = [],
+            mdConverter = new showdown.Converter();
 
         files.forEach(function(file, i, ar) {
             var split = file.split("/");
@@ -64,7 +66,9 @@ function style(inputPath, docPath, outputPath) {
             var contents = pathExists(inputPath + file) ?
                 fs.readFileSync(inputPath + file) : '';
             var doc = (docPath && pathExists(docPath + file.split('.')[0] + '.md')) ?
-                fs.readFileSync(docPath + file.split('.')[0] + '.md') :
+                mdConverter.makeHtml(
+                    fs.readFileSync(docPath + file.split('.')[0] + '.md').toString()
+                ) :
                 'Bitte Dokumentation für ' + file + ' anlegen';
             fileContents.push({
                 name: split[split.length - 1]
