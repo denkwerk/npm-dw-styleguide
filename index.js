@@ -61,6 +61,10 @@ function style(options) {
         options.docNotFoundTemplate = 'Documentation for {{ file }} not found. Please add documentation file';
     }
 
+    if (typeof options.webPath !== 'string') {
+        options.webPath = '/dw-styleguide';
+    }
+
     glob('**/*.html', {
         cwd: inputPath
     }, function(err, files) {
@@ -130,7 +134,8 @@ function style(options) {
             title: 'Full styleguide',
             elements: fileContents,
             navigation: navTree,
-            stylesheets: stylesheets
+            stylesheets: stylesheets,
+            webPath: options.webPath
         });
 
         if (!pathExists(outputPath)) {
@@ -143,7 +148,8 @@ function style(options) {
             var reduced = env.render(options.reducedTemplate, {
                 title: 'Reduced Module ' + file.name,
                 element: file,
-                stylesheets: stylesheets
+                stylesheets: stylesheets,
+                webPath: options.webPath
             });
             var paths = file.path.split('/');
             var p = '';
