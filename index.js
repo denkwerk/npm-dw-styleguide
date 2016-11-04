@@ -112,7 +112,7 @@ function style(options, callback) {
         });
 
         var fileContents = [],
-            mdConverter = new showdown.Converter();
+            mdConverter = new showdown.Converter(options.showdownOptions);
 
         // Build data structure for rendering
         files.forEach(function(file, i, ar) {
