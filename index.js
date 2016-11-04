@@ -140,7 +140,8 @@ function style(options, callback) {
             elements: fileContents,
             navigation: navTree,
             stylesheets: stylesheets,
-            webPath: options.webPath
+            webPath: options.webPath,
+            additionalVars: options.additionalTemplateVars
         });
 
         // Create target directory if it does not exist
@@ -157,7 +158,8 @@ function style(options, callback) {
                 title: 'Reduced Module ' + file.name,
                 element: file,
                 stylesheets: stylesheets,
-                webPath: options.webPath
+                webPath: options.webPath,
+                additionalVars: options.additionalTemplateVars
             });
             var paths = file.path.split('/');
             var p = '';
