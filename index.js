@@ -45,6 +45,26 @@ function style(options, callback) {
         ];
     }
 
+    // Scripts
+    var footerScripts = [],
+        headerScripts = [];
+
+    if (Array.isArray(options.headerScripts)) {
+        headerScripts = options.headerScripts;
+    } else if (typeof options.headerScripts === 'string') {
+        headerScripts = [
+            options.headerScripts
+        ];
+    }
+
+    if (Array.isArray(options.footerScripts)) {
+        footerScripts = options.footerScripts;
+    } else if (typeof options.footerScripts === 'string') {
+        footerScripts = [
+            options.footerScripts
+        ];
+    }
+
     if (!options.fullTemplate) {
         options.fullTemplate = 'full.njk';
     }
@@ -140,6 +160,8 @@ function style(options, callback) {
             elements: fileContents,
             navigation: navTree,
             stylesheets: stylesheets,
+            headerScripts: headerScripts,
+            footerScripts: footerScripts,
             webPath: options.webPath,
             additionalVars: options.additionalTemplateVars
         });
@@ -158,6 +180,8 @@ function style(options, callback) {
                 title: 'Reduced Module ' + file.name,
                 element: file,
                 stylesheets: stylesheets,
+                headerScripts: headerScripts,
+                footerScripts: footerScripts,
                 webPath: options.webPath,
                 additionalVars: options.additionalTemplateVars
             });

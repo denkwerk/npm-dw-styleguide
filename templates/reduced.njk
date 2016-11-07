@@ -20,7 +20,9 @@
       <link rel="stylesheet" href="{{ stylesheet }}">
     {% endfor %}
 
-
+    {% for script in headerScripts %}
+      <script type="text/javascript" src="{{ script }}"></script>
+    {% endfor %}
   </head>
   <body>
     {% import "single.njk" as singleView %}
@@ -35,5 +37,9 @@
     <!--<![endif]-->
 
     <script src="{{ webPath }}/js/sg-scripts.js"></script>
+
+    {% for script in footerScripts %}
+      <script type="text/javascript" src="{{ script }}"></script>
+    {% endfor %}
   </body>
 </html>

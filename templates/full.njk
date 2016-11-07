@@ -21,6 +21,10 @@
         {% for stylesheet in stylesheets %}
             <link rel="stylesheet" href="{{ stylesheet }}">
         {% endfor %}
+
+        {% for script in headerScripts %}
+            <script type="text/javascript" src="{{ script }}"></script>
+        {% endfor %}
     </head>
     <body>
         <nav class="sg-sidebar">
@@ -72,5 +76,9 @@
                 $('.sg-sidebar .sg-nav-group li h3').siblings().children().toggle();
             });
         </script>
+
+        {% for script in fppterScripts %}
+            <script type="text/javascript" src="{{ script }}"></script>
+        {% endfor %}
     </body>
 </html>
