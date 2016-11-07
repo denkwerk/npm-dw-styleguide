@@ -37,6 +37,8 @@ dw-styleguide CLI
     -o, --output            The output path
     -d, --documentation     The documentation path
     -s, --stylesheets       Array of stylesheets
+        --header-scripts    The scripts added to the head section of the document
+        --footer-scripts    Scripts added at the bottom of the document body
         --templates-path    The root of the template files
         --full-template     The template file for the full styleguide page
         --reduced-template  The template file for the reduced styleguide pages
@@ -68,6 +70,8 @@ There are a bunch of options you can use:
 - `outputPath`: The path where the rendered files will be put. __This is required.__
 - `docPath`: The path where all documentation files can be found.
 - `stylesheets`: The stylesheets to include.
+- `headerScripts`: The scripts added in the head-section of the document,
+- `footerScripts`: The scripts added at the end of the document body.
 - `templatesPath`: The root folder for the nunjucks-templates
 - `fullTemplate`: The filename/relative path to the full styleguide template
 - `reducedTemplate`: The filename/relative path to the reduced (single view) template
