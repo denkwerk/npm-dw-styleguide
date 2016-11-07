@@ -12,6 +12,8 @@ var knownOpts = {
     'output': path,
     'documentation': path,
     'stylesheets': [String, Array],
+    'header-scripts': [String, Array],
+    'footer-scripts': [String, Array],
     'templates-path': path,
     'full-template': path,
     'reduced-template': path,
@@ -38,6 +40,8 @@ function renderHelp() {
     console.log('    -o, --output            The output path');
     console.log('    -d, --documentation     The documentation path');
     console.log('    -s, --stylesheets       Array of stylesheets');
+    console.log('        --header-scripts    The scripts added to the head section of the document');
+    console.log('        --footer-scripts    Scripts added at the bottom of the document body');
     console.log('        --templates-path    The root of the template files');
     console.log('        --full-template     The template file for the full styleguide page');
     console.log('        --reduced-template  The template file for the reduced styleguide pages');
@@ -90,6 +94,8 @@ if (opts.help) {
         outputPath: outputPath,
         docPath: docsPath,
         stylesheets: opts.stylesheets,
+        headerScripts: opts['header-scripts'],
+        footerScripts: opts['footer-scripts'],
         templatesPath: opts['templates-path'],
         fullTemplate: opts['full-template'],
         reducedTemplate: opts['reduced-template'],
