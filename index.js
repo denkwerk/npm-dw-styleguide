@@ -202,12 +202,12 @@ function style(options, callback) {
             fs.writeFile(outputPath + file.path, reduced);
         });
 
-        copy('css/**/*.css', outputPath + 'css', {
+        copy('css/**/*.css', process.cwd() + '/' + outputPath + 'css', {
             cwd: __dirname
         }, function (err) {
             if (err) throw err;
 
-            copy('js/**/*.js', outputPath + 'js', {
+            copy('js/**/*.js', process.cwd() + '/' + outputPath + 'js', {
                 cwd: __dirname
             }, function(err) {
                 if (err) throw err;
