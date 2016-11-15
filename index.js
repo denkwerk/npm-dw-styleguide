@@ -5,6 +5,7 @@ var fs = require('fs');
 var path = require('path');
 var nunjucks = require('nunjucks');
 var showdown = require('showdown');
+var copy = require('copy');
 
 function pathExists(path) {
     try {
@@ -201,39 +202,21 @@ function style(options, callback) {
             fs.writeFile(outputPath + file.path, reduced);
         });
 
-        // Check for existance of css/js paths in target folder
-        if (!pathExists(outputPath + 'css')) {
-            fs.mkdirSync(outputPath + 'css');
-        }
-
-        if (!pathExists(outputPath + 'js')) {
-            fs.mkdirSync(outputPath + 'js');
-        }
-
-        // Copy css and js files
-        glob('css/**/*.css', {
+        copy('css/**/*.css', outputPath + 'css', {
             cwd: __dirname
-        }, function(err, files) {
-            files.forEach(function (file) {
-                fs.createReadStream(__dirname + '/' + file).pipe(
-                    fs.createWriteStream(outputPath + file)
-                );
-            });
+        }, function (err) {
+            if (err) throw err;
 
-            glob('js/**/*.js', {
+            copy('js/**/*.js', outputPath + 'js', {
                 cwd: __dirname
-            }, function(err, files) {
-                files.forEach(function (file) {
-                    fs.createReadStream(__dirname + '/' + file).pipe(
-                        fs.createWriteStream(outputPath + file)
-                    );
-                });
+            }, function(err) {
+                if (err) throw err;
 
                 if (typeof callback === 'function') {
                     callback();
                 }
             });
-        });
+        } );
     });
 
 }

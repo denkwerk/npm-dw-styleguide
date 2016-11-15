@@ -16,6 +16,7 @@
     "dw-styleguide": "bin/dw-styleguide"
   },
   "dependencies": {
+    "copy": "^0.3.0",
     "glob": "^7.1.0",
     "nopt": "^3.0.6",
     "nunjucks": "^2.5.2",
