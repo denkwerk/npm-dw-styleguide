@@ -103,7 +103,9 @@ if (opts.help) {
         webPath: opts['web-root']
     };
 
-    styleguide(styleguideOpts);
+    styleguide(styleguideOpts, function () {
+        console.log('dw-styleguide successfuly rendered');
 
-    console.log('dw-styleguide successfuly rendered');
+        process.exit(0);
+    });
 }
