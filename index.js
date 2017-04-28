@@ -80,6 +80,14 @@ function style(options, callback) {
         templatesPath = options.templatesPath;
     }
 
+    if (!options.showdownOptions) {
+        options.showdownOptions = {
+            prefixHeaderId: 'sg-'
+        };
+    } else if(!options.showdownOptions.prefixHeaderId) {
+        options.showdownOptions.prefixHeaderId = 'sg-';
+    }
+
     var env = new nunjucks.Environment(new nunjucks.FileSystemLoader(templatesPath));
 
     if (typeof options.docNotFoundTemplate !== 'string') {
