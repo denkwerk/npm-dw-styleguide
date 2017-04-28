@@ -23,7 +23,7 @@ body {
   margin: 0;
 }
 
-ul ul{
+.sg-sidebar ul ul{
   margin-left: 15px !important;
   color: turquoise;
 }
