@@ -70,6 +70,10 @@ function style(options, callback) {
         options.fullTemplate = 'full.njk';
     }
 
+    if (!options.iframeTemplate) {
+        options.iframeTemplate = 'iframe.njk';
+    }
+
     if (!options.reducedTemplate) {
         options.reducedTemplate = 'reduced.njk';
     }
@@ -159,7 +163,8 @@ function style(options, callback) {
                     .split(".")[file.split(".").length - 2],
                 content: contents.toString(),
                 doc: doc,
-                path: file
+                path: file,
+                iframePath: file.split('.html')[0] + '-iframe.html'
             })
         });
 
@@ -208,6 +213,33 @@ function style(options, callback) {
             });
 
             fs.writeFile(outputPath + file.path, reduced);
+        });
+
+        // Render iframe views
+        fileContents.forEach(function(file, i) {
+            var iframe = env.render(options.iframeTemplate, {
+                title: 'Iframe Module ' + file.name,
+                element: file,
+                stylesheets: stylesheets,
+                headerScripts: headerScripts,
+                footerScripts: footerScripts,
+                webPath: options.webPath,
+                additionalVars: options.additionalTemplateVars
+            });
+            var paths = file.path.split('/');
+            var p = '';
+
+            paths.forEach(function(path, i, paths) {
+                if (i + 1 < paths.length) {
+                    p += path + '/';
+
+                    if(!pathExists(outputPath + p)) {
+                        fs.mkdirSync(outputPath + p);
+                    }
+                }
+            });
+
+            fs.writeFile(outputPath + file.iframePath, iframe);
         });
 
         copy('css/**/*.css', process.cwd() + '/' + outputPath + 'css', {
