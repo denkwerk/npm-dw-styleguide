@@ -42,6 +42,7 @@ dw-styleguide CLI
         --templates-path    The root of the template files
         --full-template     The template file for the full styleguide page
         --reduced-template  The template file for the reduced styleguide pages
+        --iframe-template   The template file for the iframe content pages
         --doc-not-found     The template string for the documentation not found hint
         --web-root          The web-root of the styleguide
     -h, --help              This help page
@@ -75,6 +76,7 @@ There are a bunch of options you can use:
 - `templatesPath`: The root folder for the nunjucks-templates
 - `fullTemplate`: The filename/relative path to the full styleguide template
 - `reducedTemplate`: The filename/relative path to the reduced (single view) template
+- `iframeTemplate`: The filename/relative path to the sindlge iframe template)
 - `docNotFoundTemplate`: The template rendered when no documentation file is found
 - `webPath`: The relative path to the styleguide from the web-root
 - `showdownOptions`: The options for the [showdown converter](https://github.com/showdownjs/showdown)
