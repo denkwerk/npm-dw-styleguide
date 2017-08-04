@@ -17,6 +17,7 @@ var knownOpts = {
     'templates-path': path,
     'full-template': path,
     'reduced-template': path,
+    'iframe-template': path,
     'doc-not-found': String,
     'web-root': String,
     'help': Boolean
@@ -45,6 +46,7 @@ function renderHelp() {
     console.log('        --templates-path    The root of the template files');
     console.log('        --full-template     The template file for the full styleguide page');
     console.log('        --reduced-template  The template file for the reduced styleguide pages');
+    console.log('        --iframe-template   The template file for the iframe content pages');
     console.log('        --doc-not-found     The template string for the documentation not found hint');
     console.log('        --web-root          The web-root of the styleguide');
     console.log('    -h, --help              This help page');
@@ -99,6 +101,7 @@ if (opts.help) {
         templatesPath: opts['templates-path'],
         fullTemplate: opts['full-template'],
         reducedTemplate: opts['reduced-template'],
+        iframeTemplate: opts['iframe-template'],
         docNotFoundTemplate: opts['doc-not-found'],
         webPath: opts['web-root']
     };
