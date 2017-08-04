@@ -52,45 +52,12 @@
             <nav class="sg-navigation">
                 
                 {# View Options #}
-                <ul class="sg-options sg-nav-list sg-nav-lv-0">
-                    <li class="sg-nav-item sg-nav-item-lv-0 js-sg-nav-item js-sg-nav-level-parent">
-                        <h3 class="sg-nav-link sg-nav-link-parent js-sg-nav-link-parent sg-nav-link-lv-0 sg-h3">
-                            <svg viewbox="0 0 32 32" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <use class="sg-icon sg-icon-plus" xlink:href="#sg-icon-plus"></use>
-                                <use class="sg-icon sg-icon-minus" xlink:href="#sg-icon-minus"></use>
-                            </svg>
-                            <span class="sg-nav-text js-sg-nav-text">View Options</span>
-                        </h3>
-                        <ul class="sg-nav-group sg-nav-list sg-nav-lv-1">
-                            <li class="sg-nav-item js-sg-nav-item">
-                                <form class="sg-nav-link sg-nav-link-lv-1">
-                                    <input id="sg-toggle-all-doc" type="checkbox" />
-                                    <label for="sg-toggle-all-doc" class="sg-nav-text js-sg-nav-text">
-                                        <svg viewbox="0 0 32 32" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                            <use class="sg-icon sg-check" xlink:href="#sg-icon-check"></use>
-                                        </svg>
-                                        Toggle all Documentation
-                                    </label>
-                                </form>
-                            </li>
-                            <li class="sg-nav-item js-sg-nav-item">
-                                <form class="sg-nav-link sg-nav-link-lv-1">
-                                    <input id="sg-toggle-all-source" type="checkbox" />
-                                    <label for="sg-toggle-all-source" class="sg-nav-text js-sg-nav-text">
-                                        <svg viewbox="0 0 32 32" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                            <use class="sg-icon sg-check" xlink:href="#sg-icon-check"></use>
-                                        </svg>
-                                        Toggle all Source Code
-                                    </label>
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+                {% include "view-options.njk" %}
                 
                 {# Main Navigation #}
                 {% import "navigation.njk" as nav %}
                 {{ nav.navigation(navigation) }}
+
             </nav>
         </div>
 
@@ -114,12 +81,13 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-javascript.min.js"></script>
         <!--<![endif]-->
         
-        <script type="text/javascript" src="{{ distPath }}/styleguide/js/vendor/iframeResizer.min.js" ></script>
-        <script type="text/javascript" src="{{ distPath }}/styleguide/js/sg-custom.js" ></script>
-        <script type="text/javascript" src="{{ distPath }}/styleguide/js/sg-custom-fullview.js" ></script>
+        <script type="text/javascript" src="{{ webPath }}/js/vendor/iframeResizer.min.js" ></script>
+        <script type="text/javascript" src="{{ webPath }}/js/sg-scripts.js" ></script>
+        <script type="text/javascript" src="{{ webPath }}/js/sg-scripts-fullview.js" ></script>
 
         {% for script in footerScripts %}
             <script type="text/javascript" src="{{ script }}"></script>
         {% endfor %}
+
     </body>
 </html>
