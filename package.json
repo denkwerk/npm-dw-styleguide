@@ -1,6 +1,6 @@
 {
   "name": "npm-dw-styleguide",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "automatically generate a static styleguide from html pattern",
   "repository": "https://github.com/denkwerk/npm-dw-styleguide.git",
   "main": "index.js",
