@@ -78,7 +78,7 @@
         <div class="sg-preview transform-this">            
             
             {% if iframe %}
-                <iframe src="{{ webPath }}{{ element.iframePath }}" frameborder="0" title="iframe for {{ element.name }}"></iframe>
+                <iframe src="{{ webPath }}{{ element.iframePath }}" title="iframe for {{ element.name }}"></iframe>
             {% else %}
                 {{ element.content | safe }}
             {% endif %}
