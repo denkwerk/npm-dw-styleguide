@@ -435,6 +435,7 @@ body {
   padding-bottom: 60px; }
 
 iframe {
+  border: 0;
   height: 50px;
   margin: 0 auto;
   transition: height 0.4s ease, width 0.4s ease;
