@@ -10,11 +10,13 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.4.1/github-markdown.min.css">
 
         {# Style Guide Styles #}
-        <link rel="stylesheet" href="{{ webPath }}/css/sg-custom.css">
+        <link rel="stylesheet" href="{{ webPath }}/css/sg-style.css">
         <!--[if lt IE 9]><link rel="stylesheet" href="{{ webPath }}/css/sg-style-old-ie.css"><![endif]-->
         
-        {# patterns & modules styles #}
-        <link rel="stylesheet" href="{{ distPath }}/css/main.css">
+        {# Pattern & Module Styles #}
+        {% for styles in stylesheets %}
+            <link rel="stylesheet" href="{{ styles }}" />
+        {% endfor %}
 
         {# prism Syntax Highlighting Styles #}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css">
@@ -43,7 +45,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-javascript.min.js"></script>
         <!--<![endif]-->
 
-        <script type="text/javascript" src="{{ distPath }}/styleguide/js/sg-custom.js" ></script>
+        <script type="text/javascript" src="{{ webPath }}/js/sg-scripts.js" ></script>
 
         {% for script in footerScripts %}
             <script type="text/javascript" src="{{ script }}"></script>
