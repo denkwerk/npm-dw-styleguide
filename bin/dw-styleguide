@@ -43,6 +43,9 @@ function renderHelp() {
     console.log('    -s, --stylesheets       Array of stylesheets');
     console.log('        --header-scripts    The scripts added to the head section of the document');
     console.log('        --footer-scripts    Scripts added at the bottom of the document body');
+    console.log('        --head-end-code     Code block at the end of document head');
+    console.log('        --body-start-code   Code block at the start of document body');
+    console.log('        --body-end-code     Code block at the end of document body');
     console.log('        --templates-path    The root of the template files');
     console.log('        --full-template     The template file for the full styleguide page');
     console.log('        --reduced-template  The template file for the reduced styleguide pages');
@@ -98,6 +101,9 @@ if (opts.help) {
         stylesheets: opts.stylesheets,
         headerScripts: opts['header-scripts'],
         footerScripts: opts['footer-scripts'],
+        headEndCode: opts['head-end-code'],
+        bodyStartCode: opts['body-start-code'],
+        bodyEndCode: opts['body-end-code'],
         templatesPath: opts['templates-path'],
         fullTemplate: opts['full-template'],
         reducedTemplate: opts['reduced-template'],

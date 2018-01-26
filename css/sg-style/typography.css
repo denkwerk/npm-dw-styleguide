@@ -1,0 +1,21 @@
+/* -------------------------------------------------------------------------
+ Typography
+ ---------------------------------------------------------------------------- */
+.sg-h1,
+.sg-h2 {
+    margin-bottom: 1em;
+    margin-top: 0; }
+
+.sg-h1 {
+    font-size: 2em;
+    padding-bottom: 0.2em;
+    text-transform: capitalize; }
+
+.sg-h2 {
+    font-size: 1.75em;
+    margin-bottom: 0.75em;
+    padding-bottom: 0.2em;
+    text-transform: capitalize; }
+
+.sg-h3 {
+    font-size: 1.25em; }

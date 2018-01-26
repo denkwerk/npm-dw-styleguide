@@ -12,15 +12,23 @@
         {% endfor %}
 
         {% for script in headerScripts %}
-            <script type="text/javascript" src="{{ script }}"></script>
+            <script src="{{ script }}"></script>
         {% endfor %}
+
     </head>
 
     <body class="styleguide-single">
 
-        {{ element.content | safe }}
-        
-        <script type="text/javascript" src="{{ webPath }}/js/vendor/iframeResizer.contentWindow.min.js" ></script>
+        {{ bodyStartCode | safe }}
 
+        {{ element.content | safe }}
+
+        <script src="{{ webPath }}/js/vendor/iframeResizer.contentWindow.min.js" ></script>
+
+        {% for script in footerScripts %}
+            <script src="{{ script }}"></script>
+        {% endfor %}
+
+        {{ bodyEndCode | safe }}
     </body>
 </html>

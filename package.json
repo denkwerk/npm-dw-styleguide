@@ -15,11 +15,21 @@
   "bin": {
     "dw-styleguide": "bin/dw-styleguide"
   },
+
+  "scripts": {
+    "lint": "eslint node-js/** js/sg-scripts/** js/sg-scripts-full-view/**",
+    "lint-fix": "eslint node-js/** js/sg-scripts/** js/sg-scripts-full-view/**  --fix"
+  },
+
   "dependencies": {
+    "concat": "^1.0.3",
     "copy": "^0.3.0",
     "glob": "^7.1.0",
     "nopt": "^3.0.6",
     "nunjucks": "^2.5.2",
     "showdown": "^1.4.4"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.0"
   }
 }

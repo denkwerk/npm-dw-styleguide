@@ -1,0 +1,297 @@
+<h3 class="styleguide-pattern-hl-s">input-text</h3>
+<div class="input-text">
+    <input type="text" id="inputText" class="input-text__input">
+    <label for="inputText" class="input-text__label">
+        <span class="input-label__bg">Input text label</span>
+    </label>
+</div>
+
+<h3 class="styleguide-pattern-hl-s">input-text with tooltip</h3>
+<div class="input-text">
+    <input type="text" id="inputText2" class="input-text__input">
+    <label for="inputText2" class="input-text__label">
+        <span class="input-label__bg">Input text label</span>
+        <a href="#inputTextTooltip" class="btn-tooltip js-tooltip-trigger auto-init"
+           aria-label="hint" aria-expanded="false" data-module="patterns/messages/msg-tooltip"></a>
+    </label>
+</div>
+<!-- tooltip element is not displayed per default -->
+<div id="inputTextTooltip" hidden aria-hidden="true">
+    <div class="msg-tooltip" role="dialog">
+        <div class="msg-tooltip__inner" role="document">
+            <button type="button" class="msg-tooltip__btn-close btn-close-s" title="Close dialog"></button>
+            <p class="msg-tooltip__headline">Headline goes here</p>
+            <p class="msg-tooltip__copytext">Copytext goes here and so on. Magna cum laude apra solas sic semper tyrannis megnatus esse est.</p>
+        </div>
+    </div>
+</div>
+
+<h3 class="styleguide-pattern-hl-s">input-text with placeholder text</h3>
+<div class="input-text">
+    <input type="text" id="inputTextPlaceholder" class="input-text__input" placeholder="Placeholder text">
+    <label for="inputTextPlaceholder" class="input-text__label">
+        <span class="input-label__bg">Input text label</span>
+    </label>
+</div>
+
+<h3 class="styleguide-pattern-hl-s">input-text inactive state</h3>
+<div class="input-text">
+    <input type="text" id="inputTextInactive" class="input-text__input" disabled>
+    <label for="inputTextInactive" class="input-text__label">
+        <span class="input-label__bg">Input text label</span>
+    </label>
+
+</div>
+
+<h3 class="styleguide-pattern-hl-s">input-validated-positive</h3>
+<div class="input-text">
+    <input type="text" id="inputTextValidPos" class="input-text__input input-text--valid" aria-required="true">
+    <label for="inputTextValidPos" class="input-text__label">
+        <span class="input-label__bg">Input text label</span>
+    </label>
+    <span class="input-label__icon" aria-hidden="true"></span>
+</div>
+
+<h3 class="styleguide-pattern-hl-s">input-validated-negative</h3>
+<p class="input-msg" id="inputMsg">Lorem ipsum dolor sit atmet.</p>
+<div class="input-text">
+    <input type="text" id="inputTextValidNeg" class="input-text__input input-text--invalid"
+           aria-required="true" aria-invalid="true" aria-describedby="inputMsg">
+    <label for="inputTextValidNeg" class="input-text__label">
+        <span class="input-label__bg">Input text label</span>
+    </label>
+    <span class="input-label__icon" aria-hidden="true"></span>
+</div>
+
+<h3 class="styleguide-pattern-hl-s">input-password</h3>
+<div class="auto-init input-text input--password"
+     data-module="patterns/input/input-password">
+    <input type="password" id="inputPw" class="input-text__input"
+           required
+           aria-required="true"
+
+    >
+    <label for="inputPw" class="input-text__label">
+        <span class="input-label__bg">Input text label</span>
+    </label>
+    <span class="input-label__icon" aria-hidden="true"></span>
+    <button type="button" class="input-label__pw-icon input-label__pw-icon--visible" aria-label="show/hide password"></button>
+</div>
+
+<h3 class="styleguide-pattern-hl-s">input-password validation</h3>
+<form action="#" class="auto-init"
+      data-module="modules/validation/validation"
+      data-options='{
+          "baseValidationUrl":"/../src/simulate-backend-scripts/validation.php?validator="
+          }'
+      >
+    <div class="auto-init input-text input--password"
+         data-module="patterns/input/input-password">
+        <input type="password" id="inputPwValid" class="input-text__input"
+               required
+               aria-required="true"
+               data-validation='[{"validator": "notempty"}]'
+
+        >
+        <label for="inputPwValid" class="input-text__label">
+            <span class="input-label__bg">Input text label</span>
+        </label>
+        <span class="input-label__icon" aria-hidden="true"></span>
+        <button type="button" class="input-label__pw-icon input-label__pw-icon--visible" aria-label="show/hide password"></button>
+    </div>
+</form>
+
+
+<h3 class="styleguide-pattern-hl-s">input-button</h3>
+<div class="input-text input-btn">
+    <input type="email" id="inputBtn" class="input-text__input">
+    <label for="inputBtn" class="input-text__label">
+        <span class="input-label__bg">Input text type email label</span>
+    </label>
+    <button type="submit" class="btn-arrow-input" aria-label="send form"></button>
+</div>
+
+<h3 class="styleguide-pattern-hl-s">input-button validation negative</h3>
+<p class="input-msg" id="inputMsg2">Lorem ipsum dolor sit atmet.</p>
+<div class="input-text input-btn">
+    <input type="email" id="inputBtnValidNeg" class="input-text__input input-text--invalid" aria-describedby="inputMsg2">
+    <label for="inputBtnValidNeg" class="input-text__label">
+        <span class="input-label__bg">Input text type email label</span>
+    </label>
+    <span class="input-label__icon" aria-hidden="true"></span>
+    <button type="submit" class="btn-arrow-input" aria-label="send form"></button>
+</div>
+<br>
+
+<h3 class="styleguide-pattern-hl-s">input textarea</h3>
+<div class="input-text">
+    <textarea class="input-text__input input-text--textarea" id="inputTextarea" rows="1"></textarea>
+    <label for="inputTextarea" class="input-text__label">
+        <span class="input-label__bg">Input textarea label</span>
+    </label>
+</div>
+
+<br>
+<h3 class="styleguide-pattern-hl-s">input checkbox inline</h3>
+<form action="#">
+    <div class="input-checkbox">
+        <input type="checkbox" class="input-checkbox__input" id="inputCheckbox1" name="inputCheckbox1Name">
+        <label class="input-checkbox__label" for="inputCheckbox1">input checkbox label</label>
+    </div>
+    <div class="input-checkbox">
+        <input type="checkbox" class="input-checkbox__input" id="inputCheckbox2" name="inputCheckbox2Name">
+        <label class="input-checkbox__label" for="inputCheckbox2">input checkbox label</label>
+    </div>
+    <div class="input-checkbox">
+        <input type="checkbox" class="input-checkbox__input" id="inputCheckbox3" name="inputCheckbox3Name">
+        <label class="input-checkbox__label" for="inputCheckbox3">input checkbox label</label>
+    </div>
+    <div class="input-checkbox">
+        <input type="checkbox" class="input-checkbox__input" id="inputCheckbox4" name="inputCheckbox4Name" disabled>
+        <label class="input-checkbox__label" for="inputCheckbox4">input checkbox label</label>
+    </div>
+</form>
+<br>
+
+<h3 class="styleguide-pattern-hl-s">input checkbox inline, validation negative</h3>
+<form action="#">
+    <p class="input-msg input-msg--invalid" id="inputCheckboxValidNegMsg">Bitte wählen Sie lorem ipsum dolor sit atmet</p>
+    <div class="input-checkbox input-checkbox--invalid">
+        <input type="checkbox" class="input-checkbox__input" id="inputCheckbox5" name="inputCheckbox5Name" required aria-describedby="inputCheckboxValidNegMsg">
+        <label class="input-checkbox__label" for="inputCheckbox5">input checkbox label</label>
+    </div>
+</form>
+<br>
+
+
+<h3 class="styleguide-pattern-hl-s">input checkbox text</h3>
+    <span class="input-checkbox-text">
+        <input type="checkbox" class="input-checkbox-text__input" id="inputCheckbox6" name="inputCheckbox6Name" checked>
+        <label class="input-checkbox-text__label-show-on-check" for="inputCheckbox6">geschäftlich</label>
+        <label class="input-checkbox-text__label-show-on-uncheck" for="inputCheckbox6">privat</label>
+    </span>
+<br>
+
+
+<h3 class="styleguide-pattern-hl-s">input checkbox block (with use of fieldset)</h3>
+<form action="#">
+    <fieldset>
+        <legend class="sr-only">Select your prefer options:</legend>
+        <div class="input-checkbox input-checkbox--block">
+            <input type="checkbox" class="input-checkbox__input" id="inputCheckbox6" name="inputCheckboxFieldsetName">
+            <label class="input-checkbox__label" for="inputCheckbox6">input checkbox label</label>
+        </div>
+        <div class="input-checkbox input-checkbox--block" style="width: 300px">
+            <input type="checkbox" class="input-checkbox__input" id="inputCheckbox7" name="inputCheckboxFieldsetName">
+            <label class="input-checkbox__label" for="inputCheckbox7">input checkbox label lorem ipsum dolor sit amet, consetetur sadipscing elitr, s</label>
+        </div>
+        <div class="input-checkbox input-checkbox--block">
+            <input type="checkbox" class="input-checkbox__input" id="inputCheckbox8" name="inputCheckboxFieldsetName">
+            <label class="input-checkbox__label" for="inputCheckbox8">input checkbox label</label>
+        </div>
+    </fieldset>
+</form>
+
+
+<h3 class="styleguide-pattern-hl-s">input-text neg</h3>
+<div style="background: black; padding: 20px;">
+    <div class="input-text input-text--neg">
+        <input type="text" id="inputTextNeg" class="input-text__input" placeholder="Test">
+        <label for="inputTextNeg" class="input-text__label">
+            <span class="input-label__bg">Input text label</span>
+        </label>
+        <span class="input-text__border"></span>
+    </div>
+</div>
+
+<h3 class="styleguide-pattern-hl-s">input-text neg, validation negative</h3>
+<div style="background: black; padding: 20px;">
+    <p class="input-msg input-msg--neg" id="inputMsg">Lorem ipsum dolor sit atmet.</p>
+    <div class="input-text input-text--neg">
+        <input type="text" id="inputTextNeg"
+               class="input-text__input input-text--invalid"
+               placeholder="Test"
+               aria-required="true" aria-invalid="true">
+        <label for="inputTextNeg" class="input-text__label">
+            <span class="input-label__bg">Input text label</span>
+        </label>
+        <span class="input-label__icon" aria-hidden="true"></span>
+        <span class="input-text__border"></span>
+    </div>
+</div>
+
+
+<h2 class="styleguide-pattern-hl-s">input radio inline</h2>
+<form action="#">
+    <div class="input-radio input-radio--inline">
+        <input type="radio" class="input-radio__input" id="patternForm:radio:0:0" name="pattern-radio:0" checked="checked">
+        <label class="input-radio__label" for="patternForm:radio:0:0">input radio 1 label</label>
+    </div>
+    <div class="input-radio input-radio--inline">
+        <input type="radio" class="input-radio__input" id="patternForm:radio:0:1" name="pattern-radio:0">
+        <label class="input-radio__label" for="patternForm:radio:0:1">input radio 2 label</label>
+    </div>
+    <div class="input-radio input-radio--inline">
+        <input type="radio" class="input-radio__input" id="patternForm:radio:0:2" name="pattern-radio:0" disabled>
+        <label class="input-radio__label" for="patternForm:radio:0:2">input radio 3 label (disabled input)</label>
+    </div>
+</form>
+<br>
+
+<h2 class="styleguide-pattern-hl-s">input radio inline, validaton negative</h2>
+<form action="#">
+    <p class="input-message" id="patternRadio:ValidMessage:1">Bitte wählen Sie lorem ipsum dolor sit atmet</p>
+    <div class="input-radio input-radio--inline input-radio--invalid">
+        <input type="radio" class="input-radio__input" id="patternForm:radio:1:0" name="pattern-radio:1" aria-invalid="true" aria-describedby="patternRadio:ValidMessage:1">
+        <label class="input-radio__label" for="patternForm:radio:1:0">input radio 1 label</label>
+    </div>
+    <div class="input-radio input-radio--inline input-radio--invalid">
+        <input type="radio" class="input-radio__input" id="patternForm:radio:1:1" name="pattern-radio:1" aria-invalid="true" aria-describedby="patternRadio:ValidMessage:1">
+        <label class="input-radio__label" for="patternForm:radio:1:1">input radio 2 label</label>
+    </div>
+    <div class="input-radio input-radio--inline input-radio--invalid">
+        <input type="radio" class="input-radio__input" id="patternForm:radio:1:2" name="pattern-radio:1" aria-invalid="true" aria-describedby="patternRadio:ValidMessage:1">
+        <label class="input-radio__label" for="patternForm:radio:1:2">input radio 3 label</label>
+    </div>
+</form>
+<br>
+
+<h2 class="styleguide-pattern-hl-s">input radio inline (with use of fieldset)</h2>
+<form action="#">
+    <fieldset>
+        <legend class="sr-only">Select your prefer options:</legend>
+        <p class="input-message input-message--invalid" id="patternRadio:ValidMessage:2">Bitte wählen Sie lorem ipsum dolor sit atmet</p>
+        <div class="input-radio input-radio--inline input-radio--invalid">
+            <input type="radio" class="input-radio__input" id="patternForm:radio:2:0" name="pattern-radio:2" aria-invalid="true" aria-describedby="patternRadio:ValidMessage:2">
+            <label class="input-radio__label" for="patternForm:radio:2:0">input radio 1 label</label>
+        </div>
+        <div class="input-radio input-radio--inline input-radio--invalid">
+            <input type="radio" class="input-radio__input" id="patternForm:radio:2:1" name="pattern-radio:2" aria-invalid="true" aria-describedby="patternRadio:ValidMessage:2">
+            <label class="input-radio__label" for="patternForm:radio:2:1">input radio 2 label</label>
+        </div>
+        <div class="input-radio input-radio--inline input-radio--invalid">
+            <input type="radio" class="input-radio__input" id="patternForm:radio:2:2" name="pattern-radio:2" aria-invalid="true" aria-describedby="patternRadio:ValidMessage:2">
+            <label class="input-radio__label" for="patternForm:radio:2:2">input radio 3 label</label>
+        </div>
+    </fieldset>
+</form>
+<br>
+
+<h2 class="styleguide-pattern-hl-s">input radio block (with use of fieldset)</h2>
+<form action="#">
+    <fieldset>
+        <legend class="sr-only">Select your prefer options:</legend>
+        <div class="input-radio input-radio--block">
+            <input type="radio" class="input-radio__input" id="patternForm:radio:3:0" name="pattern-radio:3" checked="checked">
+            <label class="input-radio__label" for="patternForm:radio:3:0">input radio 1 label</label>
+        </div>
+        <div class="input-radio input-radio--block">
+            <input type="radio" class="input-radio__input" id="patternForm:radio:3:1" name="pattern-radio:3">
+            <label class="input-radio__label" for="patternForm:radio:3:1">input radio 2 label</label>
+        </div>
+        <div class="input-radio input-radio--block">
+            <input type="radio" class="input-radio__input" id="patternForm:radio:3:2" name="pattern-radio:3">
+            <label class="input-radio__label" for="patternForm:radio:3:2">input radio 3 label</label>
+        </div>
+    </fieldset>
+</form>

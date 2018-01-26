@@ -1,0 +1,211 @@
+
+
+
+
+    <div class="auto-init map-wrap space-bottom-default bleed-mobile js-fade-in-up-wp"
+         data-module="modules/0407-map/locations,patterns/animations/fade-in-up"
+         data-options='{
+         "hotelListVariable": "mapData1",
+         "releaseNr":"",
+         "modalfullscreenHTMLPartA": "<div class=\"modal-dialog-wp modal-dialog-wp--fs\" role=\"dialog\" aria-describedby=\"modalMapHotelInfoDescription\"><p id=\"modalMapHotelInfoDescription\" class=\"sr-only\">Beginning of dialog window. Escape will cancel and close the window.<\/p><div class=\"modal-dialog modal-dialog--fs\" role=\"document\"><button type=\"button\" class=\"modal-dialog__btn-close btn-close js-button-close\" title=\"Close dialog\"></button><div class=\"map-info-window\">",
+         "modalfullscreenHTMLPartB": "<\/div><\/div><\/div>",
+
+         "priceTextSingular": "Preis für {{ amount }} Nacht",
+         "priceTextPlural": "Preis für {{ amount }} Nächte",
+         "priceTextMarketing": "Ab",
+
+         "iconAvailable": "img/misc/map/marker-available.png",
+         "iconNotAvailable": "img/misc/map/marker-not-available.png",
+         "iconClosed": "img/misc/map/marker-closed.png",
+         "iconNoDate": "img/misc/map/marker-no-date.png"
+         }'
+         data-condition="in-viewport"
+    >
+
+
+        <script>
+            var mapData1 = [
+                // date + available
+                {
+                "loc": {
+                    "latitude": "52.5243700",
+                    "longitude": "13.4115300"
+                },
+                "icon": "/frontend/dist/img/misc/map/marker-no-date.png",
+                "iconWidth": "44",
+                "iconHeight": "68",
+                "contentTooltip":
+                    "<h2 class=\"headline-copy map-info-window__headline\">Motel One Berlin-Mitte</h2>" +
+                    "<a href=\"http://enpointurl\" class=\"btn-three-fwd map-info-window__hotel-link js-map-booker-hotel-link\">Zur Hotelseite</a>" +
+                    "<p class=\"hidden msg-availab-note js-map-booker-not-opened-text\">Noch nicht eröffnet</p>" +
+                    "<p class=\"msg-availab hidden js-map-booker-availability-pos\">Verfügbar</p>" +
+                    "<p class=\"msg-availab-neg hidden js-map-booker-availability-neg\">Nicht verfügbar</p>" +
+                    "<p class=\"headline-copy map-info-window__price js-map-booker-price-text spinner\"></p>" +
+                    "<a href=\"http://www.endpointurl\" class=\"auto-init hidden btn-one map-info-window__btn-one js-map-booker-booking-btn\" data-module=\"patterns/buttons/btn-loader\">Zimmer Auswählen</a>",
+                "inBounds": true,
+                "openingDate": "",
+                "hotelId": "307"
+            },
+
+            // date + not available
+                {
+                "loc": {
+                "latitude": "52.5823700",
+                "longitude": "13.4108300"
+                },
+                "icon": "/frontend/dist/img/misc/map/marker-no-date.png",
+                "iconWidth": "44",
+                "iconHeight": "68",
+                    "contentTooltip":
+                    "<h2 class=\"headline-copy map-info-window__headline\">Motel One Berlin-Pankow</h2>" +
+                    "<a href=\"http://enpointurl\" class=\"btn-three-fwd map-info-window__hotel-link js-map-booker-hotel-link\">Zur Hotelseite</a>" +
+                    "<p class=\"hidden msg-availab-note js-map-booker-not-opened-text\">Noch nicht eröffnet</p>" +
+                    "<p class=\"msg-availab hidden js-map-booker-availability-pos\">Verfügbar</p>" +
+                    "<p class=\"msg-availab-neg hidden js-map-booker-availability-neg\">Nicht verfügbar</p>" +
+                    "<p class=\"headline-copy map-info-window__price js-map-booker-price-text spinner\"></p>" +
+                    "<a href=\"http://www.endpointurl\" class=\"auto-init hidden btn-one map-info-window__btn-one js-map-booker-booking-btn\" data-module=\"patterns/buttons/btn-loader\">Zimmer Auswählen</a>",
+
+                "hotelId": "317",
+                "openingDate": "",
+                "inBounds": true
+                },
+
+                // no date (and not not opened)
+                {
+                    "loc": {
+                        "latitude": "52.5245700",
+                        "longitude": "13.49033000"
+                    },
+                    "icon": "/frontend/dist/img/misc/map/marker-no-date.png",
+                    "iconWidth": "44",
+                    "iconHeight": "68",
+                    "contentTooltip":
+                    "<h2 class=\"headline-copy map-info-window__headline\">Motel One Berlin-Lichtenberg</h2>" +
+                    "<a href=\"http://enpointurl\" class=\"btn-three-fwd map-info-window__hotel-link js-map-booker-hotel-link\">Zur Hotelseite</a>" +
+                    "<p class=\"hidden msg-availab-note js-map-booker-not-opened-text\">Noch nicht eröffnet</p>" +
+                    "<p class=\"msg-availab hidden js-map-booker-availability-pos\">Verfügbar</p>" +
+                    "<p class=\"msg-availab-neg hidden js-map-booker-availability-neg\">Nicht verfügbar</p>" +
+                    "<p class=\"headline-copy map-info-window__price js-map-booker-price-text spinner\"></p>" +
+                    "<a href=\"http://www.endpointurl\" class=\"auto-init hidden btn-one map-info-window__btn-one js-map-booker-booking-btn\" data-module=\"patterns/buttons/btn-loader\">Zimmer Auswählen</a>",
+
+                    "hotelId": "327",
+                    "openingDate": "",
+                    "inBounds": true
+                },
+
+                // not opened
+                
+                    
+                        
+                        
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+
+                    
+                    
+                
+
+                {
+                    "loc": {
+                    "latitude": "52.4243700",
+                    "longitude": "13.4115300"
+                    },
+                    "icon": "/frontend/dist/img/misc/map/marker-no-date.png",
+                    "iconWidth": "44",
+                    "iconHeight": "68",
+                    "contentTooltip":
+                    "<h2 class=\"headline-copy map-info-window__headline\">Motel One Berlin-Neuköln</h2>" +
+                    "<a href=\"http://enpointurl\" class=\"btn-three-fwd map-info-window__hotel-link js-map-booker-hotel-link\">Zur Hotelseite</a>" +
+                    "<p class=\"hidden msg-availab-note js-map-booker-not-opened-text\">Noch nicht eröffnet</p>" +
+                    "<p class=\"msg-availab hidden js-map-booker-availability-pos\">Verfügbar</p>" +
+                    "<p class=\"msg-availab-neg hidden js-map-booker-availability-neg\">Nicht verfügbar</p>" +
+                    "<p class=\"headline-copy map-info-window__price js-map-booker-price-text spinner\"></p>" +
+                    "<a href=\"#\" class=\"auto-init hidden btn-one map-info-window__btn-one js-map-booker-booking-btn\" data-module=\"patterns/buttons/btn-loader\">Zimmer Auswählen</a>",
+
+                    "hotelId": "347",
+                    "openingDate": "2017-10-03",
+                    "inBounds": true
+                }
+
+
+
+
+
+
+
+
+
+
+            
+                
+                    
+                    
+                
+                
+                
+                
+                
+                
+
+            
+                
+                    
+                    
+                
+                
+                
+                
+                
+                
+            
+                
+                    
+                    
+                
+                
+                
+                
+                
+                
+            
+                
+                    
+                    
+                
+                
+                
+                
+                
+                
+            
+                
+                    
+                        
+                
+                
+                    
+                    
+                    
+                
+            
+            ];
+        </script>
+
+        <div class="btn-zoom-pair">
+            <button type="button" class="btn-plus" aria-label="zoom in"><span class="btn-plus__vertical"></span></button>
+            <button type="button" class="btn-minus" aria-label="zoom out"></button>
+        </div>
+
+        <div class="map">
+            <div class="map__inner"></div>
+        </div>
+
+    </div>
+
+

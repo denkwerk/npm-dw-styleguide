@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Iframe Module msg-feedback</title>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        
+            <link rel="stylesheet" href="/frontend/dist/css/home.css" />
+        
+
+        
+
+    </head>
+
+    <body class="styleguide-single">
+
+        <div class="site">
+
+        
+
+<div id="grid" class="grid bleed-mobile">
+    <div class="el0">1 / 12</div>
+    <div class="el0">1 / 12</div>
+    <div class="el0">1 / 12</div>
+    <div class="el0">1 / 12</div>
+    <div class="el0">1 / 12</div>
+    <div class="el0">1 / 12</div>
+    <div class="el0">1 / 12</div>
+    <div class="el0">1 / 12</div>
+    <div class="el0">1 / 12</div>
+    <div class="el0">1 / 12</div>
+    <div class="el0">1 / 12</div>
+    <div class="el0">1 / 12</div>
+</div>
+
+<h3 class="styleguide-pattern-hl-s">Message availability</h3>
+<p class="msg-availab">Verfügbar</p>
+
+<p class="msg-availab-neg">Nicht verfügbar</p>
+
+<p class="msg-availab-note">Jetzt buchbar für Aufenthalte ab September 2017</p>
+
+<div class="styleguide-bg-negative styleguide-padding-placeholder">
+    <p class="msg-availab msg-availab--inverse">Verfügbar</p>
+    <p class="msg-availab-neg msg-availab-neg--inverse">Nicht verfügbar</p>
+</div>
+
+
+<h3 class="styleguide-pattern-hl-s">message-feedback-pos</h3>
+
+<div class="grid-md-min">
+    <div class="msg-feedback-pos col-md-8-center">
+        <span class="msg-feedback__icon"></span>
+        <p class="msg-feedback__msg">Ihr Anfrage wurde erfolgreich übermittelt.</p>
+    </div>
+    <br>
+    <div class="msg-feedback-pos col-md-8-center">
+        <span class="msg-feedback__icon"></span>
+        <p class="msg-feedback__msg">Ihr Anfrage wurde erfolgreich übermittelt  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores.</p>
+    </div>
+
+    <br>
+    <div class="col-md-8-center">Overlay Auto-Hide</div>
+    <div class="msg-feedback-pos col-md-8-center auto-init auto-hide"
+         data-module="patterns/hide-auto/hide-auto"
+         data-options='{
+               "hideAfterMs":"3000"
+               }'
+    >
+        <span class="msg-feedback__icon"></span>
+        <p class="msg-feedback__msg">Ihr Anfrage wurde erfolgreich übermittelt  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores.</p>
+    </div>
+</div>
+
+<h3 class="styleguide-pattern-hl-s">message-feedback-pos overlay</h3>
+<!-- Note for frontend about assistive technologies extra information for feedback messages -->
+<!-- purpose of attributes ' aria-live="assertive" role="alert" ': communicate the presence of feedback and demand user
+attention. The notification will interrupt the screen reader from its current task  -->
+<div class="grid-md-min">
+    <div class="msg-feedback-pos msg-feedback-overlay col-md-8-center" aria-live="assertive" role="alert" id="msg-1">
+        <span class="msg-feedback__icon"></span>
+        <p class="msg-feedback__msg">Ihr Anfrage wurde erfolgreich übermittelt.</p>
+        <button type="button" class="auto-init msg-feedback__close btn-close-s" aria-label="close"
+                data-module="modules/show-hide/show-hide"
+                data-options='{
+               "selContentToHide":"#msg-1"
+               }'
+        ></button>
+    </div>
+    <br>
+    <br>
+    <div class="msg-feedback-pos msg-feedback-overlay col-md-8-center" aria-live="assertive" role="alert" id="msg-2">
+        <span class="msg-feedback__icon"></span>
+        <p class="msg-feedback__msg">Ihr Anfrage wurde erfolgreich übermittelt  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores.</p>
+        <button type="button" class="auto-init msg-feedback__close btn-close-s" aria-label="close"
+                data-module="modules/show-hide/show-hide"
+                data-options='{
+               "selContentToHide":"#msg-2"
+               }'
+        ></button>
+    </div>
+</div>
+<br>
+
+<h3 class="styleguide-pattern-hl-s">message-feedback-note</h3>
+<div class="grid-md-min">
+    <div class="msg-feedback-note col-md-8-center">
+        <span class="msg-feedback__icon"></span>
+        <p class="msg-feedback__msg">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+    </div>
+</div>
+<br>
+
+<h3 class="styleguide-pattern-hl-s">message-feedback-note overlay</h3>
+<div class="grid-md-min">
+    <div class="msg-feedback-note msg-feedback-overlay col-md-8-center" aria-live="assertive" role="alert" id="msg-3">
+        <span class="msg-feedback__icon"></span>
+        <p class="msg-feedback__msg">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+        <button type="button" class="msg-feedback__close btn-close-s auto-init" aria-label="close"
+                data-module="modules/show-hide/show-hide"
+                data-options='{
+               "selContentToHide":"#msg-3"
+               }'
+        ></button>
+    </div>
+</div>
+
+<br>
+
+<h3 class="styleguide-pattern-hl-s">message-feedback-neg</h3>
+<div class="grid-md-min">
+    <div class="msg-feedback-neg col-md-8-center">
+        <span class="msg-feedback__icon"></span>
+        <p class="msg-feedback__msg">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+    </div>
+</div>
+<br>
+
+<h3 class="styleguide-pattern-hl-s">message-feedback-neg overlay</h3>
+<div class="grid-md-min">
+    <div class="msg-feedback-neg msg-feedback-overlay col-md-8-center" aria-live="assertive" role="alert" id="msg-4">
+        <span class="msg-feedback__icon"></span>
+        <p class="msg-feedback__msg">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+        <button type="button" class="auto-init msg-feedback__close btn-close-s" aria-label="close"
+                data-module="modules/show-hide/show-hide"
+                data-options='{
+               "selContentToHide":"#msg-4"
+               }'
+        ></button>
+    </div>
+</div>
+
+
+
+
+
+<h3 class="styleguide-pattern-hl-s">message-feedback-neg overlay special</h3>
+<div class="msg-not-available-special-wp">
+    <div class="grid-md-min">
+        <div class="msg-feedback-neg msg-feedback-overlay col-md-8-center" aria-live="assertive" role="alert" id="msg-5">
+            <span class="msg-feedback__icon"></span>
+            <p class="msg-feedback__msg">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+            <button type="button" class="auto-init msg-feedback__close btn-close-s" aria-label="close"
+                    data-module="modules/show-hide/show-hide"
+                    data-options='{
+                   "selContentToHide":"#msg-4"
+                   }'
+            ></button>
+        </div>
+    </div>
+</div>
+
+
+        <script src="/frontend/dist/styleguide/js/vendor/iframeResizer.contentWindow.min.js" ></script>
+
+        
+
+        <script data-main="/frontend/dist/js/app/main.js" src="/frontend/dist/js/app/vendor/require.js"></script></div>
+    </body>
+</html>

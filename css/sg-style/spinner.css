@@ -1,0 +1,15 @@
+.sg-iframe.lazyload {
+    border: 7px solid #D3CFD5;
+    border-top: 7px solid #333;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: sg-kf-spin 2s linear infinite;
+
+    margin: 50px 20px;/* give it more height to decrease elements to be loaded in view */
+}
+
+@keyframes sg-kf-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,63 @@
+
+
+
+
+
+    <div id="booking-management" class="modal-dialog-wp hidden" role="dialog" aria-labelledby="modalOverlayTitleBooking"
+         aria-describedby="modalOverlayDescriptionBooking">
+        <div class="grid-md-min">
+            <div class="modal-dialog login-dialog" role="document">
+                <button type="button" class="modal-dialog__btn-close btn-close js-button-close" aria-label="Close dialog"></button>
+
+                <p id="modalOverlayDescriptionBooking" class="sr-only">
+                    Beginning of dialog window.
+                    Escape will cancel and close the window. Lorem ipsum dolor sit consetetur elitr, sed diam
+                    nonumy eirmod tempor.
+                </p>
+
+            
+
+<div class="lead-in space-bottom-40  width-90-pc ">
+    
+    <h2 class="headline-l lead-in__headline"  id="modalOverlayTitleBooking" >Suchen &amp; buchen</h2>
+    <p class="copy-m">Um Ihre Reservierung aufzurufen, geben Sie bitte Ihre Reservierungsnummer und E-Mail an.</p>
+</div>
+
+
+
+
+                
+                <form class="login-dialog__bm-form auto-init"
+                      method="get"
+                      novalidate
+                      data-module="modules/validation/validation"
+                      data-options='{
+                                      "baseValidationUrl":"/frontend/dist/simulate-backend-scripts/validation.php?validator=",
+                                      "validationMessageLayoutClass": ""
+                                      }'
+                      action="test">
+                    <div class="input-text space-bottom-sm space-bottom-60">
+                        <input type="text" id="bmReservNumber" class="input-text__input" name="bmReservNumber" required aria-required="true"
+                               data-validation='[{ "validator":"notempty", "options":{"message":"Das ist ein Pflichtfeld"}}]'>
+                        <label for="bmReservNumber" class="input-text__label">
+                            <span class="input-label__bg">Reservierungsnummer</span>
+                        </label>
+                        <span class="input-label__icon" aria-hidden="true"></span>
+                    </div>
+
+                    <div class="auto-init input-text space-bottom-40">
+                        <input type="email" id="bmLoginEmail" class="input-text__input" name="bmLoginEmail" required aria-required="true"
+                               data-validation='[{ "validator":"email", "options":{"message":"Geben Sie eine gültige E-Mail-Adresse an." } }]'>
+                        <label for="bmLoginEmail" class="input-text__label">
+                            <span class="input-label__bg">E-mail</span>
+                        </label>
+                        <span class="input-label__icon" aria-hidden="true"></span>
+                    </div>
+                    
+                    <button type="submit" class="btn-two">zur Buchung</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
