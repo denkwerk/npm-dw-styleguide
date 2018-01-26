@@ -75,6 +75,9 @@ There are a bunch of options you can use:
 - `docPath`: The path where all documentation files can be found.
 - `stylesheets`: The stylesheets to include.
 - `headerScripts`: The scripts added in the head-section of the document,
+- `head-end-code`: Code block at the end of document head;
+- `body-start-code`: Code block at the start of document body;
+- `body-end-code`: Code block at the end of document body;
 - `footerScripts`: The scripts added at the end of the document body.
 - `templatesPath`: The root folder for the nunjucks-templates
 - `fullTemplate`: The filename/relative path to the full styleguide template
