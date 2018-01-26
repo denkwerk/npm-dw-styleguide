@@ -39,6 +39,9 @@ dw-styleguide CLI
     -s, --stylesheets       Array of stylesheets
         --header-scripts    The scripts added to the head section of the document
         --footer-scripts    Scripts added at the bottom of the document body
+        --head-end-code     Code block at the end of document head;
+        --body-start-code   Code block at the start of document body;
+        --body-end-code     Code block at the end of document body;
         --templates-path    The root of the template files
         --full-template     The template file for the full styleguide page
         --reduced-template  The template file for the reduced styleguide pages
