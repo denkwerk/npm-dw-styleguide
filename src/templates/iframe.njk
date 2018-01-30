@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ title }}</title>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        {# Pattern & Module Styles #}
+        {% for styles in templateSrcStylesheets %}
+            <link rel="stylesheet" href="{{ styles }}" />
+        {% endfor %}
+
+        {% for script in headerScripts %}
+            <script src="{{ script }}"></script>
+        {% endfor %}
+
+        {{ templateSrcHeadEndCode | safe }}
+    </head>
+
+    <body class="styleguide-single">
+
+        {{ templateSrcBodyStartCode | safe }}
+
+        {{ element.content | safe }}
+
+        <script src="{{ webPath }}/js/vendor/iframeResizer.contentWindow.min.js" ></script>
+
+        {% for script in footerScripts %}
+            <script src="{{ script }}"></script>
+        {% endfor %}
+
+        {{ templateSrcBodyEndCode | safe }}
+    </body>
+</html>

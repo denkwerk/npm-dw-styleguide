@@ -1,0 +1,22 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\opt\\nodejs\\node.exe',
+1 verbose cli   'C:\\opt\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'run',
+1 verbose cli   'demo' ]
+2 info using npm@2.14.12
+3 info using node@v4.3.2
+4 verbose stack Error: missing script: demo
+4 verbose stack     at run (D:\Benutzer\fuekermann\appdata\Roaming\nvm\v4.3.2\node_modules\npm\lib\run-script.js:142:19)
+4 verbose stack     at D:\Benutzer\fuekermann\appdata\Roaming\nvm\v4.3.2\node_modules\npm\lib\run-script.js:58:5
+4 verbose stack     at D:\Benutzer\fuekermann\appdata\Roaming\nvm\v4.3.2\node_modules\npm\node_modules\read-package-json\read-json.js:345:5
+4 verbose stack     at handleExists (D:\Benutzer\fuekermann\appdata\Roaming\nvm\v4.3.2\node_modules\npm\node_modules\read-package-json\read-json.js:318:20)
+4 verbose stack     at FSReqWrap.cb [as oncomplete] (fs.js:212:19)
+5 verbose cwd D:\work\denkstrap-npm-dw-styleguide
+6 error Windows_NT 6.1.7601
+7 error argv "C:\\opt\\nodejs\\node.exe" "C:\\opt\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run" "demo"
+8 error node v4.3.2
+9 error npm  v2.14.12
+10 error missing script: demo
+11 error If you need help, you may report this error at:
+11 error     <https://github.com/npm/npm/issues>
+12 verbose exit [ 1, true ]

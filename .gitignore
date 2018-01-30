@@ -3,4 +3,6 @@
 /markup-full
 /reduced
 /node_modules
-index.html
+
+/.idea
+/dist

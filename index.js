@@ -1,5 +1,5 @@
 'use strict';
-var styleNunjucks = require('./node-js/setup');
+var styleNunjucks = require('./generate/setup');
 
 //read html files
 function style(options, callback) {
