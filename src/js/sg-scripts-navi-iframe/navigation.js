@@ -48,43 +48,38 @@
     var html = SGB.html;
 
     SGB.toggleNavigationContainer = function() {
-        SGB._toggleClass( html, 'nav-is-active' );
+        if ( !transitionActive ) {
+            SGB._toggleClass( html, 'nav-is-active' );
+        }
     };
 
+    var transitionActive = false; // prevents errors caused by actions while transition is running
     SGB.toggleOpeningClosingClass = function() {
         var navContainer = document.querySelector( '.sg-navigation-container' );
-        // navContainer.removeAttribute('transform');
-        // var xPos = window.getComputedStyle(navContainer).transform.replace(/[^0-9.]/g, '');
-        // console.log( 'xPos', xPos);
-        if ( html.classList.contains( 'nav-opened' ) ) {
+        if ( !transitionActive && html.classList.contains( 'nav-opened' ) ) {
             html.classList.remove( 'nav-opened' );
             html.classList.add( 'nav-closing' );
-            // $( '.sg-navigation-container' ).one( 'transitionend', function( event ) {
+            transitionActive = true;
             navContainer.addEventListener( SGB.transitionEndEventName(), function( event ) {
-                // console.log( 'closed end' );
                 html.classList.remove( 'nav-closing' );
                 html.classList.add( 'nav-closed' );
-                // html.classList.remove( 'nav-is-active' );
-                // navContainer.style.transform = 'translateX(100%)';
-                // navContainer.removeAttribute('transform');
-                // navContainer.style.transform = 'none';
+                transitionActive = false;
                 event.target.removeEventListener(event.type, arguments.callee);
             } );
 
         } else {
-            html.classList.remove( 'nav-closed' );
-            html.classList.add( 'nav-opening' );
-            // $( '.sg-navigation-container' ).one( 'transitionend', function( event ) {
-            navContainer.addEventListener( SGB.transitionEndEventName(), function( event ) {
-                // console.log( 'opened end' );
-                html.classList.remove( 'nav-opening' );
-                html.classList.add( 'nav-opened' );
+            if ( !transitionActive ) {
+                html.classList.remove( 'nav-closed' );
+                html.classList.add( 'nav-opening' );
+                transitionActive = true;
+                navContainer.addEventListener( SGB.transitionEndEventName(), function( event ) {
+                    html.classList.remove( 'nav-opening' );
+                    html.classList.add( 'nav-opened' );
+                    transitionActive = false;
+                    event.target.removeEventListener(event.type, arguments.callee);
+                } );
+            }
 
-
-                // navContainer.style.transform = 'translateX(0)';
-                // navContainer.removeAttribute('transform');
-                event.target.removeEventListener(event.type, arguments.callee);
-            } );
         }
     };
 
