@@ -1,28 +1,31 @@
 var styleguide = require('./index');
 
 var options = {
+
     inputPath: 'demo-src/html/elements',
-    // inputPath: 'dist/markup-src-org/html',
-    inputPagesPath: 'dist/styleguide/pages',// has to be on or below webPath root level- reason: It's linked on directly
-    //docPath : 'demo-src/html/elements', REMOVED, TODO: DISCUSS, is it necessary?
-
+    inputPagesPath: 'demo-src/html/pages',// has to be on or below webPath root level- reason: It's linked on directly
     outputPath: 'dist/styleguide',
-
     webPath : '/dist/styleguide',
-
-    // stylesheets: ['/dist/css/home.css'],
-    // headEndCode: '<script>console.log("headEndCode");</script>',
-    // bodyStartCode: '<div class="site">',
-    // bodyEndCode: '<script data-main="/dist/js/app/main.js" src="/dist/js/app/vendor/require.js"></script></div>'
-
     templateStyleguideStylesheetTheme: '/demo-src/css/sg-custom-theme.css',
-
-    //templateSrcStylesheets: ['/dist/css/home.css'],
     templateSrcStylesheets: ['/demo-src/css/main.css'],
-
     templateSrcHeadEndCode: '<script>console.log("headEndCode");</script>',
-    templateSrcBodyStartCode: '<div class="site">',
-    templateSrcBodyEndCode: '<script data-main="/dist/js/app/main.js" src="/dist/js/app/vendor/require.js"></script></div>'
+
+
+    // inputPath: 'frontend/dist/markup',
+    // inputPagesPath: 'frontend/dist/pages',// has to be on or below webPath root level- reason: It's linked on directly
+    // outputPath: 'frontend/dist/styleguide',
+    // webPath : '/frontend/dist/styleguide/',
+    // templateSrcStylesheets: ['/frontend/dist/css/home.css'],
+    // templateSrcHeaderScripts: ['/frontend/dist/js/app/vendor/bundled/head.js'],
+    // templateSrcBodyStartCode: '<div class="site">',
+    // templateSrcBodyEndCode: '<script data-main="/frontend/dist/js/app/main.js" src="/frontend/dist/js/app/vendor/require.js"></script></div>'
+
+
+    // no webserver (file protocol)
+    // inputPath: 'demo-src/html/elements',
+    // outputPath: 'dist/styleguide',
+    // templateSrcStylesheets: [],
+    // webPath : ''
 
 };
 var callback = function() {

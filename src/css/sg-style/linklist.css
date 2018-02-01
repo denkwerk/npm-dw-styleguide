@@ -1,10 +1,7 @@
 .sg-link-list-wp {
     margin: 50px 0 0;
     padding: 20px 10px 20px 30px;
-    background: #333;
-    border: 5px solid #444;
-    /*background: #3f4141;*/
-    /*border: 5px solid #333;*/
+    background: #ffffff;
 }
 
 .sg-link-list-wp * {
@@ -15,8 +12,7 @@
 .sg-linklist {
     margin: 0;
     padding: 0;
-    /*color: #000000;*/
-    color: #fefefe;
+    color: #000000;
     list-style-type: none;
 }
 .sg-linklist-item {
@@ -25,26 +21,13 @@
 
 .sg-linklist-link{
     display: block;
-    color: #fefefe;
+    color: #000000;
     text-decoration: none;
 }
 
 .sg-linklist-child {
     margin-bottom: 0;
     line-height: 1.5;
-}
-/*.sg-linklist .sg-linklist-item:last-child .sg-linklist-child {*/
-    /*margin-bottom: 12px;*/
-/*}*/
-
-.sg-linklist-link:before{
-    content: '→';
-    visibility: hidden;
-}
-
-.sg-linklist-link.sg-linklist-folder:before,
-.sg-linklist-head:before {
-    content: '→';
 }
 
 .sg-linklist-link-one-child-with-same-name:before {
@@ -53,12 +36,9 @@
 
 .sg-linklist-head {
     font-size: 30px;
-    color: #fefefe !important;
 }
 
 .sg-linklist-folder{
-    /*border-bottom: 1
-    px solid #444;*/
     line-height: 1.33;
     margin-top: 10px !important;
     margin-bottom: 10px !important;
@@ -69,14 +49,13 @@
 }
 
 .sg-linklist-0 > .sg-linklist-folder{
-    background: #444;
     padding-top: 15px;
     padding-bottom: 15px;
     margin-bottom: 10px;
 }
 
 .sg-linklist-folder:not(.sg-linklist-link-one-child-with-same-name) {
-    background: #444;
+    font-weight: bold;
 }
 
 .sg-linklist-1 > .sg-linklist-folder{

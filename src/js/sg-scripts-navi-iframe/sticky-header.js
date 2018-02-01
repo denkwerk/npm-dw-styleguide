@@ -1,3 +1,4 @@
+var SGB = window.SGB || {};
 ( function( w, SGB, undefined ) {
 
     /*
@@ -19,7 +20,7 @@
 
         var stickyHeaders = ( function() {
             var load = function( stickies ) {
-                stickyInfo = Array.prototype.map.call( stickies, function( el ) {
+                SGB.stickyInfo = Array.prototype.map.call( stickies, function( el ) {
 
                     var wrapper = document.createElement( 'div' );
                     wrapper.classList.add( 'js-sticky-header-helper' );
@@ -42,8 +43,8 @@
             };
 
             var _whenScrolling = function() {
-                stickyInfo.forEach( function( info, i ) {
-                    var nextSticky = stickyInfo[ i + 1 ];
+                SGB.stickyInfo.forEach( function( info, i ) {
+                    var nextSticky = SGB.stickyInfo[ i + 1 ];
                     if ( typeof nextSticky !== 'undefined' ) {
                         var nextStickyPosition = info.originalPosition - window.scrollY;
 
@@ -81,6 +82,8 @@
         // $( function() {
         //     stickyHeaders.load( document.querySelectorAll( '.js-sg-section-header' ) );
         // } );
+        // stickyHeaders.load( document.querySelectorAll( '.js-sg-section-header' ) );
+
 
         // recalculate the sticky headers again after we toggle one of the documentation or source buttons
         SGB.recalculateStickiesOnDocumentationToggleBtn = function() {

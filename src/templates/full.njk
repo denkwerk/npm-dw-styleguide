@@ -14,7 +14,7 @@
 
             {#<div class="nav-toggle-helper transform-this"></div>#}
 
-            <script src="{{ webPath }}/js/sg-priority.js" ></script>
+            <script src="{{ wayToRoot }}{{ webPath }}js/sg-priority.js" ></script>
 
             {% if showLinkList %}
                 {% import "elements/linklist.njk" as linklist %}
@@ -23,13 +23,14 @@
 
             {% if showPageList %}
                 {% import "elements/pagelist.njk" as pagelinklist %}
-                {{ pagelinklist.linklistStart(navigationPages, 0, webPath = '/' + inputPagesPath ) }}
+                {{ pagelinklist.linklistStart(navigationPages, 0, webPath = '/' + inputPagesPath) }}
             {% endif %}
 
             {% if showContent %}
                 {% import "single.njk" as singleView %}
                 {% for element in elements %}
-                    {{ singleView.render( element, webPath=webPath ~ '/' ) }}
+                    {#{{ singleView.render( element, webPath=webPath ~ '/' ) }}#}
+                    {{ singleView.render( element, webPath=webPath, wayToRoot = wayToRoot ) }}
                 {% endfor %}
             {% endif %}
 
@@ -39,12 +40,8 @@
         {% include "elements/prism.njk" %}
 
         {% if not showLinkList and not showPageList %}
-            <script src="{{ webPath }}/js/sg-scripts.js" ></script>
+            <script src="{{ wayToRoot }}{{ webPath }}js/sg-scripts.js" ></script>
         {% endif %}
-
-        {% for script in footerScripts %}
-            <script src="{{ script }}"></script>
-        {% endfor %}
 
     </body>
 </html>

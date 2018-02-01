@@ -27,17 +27,17 @@ function copyJsCss( options, callback ) {
     }
 
     var prom1 = concat( [
-            dirIn + 'css/sg-style/base.css',
-            dirIn + 'css/sg-style/fonts.css',
-            dirIn + 'css/sg-style/typography.css',
-            dirIn + 'css/sg-style/sections.css',
-            dirIn + 'css/sg-style/section-buttons.css',
-            dirIn + 'css/sg-style/navigation.css',
-            dirIn + 'css/sg-style/linklist.css',
-            dirIn + 'css/sg-style/spinner.css',
-            dirIn + 'css/sg-style/custom-checkboxes.css'
-        ],
-        dirOut + 'css/sg-style.css' );
+        dirIn + 'css/sg-style/base.css',
+        dirIn + 'css/sg-style/fonts.css',
+        dirIn + 'css/sg-style/typography.css',
+        dirIn + 'css/sg-style/sections.css',
+        dirIn + 'css/sg-style/section-buttons.css',
+        dirIn + 'css/sg-style/navigation.css',
+        dirIn + 'css/sg-style/linklist.css',
+        dirIn + 'css/sg-style/spinner.css',
+        dirIn + 'css/sg-style/custom-checkboxes.css'
+    ],
+    dirOut + 'css/sg-style.css' );
 
     var prom3 = concat( [
         dirIn + 'js/sg-scripts-content-btns/all.js',

@@ -11,22 +11,21 @@
             <link rel="stylesheet" href="{{ styles }}" />
         {% endfor %}
 
-        {% for script in headerScripts %}
+        {% for script in templateSrcHeaderScripts %}
             <script src="{{ script }}"></script>
         {% endfor %}
 
         {{ templateSrcHeadEndCode | safe }}
     </head>
 
-    <body class="styleguide-single">
+    <body>
 
         {{ templateSrcBodyStartCode | safe }}
 
         {{ element.content | safe }}
+        <script src="{{ wayToRoot }}{{ webPath }}js/vendor/iframeResizer.contentWindow.min.js" ></script>
 
-        <script src="{{ webPath }}/js/vendor/iframeResizer.contentWindow.min.js" ></script>
-
-        {% for script in footerScripts %}
+        {% for script in templateSrcFooterScripts %}
             <script src="{{ script }}"></script>
         {% endfor %}
 

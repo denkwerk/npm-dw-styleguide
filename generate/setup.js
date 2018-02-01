@@ -24,6 +24,10 @@ function style( options, callback ) {
         options.webPath = '/dw-styleguide';
     }
 
+    if  ( options.webPath !== '' ) {
+        options.webPath = options.webPath + '/';
+    }
+
     if ( !options.fullTemplate ) {
         options.fullTemplate = 'full.njk';
     }
@@ -71,19 +75,19 @@ function style( options, callback ) {
     var footerScripts = [],
         headerScripts = [];
 
-    if ( Array.isArray( options.headerScripts ) ) {
-        headerScripts = options.headerScripts;
-    } else if ( typeof options.headerScripts === 'string' ) {
+    if ( Array.isArray( options.templateSrcHeaderScripts ) ) {
+        headerScripts = options.templateSrcHeaderScripts;
+    } else if ( typeof options.templateSrcHeaderScripts === 'string' ) {
         headerScripts = [
-            options.headerScripts
+            options.templateSrcHeaderScripts
         ];
     }
 
-    if ( Array.isArray( options.footerScripts ) ) {
-        footerScripts = options.footerScripts;
-    } else if ( typeof options.footerScripts === 'string' ) {
+    if ( Array.isArray( options.templateSrcFooterScripts ) ) {
+        footerScripts = options.templateSrcFooterScripts;
+    } else if ( typeof options.templateSrcFooterScripts === 'string' ) {
         footerScripts = [
-            options.footerScripts
+            options.templateSrcFooterScripts
         ];
     }
 
@@ -110,12 +114,15 @@ function style( options, callback ) {
         inputPath: inputPath,
         inputPagesPath: inputPagesPath,
         outputPath: outputPath,
+
         // docPath: docPath,
         templatesPath: templatesPath,
-        templateSrcStylesheets: templateSrcStylesheets,
+
         templateStyleguideStylesheetTheme: templateStyleguideStylesheetTheme,
-        footerScripts: footerScripts,
-        headerScripts: headerScripts
+
+        templateSrcStylesheets: templateSrcStylesheets,
+        templateSrcHeaderScripts: headerScripts,
+        templateSrcFooterScripts: footerScripts
     };
 
     styleGenerateMain( options, callback );

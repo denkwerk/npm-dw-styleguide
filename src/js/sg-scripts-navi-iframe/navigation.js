@@ -1,3 +1,4 @@
+var SGB = window.SGB || {};
 ( function( w, SGB, undefined ) {
 // All the stuff I can't do in vanilla js b/c I'm a noob.
 // REFACTOR THIS!
@@ -7,7 +8,7 @@
 
     var lv0LinkParent = document.querySelectorAll( '.sg-nav-link-lv-0.js-sg-nav-link-parent' );
     var lv1activeClass = 'nav-lv1-is-active';
-    var closeLV1Button = document.querySelectorAll( '.js-sg-sub-nav-toggle' );
+    var closeLV1Button = document.querySelector( '.js-sg-sub-nav-toggle' );
     var navShowItemClass = 'sg-show-item';
     var navShowItemSelector = '.' + navShowItemClass;
 
@@ -64,7 +65,8 @@
                 html.classList.remove( 'nav-closing' );
                 html.classList.add( 'nav-closed' );
                 transitionActive = false;
-                event.target.removeEventListener(event.type, arguments.callee);
+                // eslint-disable-next-line no-caller
+                event.target.removeEventListener( event.type, arguments.callee );
             } );
 
         } else {
@@ -76,7 +78,8 @@
                     html.classList.remove( 'nav-opening' );
                     html.classList.add( 'nav-opened' );
                     transitionActive = false;
-                    event.target.removeEventListener(event.type, arguments.callee);
+                    // eslint-disable-next-line no-caller
+                    event.target.removeEventListener( event.type, arguments.callee );
                 } );
             }
 
@@ -97,10 +100,10 @@
     document.addEventListener( 'click', function( event ) {
         var elClosest = SGB._getClosest( event.target, '.sg-nav-toggle-container' );
         var elClosest2 = SGB._getClosest( event.target, '.sg-navigation-container' );
-        if (elClosest === null && elClosest2 ==null && html.classList.contains( 'nav-opened' )) {
+        if ( elClosest === null && elClosest2 === null && html.classList.contains( 'nav-opened' ) ) {
             document.querySelector( '.js-sg-nav-toggle' ).click();
         }
-    } ) ;
+    } );
 
     /**/
 
@@ -109,53 +112,64 @@
     var navOpenedSelector = '.' + navOpenedClass;
 
     // $( document ).on( 'click', navLinkParent, function( event ) {
-    var navLinkParentEls = document.querySelectorAll(navLinkParent);
+    var navLinkParentEls = document.querySelectorAll( navLinkParent );
 
     Array.prototype.forEach.call( navLinkParentEls, function( el ) {
-        el.addEventListener( 'click', function( event ) {
+        if ( !el.classList.contains( 'js-sg-nav-link-parent-one-child-with-same-name' ) ) {
+            el.addEventListener( 'click', function( event ) {
 
-            if ( event.target && event.target.classList.contains( 'sg-nav-text-link' ) ) {
-                return;
-            }
-
-            current = this;
-
-            /*
-             ** Open the current next level list.
-             */
-
-            // var thisSiblingItem = $( this ).siblings().find( '> .js-sg-nav-item' );
-            var thisSiblingItem = SGB.siblings( this );
-            Array.prototype.forEach.call( thisSiblingItem, function( el ) {
-                Array.prototype.forEach.call( el.children, function( el2 ) {
-                    SGB._toggleClass( el2, 'sg-show-item' );
-                });
-            });
-
-            /*
-             ** add an extra class b/c the icon toggle is buggy when it comes to multiple levels
-             */
-
-            SGB._toggleClass( this, navOpenedClass );
-
-            /*
-             ** detect if nav-text has more than one line and if yes, add class multiline
-             */
-
-            var navText = document.querySelectorAll( '.js-sg-nav-text' );
-
-            Array.prototype.forEach.call( navText, function( el ) {
-                if ( SGB.height( el ) > 30 ) {
-                    el.parentNode.classList.add( 'multiline' );
+                if ( event.target && event.target.classList.contains( 'sg-nav-text-link' ) ) {
+                    return;
                 }
+
+                current = this;
+
+                /*
+                 ** Open the current next level list.
+                 */
+
+                // var thisSiblingItem = $( this ).siblings().find( '> .js-sg-nav-item' );
+
+                // :scope has not good browser support, so work with children
+                // (https://developer.mozilla.org/de/docs/Web/API/Element/querySelectorAll)
+                // var thisSiblingItem = SGB.siblings( this )[ 0 ].querySelectorAll( ':scope > .js-sg-nav-item' );
+                // Array.prototype.forEach.call( thisSiblingItem, function( el ) {
+                //     SGB._toggleClass( el, 'sg-show-item' );
+                // } );
+
+                var thisSiblingItem = SGB.siblings( this )[ 0 ];
+
+                Array.prototype.forEach.call( thisSiblingItem.children, function( el ) {
+                    if ( el.classList.contains( 'js-sg-nav-item' ) ) {
+                        SGB._toggleClass( el, 'sg-show-item' );
+                    }
+                } );
+
+                /*
+                 ** add an extra class b/c the icon toggle is buggy when it comes to multiple levels
+                 */
+
+                SGB._toggleClass( this, navOpenedClass );
+
+                /*
+                 ** detect if nav-text has more than one line and if yes, add class multiline
+                 */
+
+                var navText = document.querySelectorAll( '.js-sg-nav-text' );
+
+                Array.prototype.forEach.call( navText, function( el ) {
+                    if ( SGB.height( el ) > 30 ) {
+                        el.parentNode.classList.add( 'multiline' );
+                    }
+                } );
+
             } );
 
-        } );
+        }
     } );
 
 
-
-    // extra class in action: using this to find all items with mius icons
+    // extra class in action: using this to find all items with minus icons
     // to resolve the bug where lv1 items were still on minus when closed.
     // b/c of that, the next toggle gave them the plus icon but they were then open
     // so it was the opposite way around.
@@ -172,7 +186,8 @@
             this.parentNode.querySelector( navOpenedSelector ).classList.remove( navOpenedClass );
             this.parentNode.querySelector( navShowItemSelector ).classList.remove( navShowItemClass );
 
-            event.target.removeEventListener(event.type, arguments.callee);
+            // eslint-disable-next-line no-caller
+            event.target.removeEventListener( event.type, arguments.callee );
         } );
     } );
 
@@ -191,52 +206,74 @@
         if ( toMQ.matches ) {
 
             // add an active class for lv1 navigation
-
-            lv0LinkParent.on( 'click', function( ) {
-
-                if ( !document.querySelector( 'html' ).classList.contains( lv1activeClass ) ) {
-                    document.querySelector( 'html' ).classList.add( lv1activeClass );
-                }
-
+            Array.prototype.forEach.call( lv0LinkParent, function( el ) {
+                el.addEventListener( 'click', function( event ) {
+                    if ( !document.querySelector( 'html' ).classList.contains( lv1activeClass ) ) {
+                        document.querySelector( 'html' ).classList.add( lv1activeClass );
+                    }
+                } );
             } );
 
             // mobile nav close button for lv1
-
-            closeLV1Button.on( 'click', function( event ) {
-
+            closeLV1Button.addEventListener( 'click', function( event ) {
                 document.querySelector( 'html' ).classList.remove( lv1activeClass );
 
                 // we cant use .toggle here b/c this leads to problematic behaviour
-                // so we need to do special things for speacial elements
+                // so we need to do special things for special elements
 
                 // var navList = $( current ).siblings( '.sg-nav-list' );
+                var navList = SGB.siblings( current, function( el ) {
+                    return el.classList.contains( 'sg-nav-list' );
+                } );
 
-                var navList = SGB.siblings( current.querySelectorAll('.sg-nav-list' ) );
 
-                if ( navList.classList.contains( 'sg-nav-lv-1' ) ) {
-                    navList.addEventListener( SGB.transitionEndEventName(), function( event ) {
+                Array.prototype.forEach.call( navList, function( navListSingle ) {
+                    if ( navListSingle.classList.contains( 'sg-nav-lv-1' ) ) {
+                        navListSingle.addEventListener( SGB.transitionEndEventName(), function( event ) {
 
-                        event.target.querySelector( navShowItemSelector ).classList.remove( navShowItemClass );
-                        navOpenedSelector.classList.remove( activeClass );
-                        navOpenedSelector.classList.remove( navOpenedClass );
+                            var showItems = event.target.querySelectorAll( navShowItemSelector );
 
-                        event.target.removeEventListener(event.type, arguments.callee)
-                    } );
-                } else {
-                    document.querySelector( navOpenedSelector + ' + .sg-nav-lv-1' ).addEventListener(
-                        SGB.transitionEndEventName(), function( event ) {
+                            if ( showItems !== null ) {
+                                Array.prototype.forEach.call( showItems, function( item ) {
+                                    item.classList.remove( navShowItemClass );
+                                } );
+                            }
 
-                        event.target.querySelector( navShowItemSelector ).classList.remove( navShowItemClass );
-                        navOpenedSelector.classList.remove( activeClass );
-                        navOpenedSelector.classList.remove(  navOpenedClass );
+                            var navOpenedSelectorDom = document.querySelectorAll( navOpenedSelector );
+                            Array.prototype.forEach.call( navOpenedSelectorDom, function( item ) {
+                                item.classList.remove( activeClass );
+                                item.classList.remove( navOpenedClass );
+                            } );
+                            // eslint-disable-next-line no-caller
+                            event.target.removeEventListener( event.type, arguments.callee );
+                        } );
 
-                    } );
-                }
+                    } else {
+                        document.querySelector( navOpenedSelector + ' + .sg-nav-lv-1' ).addEventListener(
+                            SGB.transitionEndEventName(), function( event ) {
+
+                                var showItems = event.target.querySelectorAll( navShowItemSelector );
+                                if ( showItems !== null ) {
+                                    Array.prototype.forEach.call( showItems, function( item ) {
+                                        item.classList.remove( navShowItemClass );
+                                    } );
+                                }
+
+                                var navOpenedSelectorDom = document.querySelectorAll( navOpenedSelector );
+                                Array.prototype.forEach.call( navOpenedSelectorDom, function( item ) {
+                                    item.classList.remove( activeClass );
+                                    item.classList.remove( navOpenedClass );
+                                } );
+
+                                // eslint-disable-next-line no-caller
+                                event.target.removeEventListener( event.type, arguments.callee );
+
+                            } );
+                    }
+                } );
 
             } );
 
-        } else {
-            // window width is >=769px
         }
 
     }

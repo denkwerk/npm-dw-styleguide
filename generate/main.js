@@ -38,6 +38,7 @@ function styleGenerateMain( options, callback ) {
 
         var levelMinus = options.setup.inputPath.split( '/' ).length;
         // Build data structure for rendering
+
         files.forEach( function( file, i, ar ) {
             var split = file.split( '/' );
 
@@ -60,11 +61,11 @@ function styleGenerateMain( options, callback ) {
                 env.renderString( options.docNotFoundTemplate, { file: file } );
 
 
-
             var basePath = file.substring( 0, file.lastIndexOf( '/' ) );
             var name = split[ split.length - 1 ]
                 .split( '.' )[ file.split( '.' ).length - 2 ];
             var id = basePath.replace( /\//g, '-' ) + '-' + name;
+            var level = split.length - levelMinus;
             fileContents.push( {
                 name: name,
                 content: contents.toString(),
@@ -113,18 +114,20 @@ function styleGenerateMain( options, callback ) {
                 if ( err ) {
                     return console.log( err );
                 }
+
                 var pageTree = [];
                 pageTree = getNaviObjData( options, files, pageTree );
 
+
                 renderFullTemplate( options, env, navTree, fileContents,
-                    { showContent: false, showPageList: true, pageTree: pageTree, writePath: false, fileName: 'index-pages' } );
+                    { showContent: false, showPageList: true, pageTree: pageTree, writePath: false,
+                        fileName: 'index-pages' } );
 
             } );
         }
 
 
     } );
-
 
 
 }

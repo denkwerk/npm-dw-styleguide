@@ -21,7 +21,8 @@ function renderFullLevelContentTemplate( options, env, navTree, fileContents ) {
                 // console.log( 'path:', path, 'level:', level );
 
                 renderFullTemplate( options, env, navTree, content,
-                    {levelStart: level + 1, showContent: true, showlinkList: false, writePath: path, fileName: false} );
+                    {levelStart: level + 1, showContent: true, showlinkList: false, writePath: path,
+                        fileName: false, level: level + 1 } );
 
                 getContentSub( el.children, level + 1 );
             }

@@ -10,21 +10,25 @@
         {% include "elements/navigation.njk" %}
 
 
-        <script src="{{ webPath }}/js/sg-priority.js" ></script>
+        <script src="{{ wayToRoot }}{{ webPath }}js/sg-priority.js" ></script>
         <main class="sg-main">
+            1wayToRoot::{{ wayToRoot }}
             <div class="nav-toggle-helper transform-this"></div>
             {% import "single.njk" as singleView %}
-            {{ singleView.render( element, webPath=webPath ~ '/', iframe = true, iframeLazyload = false,
-            setSrcLinkOnElementName = true ) }}
+            {#{{ singleView.render( element, webPath=webPath ~ '/', iframe = true, iframeLazyload = false,#}
+            {{ singleView.render( element, webPath=webPath, iframe = true, iframeLazyload = false,
+            wayToRoot = wayToRoot, setSrcLinkOnElementName = true ) }}
         </main>
 
         {% include "elements/prism.njk" %}
 
-        <script src="{{ webPath }}/js/sg-scripts.js" ></script>
+        <script src="{{ wayToRoot }}{{ webPath }}js/sg-scripts.js" ></script>
 
         {% for script in footerScripts %}
             <script src="{{ script }}"></script>
         {% endfor %}
+
+        {#<script>iFrameResize( {checkOrigin: false, log: true}, 'iframe' );</script>#}
 
     </body>
 </html>

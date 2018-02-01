@@ -6,18 +6,24 @@ var nunjucks = require( 'nunjucks' );
 
 var pathExists = require( './path-exists' );
 
+var getWayToRoot = require( './get-way-to-root' );
+
 function renderIframeTemplate( options, env, fileContents ) {
 
     fileContents.forEach( function( file, i ) {
         var iframe = env.render( options.iframeTemplate, {
             title: 'Iframe Module ' + file.name,
             element: file,
-            templateSrcStylesheets: options.setup.templateSrcStylesheets,
-            headerScripts: options.setup.headerScripts,
-            footerScripts: options.setup.footerScripts,
             webPath: options.webPath,
+            wayToRoot: options.webPath === '' ? getWayToRoot( file.level ? file.level : 0 ) : '',
+            
             additionalVars: options.additionalTemplateVars,
-            headerEndCode: options.headerEndCode,
+
+            templateSrcStylesheets: options.setup.templateSrcStylesheets,
+            templateSrcHeaderScripts: options.setup.templateSrcHeaderScripts,
+            templateSrcFooterScripts: options.setup.templateSrcFooterScripts,
+
+            templateSrcHeadEndCode: options.templateSrcHeadEndCode,
             templateSrcBodyStartCode: options.templateSrcBodyStartCode,
             templateSrcBodyEndCode: options.templateSrcBodyEndCode
         } );

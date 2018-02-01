@@ -50,12 +50,22 @@ SGB.transitionEndEventName = function transitionEndEventName() {
 };
 
 
-SGB.siblings = function( element ) {
-    var siblings = [].slice.call(element.parentElement.children);
-    siblings.splice(siblings.indexOf(element), 1);
+SGB.siblings = function( el, filter ) {
+    // var siblings = [].slice.call(element.parentElement.children);
+    // siblings.splice(siblings.indexOf(element), 1);
+    // return siblings;
+    var siblings = [];
+    var elOrg = el;
+    el = el.parentNode.firstChild;
+    do {
+        if ( elOrg !== el && el instanceof HTMLElement && ( !filter || filter( el ) ) ) {
+            siblings.push( el );
+        }
+        el = el = el.nextSibling;
+    } while ( el );
     return siblings;
 };
 
 SGB.height = function( element ) {
-    return parseInt(getComputedStyle(element).height);
+    return parseInt( getComputedStyle( element ).height );
 };

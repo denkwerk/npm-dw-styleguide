@@ -1,4 +1,4 @@
-{% macro render( element, webPath='', iframe = true, iframeLazyload = true, setSrcLinkOnElementName = false ) -%}
+{% macro render( element, webPath='', iframe = true, iframeLazyload = true, setSrcLinkOnElementName = false, wayToRoot = wayToRoot ) -%}
     <article class="sg-section js-sg-section bgcolor-1">
 
         <header class="sg-section-header js-sg-section-header" data-sticky-class="fixed">
@@ -7,12 +7,13 @@
             <div class="sg-header-group transform-this">
                 <div class="sg-title-container">
                     <h2 class="sg-section-title">
-                        {% if setSrcLinkOnElementName  %}
-                            <a class="sg-section-title-link" href="{{ webPath }}{{ element.iframePath }}">
+                        {% if setSrcLinkOnElementName %}
+                        <a class="sg-section-title-link"
+                           href="{{ wayToRoot }}{{ webPath }}{{ element.iframePath }}">
                         {% endif %}
-                        {{ element.name }}
-                        {% if setSrcLinkOnElementName  %}
-                            </a>
+                            {{ element.name }}
+                        {% if setSrcLinkOnElementName %}
+                        </a>
                         {% endif %}
                     </h2>
                 </div>
@@ -25,7 +26,8 @@
                         </svg>
                     </button>
 
-                    <a class="sg-btn sg-btn-expand" href="{{ webPath }}{{ element.path }}" title="single view">
+                    <a class="sg-btn sg-btn-expand" href="{{ wayToRoot }}{{ webPath }}{{ element.path }}"
+                       title="single view">
                         <svg viewbox="0 0 32 32" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <use class="sg-icon" xlink:href="#sg-icon-enlarge"></use>
                         </svg>
@@ -90,10 +92,14 @@
 
             {% if iframe %}
                 {% if iframeLazyload %}
-                <iframe class="sg-iframe lazyload" data-src="{{ webPath }}{{ element.iframePath }}"
-                        title="iframe for {{ element.name }}"></iframe>
+                    <div class="iframe-container">
+                        <iframe class="sg-iframe lazyload"
+                                data-src="{{ wayToRoot }}{{ webPath }}{{ element.iframePath }}"
+                                title="iframe for {{ element.name }}"></iframe>
+                        <div class="iframe-spinner"></div>
+                    </div>
                 {% else %}
-                    <iframe class="sg-iframe" src="{{ webPath }}{{ element.iframePath }}"
+                    <iframe class="sg-iframe" src="{{ wayToRoot }}{{ webPath }}{{  element.iframePath }}"
                             title="iframe for {{ element.name }}"></iframe>
 
                 {% endif %}

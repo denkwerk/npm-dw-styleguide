@@ -1,10 +1,11 @@
+var SGB = window.SGB || {};
 ( function( w, SGB, undefined ) {
     /*
      ** init iframe resizer
      ** https://github.com/davidjbradshaw/iframe-resizer
      ** http://davidjbradshaw.github.io/iframe-resizer/
      */
-
+    // eslint-disable-next-line no-undef
     var iframeResize = iFrameResize( {
         checkOrigin: false, // https://github.com/davidjbradshaw/iframe-resizer/issues/45
         //hide timeout warnings

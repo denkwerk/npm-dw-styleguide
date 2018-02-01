@@ -26,7 +26,12 @@
     height: 50px;
     position: fixed;
     z-index: 2100;
-    width: 300px; }
+    width: 300px;
+}
+/*html:not(.nav-is-active) .sg-nav-toggle-container {*/
+    /*width: 100%;*/
+    /*background: #ffffff;*/
+/*}*/
 @media screen and (max-width: 768px) {
     .nav-is-active .sg-nav-toggle-container {
         display: flex;

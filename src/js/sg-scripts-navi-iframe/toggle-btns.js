@@ -1,3 +1,5 @@
+var SGB = window.SGB || {};
+
 ( function( w, SGB, undefined ) {
     /* jshint ignore:end */
 

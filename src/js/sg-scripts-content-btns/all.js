@@ -61,35 +61,13 @@ var SGB = window.SGB || {};
         // @paul_irish: https://gist.github.com/paulirish/12fb951a8b893a454b32
         var queryAll = document.querySelectorAll.bind( document );
 
-        /* eslint-disable no-inner-declarations */
-        // Add functionality to toggle classes on elements
-        // function _hasClass( el, cl ) {
-        //     var regex = new RegExp( '(?:\\s|^)' + cl + '(?:\\s|$)' );
-        //     return !!el.className.match( regex );
-        // }
-        //
-        // function _addClass( el, cl ) {
-        //     el.className += ' ' + cl;
-        // }
-        //
-        // function _removeClass( el, cl ) {
-        //     var regex = new RegExp( '(?:\\s|^)' + cl );
-        //     el.className = el.className.replace( regex, '' );
-        // }
-        //
-        // function _toggleClass( el, cl ) {
-        //     _hasClass( el, cl ) ? _removeClass( el, cl ) : _addClass( el, cl );
-        // }
-
-        /* eslint-enable */
-
         // Single toggles for documentation and source code
         // -jLaz
 
         SGB.toggleSingleDocBtn = function() {
             var button = this;
 
-            _toggleClass( button, 'sg-btn-active' );
+            SGB._toggleClass( button, 'sg-btn-active' );
 
         };
 
@@ -100,7 +78,7 @@ var SGB = window.SGB || {};
         SGB.toggleSingleSourceBtn = function() {
             var button = this;
 
-            _toggleClass( button, 'sg-btn-active' );
+            SGB._toggleClass( button, 'sg-btn-active' );
         };
 
         Array.prototype.forEach.call( queryAll( '.js-sg-btn-source' ), function( el ) {

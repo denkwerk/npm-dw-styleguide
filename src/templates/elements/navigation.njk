@@ -27,7 +27,8 @@
 
         {# Main Navigation #}
         {% import "elements/navigation-tree.njk" as nav %}
-        {{ nav.navigationStart(navigation, webPath = webPath, levelStart = 0, inputPagesPath = inputPagesPath) }}
+        {{ nav.navigationStart(navigation, webPath = webPath, levelStart = 0, inputPagesPath = inputPagesPath,
+        wayToRoot = wayToRoot) }}
 
     </nav>
 </div>

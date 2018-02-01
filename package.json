@@ -17,8 +17,8 @@
   },
 
   "scripts": {
-    "lint": "eslint node-js/** js/sg-scripts/** js/sg-scripts-full-view/**",
-    "lint-fix": "eslint node-js/** js/sg-scripts/** js/sg-scripts-full-view/**  --fix"
+    "lint": "eslint generate/** src/js/sg-scripts-content-btns/** src/js/sg-scripts-navi-iframe/**",
+    "lint-fix": "eslint generate/** src/js/sg-scripts-content-btns/** src/js/sg-scripts-navi-iframe/** --fix"
   },
 
   "dependencies": {
