@@ -38,14 +38,19 @@ function renderHelp() {
     console.log('    dw-styleguide [opts] -o|--output output-path input-path');
     console.log('');
     console.log('  Avalilable Options:');
-    console.log('    -o, --output            The output path');
-    console.log('    -d, --documentation     The documentation path');
-    console.log('    -s, --stylesheets       Array of stylesheets');
-    console.log('        --header-scripts    The scripts added to the head section of the document');
-    console.log('        --footer-scripts    Scripts added at the bottom of the document body');
-    console.log('        --head-end-code     Code block at the end of document head');
-    console.log('        --body-start-code   Code block at the start of document body');
-    console.log('        --body-end-code     Code block at the end of document body');
+    console.log('    -o, --output                         The output path');
+    console.log('    -d, --documentation                  The documentation path');
+
+    console.log('    -s, --template-src-stylesheets       Content(iframe)-Template: Array of stylesheets set in head.');
+    console.log('        --template-src-header-scripts    Content(iframe)-Template: The scripts added to the head section of the document');
+    console.log('        --template-src-footer-scripts    Content(iframe)-Template: Scripts added at the bottom of the document body');
+    console.log('        --template-src-head-end-code     Content(iframe)-Template: Code block at the end of document head');
+    console.log('        --template-src-body-start-code   Content(iframe)-Template: Code block at the start of document body');
+    console.log('        --template-src-body-end-code     Content(iframe)-Template: Code block at the end of document body');
+
+    console.log('        --template-styleguide-stylesheet-theme  Styleguide-Template: The styleguide css theme set after default styles');
+
+
     console.log('        --templates-path    The root of the template files');
     console.log('        --full-template     The template file for the full styleguide page');
     console.log('        --reduced-template  The template file for the reduced styleguide pages');
@@ -98,12 +103,16 @@ if (opts.help) {
         inputPath: inputPath,
         outputPath: outputPath,
         docPath: docsPath,
-        stylesheets: opts.stylesheets,
-        headerScripts: opts['header-scripts'],
-        footerScripts: opts['footer-scripts'],
-        headEndCode: opts['head-end-code'],
-        bodyStartCode: opts['body-start-code'],
-        bodyEndCode: opts['body-end-code'],
+
+        templateSrcStylesheets: opts['template-src-stylesheets'],
+        templateSrcHeaderScripts: opts['template-src-header-scripts'],
+        templateSrcFooterScripts: opts['template-src-footer-scripts'],
+        templateSrcHeadEndCode: opts['template-src-head-end-code'],
+        templateSrcBodyStartCode: opts['template-src-body-start-code'],
+        templateSrcBodyEndCode: opts['template-src-body-end-code'],
+
+        templateStyleguideStylesheetTheme: opts['template-styleguide-stylesheet-theme'],
+
         templatesPath: opts['templates-path'],
         fullTemplate: opts['full-template'],
         reducedTemplate: opts['reduced-template'],

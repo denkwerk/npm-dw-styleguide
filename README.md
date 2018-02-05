@@ -36,12 +36,16 @@ dw-styleguide CLI
   Avalilable Options:
     -o, --output            The output path
     -d, --documentation     The documentation path
-    -s, --stylesheets       Array of stylesheets
-        --header-scripts    The scripts added to the head section of the document
-        --footer-scripts    Scripts added at the bottom of the document body
-        --head-end-code     Code block at the end of document head;
-        --body-start-code   Code block at the start of document body;
-        --body-end-code     Code block at the end of document body;
+
+    -s, --template-src-stylesheets       Content(iframe)-Template: Array of stylesheets set in head.
+        --template-src-header-scripts    Content(iframe)-Template: The scripts added to the head section of the document
+        --template-src-footer-scripts    Content(iframe)-Template: Scripts added at the bottom of the document body
+        --template-src-head-end-code     Content(iframe)-Template: Code block at the end of document head
+        --template-src-body-start-code   Content(iframe)-Template: Code block at the start of document body
+        --template-src-body-end-code     Content(iframe)-Template: Code block at the end of document body
+
+        --template-styleguide-stylesheet-theme  Styleguide-Template: The styleguide css theme set after default styles
+
         --templates-path    The root of the template files
         --full-template     The template file for the full styleguide page
         --reduced-template  The template file for the reduced styleguide pages

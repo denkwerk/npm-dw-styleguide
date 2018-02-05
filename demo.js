@@ -4,8 +4,8 @@ var options = {
 
     inputPath: 'demo-src/html/elements',
     inputPagesPath: 'demo-src/html/pages',// has to be on or below webPath root level- reason: It's linked on directly
-    outputPath: 'dist/styleguide',
-    webPath : '/dist/styleguide',
+    outputPath: 'demo-dist/styleguide',
+    webPath : '/demo-dist/styleguide',
     templateStyleguideStylesheetTheme: '/demo-src/css/sg-custom-theme.css',
     templateSrcStylesheets: ['/demo-src/css/main.css'],
     templateSrcHeadEndCode: '<script>console.log("headEndCode");</script>',

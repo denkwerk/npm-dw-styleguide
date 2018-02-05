@@ -15,14 +15,11 @@
   "bin": {
     "dw-styleguide": "bin/dw-styleguide"
   },
-
   "scripts": {
     "lint": "eslint generate/** src/js/sg-scripts-content-btns/** src/js/sg-scripts-navi-iframe/**",
     "lint-fix": "eslint generate/** src/js/sg-scripts-content-btns/** src/js/sg-scripts-navi-iframe/** --fix"
   },
-
   "dependencies": {
-    "concat": "^1.0.3",
     "copy": "^0.3.0",
     "glob": "^7.1.0",
     "nopt": "^3.0.6",
@@ -30,6 +27,9 @@
     "showdown": "^1.4.4"
   },
   "devDependencies": {
-    "eslint": "^4.12.0"
+    "eslint": "^4.12.0",
+    "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-livereload": "^3.8.1"
   }
 }
