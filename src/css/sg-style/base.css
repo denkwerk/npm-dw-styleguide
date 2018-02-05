@@ -119,7 +119,9 @@ body {
 .sg-main {
     overflow-x: hidden;
     position: relative;
-    z-index: 0; }
+    z-index: 0;
+    width: 100%;
+}
 @media screen and (min-width: 769px) {
     .nav-is-active .sg-main,
     .nav-closing .sg-main {
@@ -138,9 +140,6 @@ body {
     .nav-is-active .sg-main,
     .nav-closing .sg-main {
         animation: none; } }
-
-.styleguide-full .sg-main {
-    width: 100%; }
 
 /* Section Documentation & Source Code Toggle
 ---------------------------------------------------------------------------- */
@@ -279,6 +278,5 @@ iframe {
     width: 100vw;
     z-index: 3000; }
 
-body {
-    border: 10px solid red !important;
-}
+
+

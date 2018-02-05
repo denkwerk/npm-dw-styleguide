@@ -32,6 +32,7 @@ function styleGenerateMain( options, callback ) {
         var navTree = [];
         navTree = getNaviObjData( options, files, navTree );
         navTree = getNaviObjDataWithAddInfo( navTree );
+        // console.log( 'navTree', navTree );
 
         var fileContents = [],
             mdConverter = new showdown.Converter( options.showdownOptions );
@@ -65,7 +66,6 @@ function styleGenerateMain( options, callback ) {
             var name = split[ split.length - 1 ]
                 .split( '.' )[ file.split( '.' ).length - 2 ];
             var id = basePath.replace( /\//g, '-' ) + '-' + name;
-            var level = split.length - levelMinus;
             fileContents.push( {
                 name: name,
                 content: contents.toString(),

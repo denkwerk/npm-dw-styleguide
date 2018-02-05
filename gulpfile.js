@@ -40,7 +40,9 @@ gulp.task( 'concat-css', function() {
         './src/css/sg-style/custom-checkboxes.css'
     ] )
         .pipe( concat( 'sg-style.css' ) )
-        .pipe( gulp.dest( './dist/css/' ) );
+        .pipe( gulp.dest( './dist/css' ) )
+        .pipe( gulp.dest( './demo-dist/styleguide/css' ) );
+
 } );
 
 gulp.task( 'watch-js', function() {
@@ -59,10 +61,11 @@ gulp.task( 'watch',
     gulp.parallel( 'watch-js', 'watch-js-prio', 'watch-css' )
 );
 
-gulp.task( 'default',
-    gulp.series( 'watch' )
-);
-
 gulp.task( 'build',
     gulp.series( 'concat-js', 'concat-js-prio', 'concat-css' )
 );
+
+gulp.task( 'default',
+    gulp.series( 'build', 'watch' )
+);
+

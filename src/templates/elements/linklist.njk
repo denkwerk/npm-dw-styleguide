@@ -24,7 +24,7 @@
         {% endif %}
         {{ linklist(item.children, level + 1) }}
     {% else %}
-        {% if level >= levelStart and item.nrOfSiblings > 0 %}
+        {% if level >= levelStart and ( item.nrOfSiblings > 0 or not item.nameSameAsParent ) %}
             <a class="sg-linklist-link sg-linklist-child"
                href="{{ webPath }}{{ item.pathSum }}/{{ item.hash }}.html">
                 {{ item.hash }}

@@ -3,7 +3,7 @@
 // Get all content of level data including the sublevel data
 function getNaviObjDataWithAddInfo( navTree ) {
 
-    var getContentSub = function( navTreeAct, level ) {
+    var getContentSub = function( navTreeAct ) {
         navTreeAct.forEach( function( el ) {
 
             if ( el.children ) {
@@ -14,6 +14,16 @@ function getNaviObjDataWithAddInfo( navTree ) {
                     pathSumCounter = elOrg.pathSum === el.pathSum ? pathSumCounter + 1 : pathSumCounter;
                 } );
                 el.nrOfSiblings = pathSumCounter;
+
+                if ( el.pathSum.length - el.hash.length >= 0 ) {
+                    var parentName = el.pathSum.substring( el.pathSum.length - el.hash.length );
+                    el.nameSameAsParent = el.hash === parentName ? true : false;
+                } else {
+                    el.nameSameAsParent = false;
+                }
+
+                // console.log( 'el:', el );
+
             }
         } );
 

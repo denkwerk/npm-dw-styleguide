@@ -1,14 +1,11 @@
 'use strict';
 
 function getNaviObjData( options, files, navTree ) {
-
     // Build navigation using infinite recursion
     var buildNav = function( splitPath, children, pathSum ) {
         var rawItem = splitPath.shift(); // get file name of path
-        // console.log( 'rawItem', rawItem, 'splitPath', splitPath, 'splitPath.length', splitPath.length );
-        // console.log( 'pathSum', pathSum );
+
         if ( splitPath.length === 0 ) { // if file (no folder)
-            // console.log('##', options.setup.outputPath + rawItem.split( '.' )[0]);
             children.push( {
                 name: rawItem,
                 link: options.setup.outputPath + rawItem.split( '.' )[0],
