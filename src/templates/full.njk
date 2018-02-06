@@ -29,7 +29,6 @@
             {% if showContent %}
                 {% import "single.njk" as singleView %}
                 {% for element in elements %}
-                    {#{{ singleView.render( element, webPath=webPath ~ '/' ) }}#}
                     {{ singleView.render( element, webPath=webPath, wayToRoot = wayToRoot ) }}
                 {% endfor %}
             {% endif %}

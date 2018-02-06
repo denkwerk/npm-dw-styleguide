@@ -1,4 +1,4 @@
-{% macro render( element, webPath='', iframe = true, iframeLazyload = true, setSrcLinkOnElementName = false, wayToRoot = wayToRoot ) -%}
+{% macro render( element, webPath='', iframeLazyload = true, setSrcLinkOnElementName = false, wayToRoot = wayToRoot ) -%}
     <article class="sg-section js-sg-section bgcolor-1">
 
         <header class="sg-section-header js-sg-section-header" data-sticky-class="fixed">
@@ -90,22 +90,18 @@
 
         <div class="sg-preview transform-this">
 
-            {% if iframe %}
-                {% if iframeLazyload %}
-                    <div class="iframe-container">
-                        <iframe class="sg-iframe lazyload"
-                                data-src="{{ wayToRoot }}{{ webPath }}{{ element.iframePath }}"
-                                title="iframe for {{ element.name }}"></iframe>
-                        <div class="iframe-spinner"></div>
-                    </div>
-                {% else %}
-                    <iframe class="sg-iframe" src="{{ wayToRoot }}{{ webPath }}{{  element.iframePath }}"
+
+            {% if iframeLazyload %}
+                <div class="iframe-container">
+                    <iframe class="sg-iframe lazyload"
+                            data-src="{{ wayToRoot }}{{ webPath }}{{ element.iframePath }}"
                             title="iframe for {{ element.name }}"></iframe>
-
-                {% endif %}
-
+                    <div class="iframe-spinner"></div>
+                </div>
             {% else %}
-                {{ element.content | safe }}
+                <iframe class="sg-iframe" src="{{ wayToRoot }}{{ webPath }}{{  element.iframePath }}"
+                        title="iframe for {{ element.name }}"></iframe>
+
             {% endif %}
 
         </div>
