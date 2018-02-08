@@ -1,27 +1,27 @@
 .sg-link-list-wp {
     margin: 50px 0 0;
     padding: 20px 10px 20px 30px;
-    background: #ffffff;
+    background: $sg-body-bg-color;
 }
 
 .sg-link-list-wp * {
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    @extend %font;
 }
-
 
 .sg-linklist {
     margin: 0;
     padding: 0;
-    color: #000000;
+    color: $sg-text-color;
     list-style-type: none;
 }
+
 .sg-linklist-item {
     margin: 0 0 0;
 }
 
-.sg-linklist-link{
+.sg-linklist-link {
     display: block;
-    color: #000000;
+    color: $sg-text-color;
     text-decoration: none;
 }
 
@@ -38,8 +38,9 @@
     font-size: 30px;
 }
 
-.sg-linklist-folder{
+.sg-linklist-folder {
     line-height: 1.33;
+    /* stylelint-disable declaration-no-important */
     margin-top: 10px !important;
     margin-bottom: 10px !important;
 }
@@ -48,7 +49,7 @@
     font-size: 25px;
 }
 
-.sg-linklist-0 > .sg-linklist-folder{
+.sg-linklist-0 > .sg-linklist-folder {
     padding-top: 15px;
     padding-bottom: 15px;
     margin-bottom: 10px;
@@ -58,7 +59,7 @@
     font-weight: bold;
 }
 
-.sg-linklist-1 > .sg-linklist-folder{
+.sg-linklist-1 > .sg-linklist-folder {
     padding-bottom: 2px;
     margin-bottom: 2px;
 }
@@ -67,18 +68,22 @@
     margin-left: 30px;
     font-size: 20px;
 }
+
 .sg-linklist-2 {
     margin-left: 25px;
     font-size: 16px;
 }
+
 .sg-linklist-3 {
     margin-left: 20px;
     font-size: 14px;
 }
+
 .sg-linklist-4 {
     margin-left: 17px;
     font-size: 12px;
 }
+
 .sg-linklist-5 {
     margin-left: 10px;
     font-size: 10px;

@@ -186,6 +186,7 @@ var SGB = window.SGB || {};
                 var xlinkNS = 'http://www.w3.org/1999/xlink';
 
                 /* eslint-disable max-statements */
+                /* eslint-disable complexity */
                 checkUseElems = function() {
                     var base;
                     var bcr;
@@ -440,7 +441,6 @@ var SGB = window.SGB || {};
 /**
  * sg-custom-fullview.js
  */
-
 var SGB = window.SGB || {};
 
 ( function( w, SGB, undefined ) {

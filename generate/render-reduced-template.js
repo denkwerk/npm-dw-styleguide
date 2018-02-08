@@ -29,7 +29,7 @@ function renderReducedTemplate( options, env, navTree, fileContents ) {
 
             webPath: options.webPath,
             wayToRoot: options.webPath === '' ? getWayToRoot( file.level ? file.level : 0 ) : '',
-            
+
             additionalVars: options.additionalTemplateVars
         } );
         var paths = file.path.split( '/' );

@@ -16,7 +16,7 @@ function renderIframeTemplate( options, env, fileContents ) {
             element: file,
             webPath: options.webPath,
             wayToRoot: options.webPath === '' ? getWayToRoot( file.level ? file.level : 0 ) : '',
-            
+
             additionalVars: options.additionalTemplateVars,
 
             templateSrcStylesheets: options.setup.templateSrcStylesheets,

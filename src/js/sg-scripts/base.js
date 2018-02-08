@@ -1,7 +1,6 @@
 /**
  * sg-custom-fullview.js
  */
-
 var SGB = window.SGB || {};
 
 ( function( w, SGB, undefined ) {
