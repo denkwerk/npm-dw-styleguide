@@ -656,7 +656,8 @@ iframe {
   text-decoration: none;
   z-index: 1100; }
   .sg-nav-toggle-btn svg {
-    width: 14px; }
+    width: 14px;
+    min-width: 14px; }
   .sg-nav-toggle-btn .btn-text {
     margin-left: 5px; }
   .sg-nav-toggle-btn:hover, .sg-nav-toggle-btn:focus {
@@ -680,7 +681,8 @@ iframe {
     border-left: 1px solid rgba(254, 254, 254, 0.2);
     display: none; }
     .sg-sub-nav-toggle svg {
-      width: 16px; }
+      width: 16px;
+      min-width: 16px; }
     .nav-is-active.nav-lv1-is-active .sg-sub-nav-toggle {
       display: -webkit-box;
       display: -webkit-flex;
@@ -840,7 +842,8 @@ iframe {
       padding-left: 13px; } }
   .sg-nav-link svg {
     height: 13px;
-    width: 15px; }
+    width: 15px;
+    min-width: 15px; }
   .sg-nav-link .sg-icon-minus {
     display: none; }
   .sg-nav-link.sg-nav-opened .sg-icon-minus {
@@ -1209,7 +1212,9 @@ iframe {
   fill: currentColor; }
 
 .sg-btn svg {
-  width: 14px; }
+  width: 14px;
+  min-width: 14px;
+  /* prevents unwanted scaling on space issues*/ }
 
 .sg-btn use,
 .sg-btn path {
@@ -1221,7 +1226,8 @@ iframe {
   fill: #48c876; }
 
 .sg-btn.sg-btn-documentation svg {
-  width: 16px; }
+  width: 16px;
+  min-width: 16px; }
 
 .sg-btn.sg-btn-source svg {
   height: 24px;

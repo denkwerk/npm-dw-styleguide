@@ -18,7 +18,20 @@
 {% macro linklistItem(item, level) %}
     {% if item.children %}
         {% if level >= levelStart %}
-                <a class="sg-linklist-link sg-linklist-folder{% if item.hasOneSameNamedChildOnly %} sg-linklist-link-one-child-with-same-name {% endif %}" href="{{ webPath }}{{ item.pathSum }}/index.html">
+                <a
+                        class="sg-linklist-link sg-linklist-folder{% if item.hasOneSameNamedChildOnly %} sg-linklist-link-one-child-with-same-name {% endif %}"
+
+                        {% if item.hasOneSameNamedChildOnly %}
+                            href="{{ webPath }}{{ item.pathSum }}/{{ item.name }}.html"
+                        {% else %}
+                            {% if item.children.length == 1 %}
+                            href="{{ webPath }}{{ item.pathSum }}/{{ item.children[ 0 ].name }}"
+                            {% else %}
+                            href="{{ webPath }}{{ item.pathSum }}/index.html"
+                            {% endif %}
+                        {% endif %}
+
+                >
                     {{ item.name }}
                 </a>
         {% endif %}

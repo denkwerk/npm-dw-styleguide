@@ -31,6 +31,7 @@
 
     svg {
         width: 14px;
+        min-width: 14px;
     }
 
     .btn-text {
@@ -71,6 +72,7 @@
 
         svg {
             width: 16px;
+            min-width: 16px;
         }
 
         .nav-is-active.nav-lv1-is-active & {
@@ -269,6 +271,7 @@ nav {
     svg {
         height: 13px;
         width: 15px;
+        min-width: 15px;
     }
 
     .sg-icon-minus {
