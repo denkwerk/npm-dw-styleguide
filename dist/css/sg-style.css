@@ -266,6 +266,14 @@ body {
     -webkit-filter: blur(0);
             filter: blur(0); } }
 
+.styleguide-single .sg-section-header {
+  margin-top: 51px;
+  border-top: 1px solid #ccc; }
+
+.styleguide-single .sg-section-title-link {
+  color: #333;
+  text-decoration: none; }
+
 .sg-main {
   overflow-x: hidden;
   position: relative;

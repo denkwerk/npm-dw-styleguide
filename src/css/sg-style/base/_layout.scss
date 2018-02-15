@@ -14,7 +14,6 @@ html {
 
 body {
     @extend %font;
-
     background: $sg-body-bg-color;
     margin: 0;
 }
@@ -46,6 +45,19 @@ body {
 
     100% {
         filter: blur(0);
+    }
+}
+
+.styleguide-single {
+    //margin-top: 100px;
+    .sg-section-header {
+        margin-top: 51px;
+        border-top: 1px solid $sg-content-border-color;
+    }
+
+    .sg-section-title-link {
+        color: $sg-text-color;
+        text-decoration: none;
     }
 }
 

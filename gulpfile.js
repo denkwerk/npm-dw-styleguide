@@ -43,7 +43,7 @@ gulp.task( 'watch-js-prio', function() {
 } );
 
 gulp.task( 'watch-scss', function() {
-    return gulp.watch( './src/css/sg-style/*.scss', gulp.parallel('sass' ) );
+    return gulp.watch( './src/css/sg-style/**/*.scss', gulp.parallel('sass' ) );
 } );
 
 gulp.task( 'watch',
