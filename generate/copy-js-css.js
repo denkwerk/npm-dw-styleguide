@@ -15,8 +15,9 @@ function copyJsCss( options, callback ) {
         }
     } );
 
-    copy.one( __dirname + '/../' + options.setup.templateStyleguideStylesheet,
-        __dirname + '/../' + options.setup.outputPath + 'css', {flatten: true}, function( err ) {
+    copy.one( options.setup.templateStyleguideStylesheet,
+        process.cwd() + '/' + options.setup.outputPath + 'css',
+        {flatten: true}, function( err ) {
             if ( err ) {return console.log( err );}
         } );
 
