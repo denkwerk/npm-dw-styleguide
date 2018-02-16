@@ -27,7 +27,7 @@
     "nunjucks": "^2.5.2",
     "showdown": "^1.4.4"
   },
-  "devDependencies": {
+  "optionalDependencies": {
     "autoprefixer": "^7.2.5",
     "eslint": "^4.12.0",
     "gulp": "^4.0.0",

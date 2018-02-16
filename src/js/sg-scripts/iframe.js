@@ -12,6 +12,7 @@ var SGB = window.SGB || {};
         warningTimeout: 0,
         // include pos: absolute elements and bigger elements coming in when interacting with sth
         // heightCalculationMethod: 'min',
+        heightCalculationMethod: 'max',
         // recalculate the sticky headers
         initCallback: function() {
             SGB._recalculateStickies();
