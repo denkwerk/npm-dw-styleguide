@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         {% include "elements/head.njk" %}
     </head>
@@ -27,10 +27,5 @@
         {% include "elements/prism.njk" %}
 
         <script src="{{ wayToRoot }}{{ webPath }}js/sg-scripts.js" ></script>
-
-        {% for script in footerScripts %}
-            <script src="{{ script }}"></script>
-        {% endfor %}
-
     </body>
 </html>

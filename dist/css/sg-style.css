@@ -13,7 +13,8 @@
     -moz-transition: transform 0.5s cubic-bezier(0.75, 0.02, 0.5, 1), -moz-transform 0.5s cubic-bezier(0.75, 0.02, 0.5, 1);
     transition: transform 0.5s cubic-bezier(0.75, 0.02, 0.5, 1);
     transition: transform 0.5s cubic-bezier(0.75, 0.02, 0.5, 1), -webkit-transform 0.5s cubic-bezier(0.75, 0.02, 0.5, 1), -moz-transform 0.5s cubic-bezier(0.75, 0.02, 0.5, 1); }
-  .nav-is-active .styleguide-full .transform-this {
+  .nav-is-active .styleguide-full .transform-this,
+  .nav-is-active .styleguide-single .transform-this {
     -webkit-transform: translateX(300px);
        -moz-transform: translateX(300px);
         -ms-transform: translateX(300px);
@@ -318,7 +319,8 @@ body {
          -moz-animation: none;
               animation: none; } }
 
-.styleguide-full .sg-main {
+.styleguide-full .sg-main,
+.styleguide-single .sg-main {
   width: 100%; }
 
 /* -------------------------------------------------------------------------

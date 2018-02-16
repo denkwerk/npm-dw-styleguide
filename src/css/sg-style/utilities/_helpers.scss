@@ -8,7 +8,8 @@
     }
 
     .nav-is-active {
-        .styleguide-full {
+        .styleguide-full,
+        .styleguide-single {
             .transform-this {
                 transform: translateX($sg-nav-width);
             }
