@@ -46,21 +46,13 @@ function styleGenerateMain( options, callback ) {
             var contents = pathExists( options.setup.inputPath + file ) ?
                 fs.readFileSync( options.setup.inputPath + file ) : '';
 
-            // TODO: Discuss docPath
-            // var doc = ( options.setup.docPath &&
-            // pathExists( options.setup.docPath + file.split( '.' )[ 0 ] + '.md' ) ) ?
-            //     mdConverter.makeHtml(
-            //         fs.readFileSync( options.setup.docPath + file.split( '.' )[ 0 ] + '.md' ).toString()
-            //     ) :
-            //     env.renderString( options.docNotFoundTemplate, { file: file } );
-
-            var doc = ( options.setup.inputPath &&
-            pathExists( options.setup.inputPath + file.split( '.' )[ 0 ] + '.md' ) ) ?
+            // docs could be in src folder only (not in generated folders) - so we need the option
+            var doc = ( options.setup.docPath &&
+            pathExists( options.setup.docPath + file.split( '.' )[ 0 ] + '.md' ) ) ?
                 mdConverter.makeHtml(
-                    fs.readFileSync( options.setup.inputPath + file.split( '.' )[ 0 ] + '.md' ).toString()
+                    fs.readFileSync( options.setup.docPath + file.split( '.' )[ 0 ] + '.md' ).toString()
                 ) :
                 env.renderString( options.docNotFoundTemplate, { file: file } );
-
 
             var basePath = file.substring( 0, file.lastIndexOf( '/' ) );
             var name = split[ split.length - 1 ]
@@ -97,7 +89,8 @@ function styleGenerateMain( options, callback ) {
         renderReducedTemplate( options, env, navTree, fileContents );
 
         // Render iframe views
-        renderIframeTemplate( options, env, fileContents );
+        var env2 = new nunjucks.Environment( new nunjucks.FileSystemLoader( options.setup.templateSrcPath ) );
+        renderIframeTemplate( options, env2, fileContents );
 
         // Render all level Contents
         // Each level content contains als sublevel content

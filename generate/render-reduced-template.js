@@ -17,7 +17,7 @@ function renderReducedTemplate( options, env, navTree, fileContents ) {
             element: file,
             navigation: navTree,
             inputPagesPath: options.setup.inputPagesPath,
-            templateStyleguideStylesheetTheme: options.setup.templateStyleguideStylesheetTheme,
+            templateStyleguideStylesheet: options.setup.templateStyleguideStylesheet,
 
             templateSrcStylesheets: options.setup.templateSrcStylesheets,
             templateSrcHeaderScripts: options.setup.templateSrcHeaderScripts,

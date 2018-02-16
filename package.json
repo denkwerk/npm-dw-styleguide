@@ -18,7 +18,7 @@
   "scripts": {
     "lint": "eslint generate/** src/js/sg-scripts/** src/js/sg-scripts-prio/**",
     "lint-fix": "eslint generate/** src/js/sg-scripts/** src/js/sg-scripts-prio/*** --fix",
-    "lint-styles": "stylelint sg-theme/**/*.scss --fix"
+    "lint-styles": "stylelint src/css/**/*.scss --fix"
   },
   "dependencies": {
     "copy": "^0.3.0",

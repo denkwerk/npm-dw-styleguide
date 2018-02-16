@@ -6,10 +6,10 @@ var options = {
     inputPagesPath: 'demo-src/html/pages',// has to be on or below webPath root level- reason: It's linked on directly
     outputPath: 'demo-dist/styleguide',
     webPath : '/demo-dist/styleguide',
-    templateStyleguideStylesheetTheme: '/demo-src/css/sg-custom-theme.css',
+    templateStyleguideStylesheet: 'dist/css/sg-style.css',
     templateSrcStylesheets: ['/demo-src/css/main.css'],
     templateSrcHeadEndCode: '<script>console.log("headEndCode");</script>',
-
+    templateSrcPath: 'src/templates', // same as default
 
     // inputPath: 'frontend/dist/markup',
     // inputPagesPath: 'frontend/dist/pages',// has to be on or below webPath root level- reason: It's linked on directly

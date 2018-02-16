@@ -51,9 +51,9 @@ function style( options, callback ) {
     var inputPath = path.normalize( options.inputPath ) + path.sep,
         inputPagesPath = options.inputPagesPath && options.inputPagesPath !== '' ?
             path.normalize( options.inputPagesPath ) : false,
-        // docPath = ( typeof options.docPath === 'string' ) ?
-        //     path.normalize( options.docPath ) + path.sep :
-        //     options.docPath,
+        docPath = ( typeof options.docPath === 'string' ) ?
+            path.normalize( options.docPath ) + path.sep :
+            inputPath,
         outputPath = path.normalize( options.outputPath ) + path.sep;
 
     var templateSrcStylesheets = [
@@ -68,8 +68,9 @@ function style( options, callback ) {
         ];
     }
 
-    var templateStyleguideStylesheetTheme = options.templateStyleguideStylesheetTheme &&
-    options.templateStyleguideStylesheetTheme !== '' ? options.templateStyleguideStylesheetTheme : false;
+    var templateStyleguideStylesheet = options.templateStyleguideStylesheet &&
+    options.templateStyleguideStylesheet !== '' ? options.templateStyleguideStylesheet :
+        __dirname + '/../dist/css/sg-style.css';
 
     // Scripts
     var footerScripts = [],
@@ -97,6 +98,9 @@ function style( options, callback ) {
         templatesPath = options.templatesPath;
     }
 
+    var templateSrcPath = options.templateSrcPath && options.templateSrcPath !== '' ? options.templateSrcPath :
+        templatesPath;
+
     if ( typeof options.templateSrcHeadEndCode !== 'string' ) {
         options.templateSrcHeadEndCode = '';
     }
@@ -115,10 +119,11 @@ function style( options, callback ) {
         inputPagesPath: inputPagesPath,
         outputPath: outputPath,
 
-        // docPath: docPath,
+        docPath: docPath,
         templatesPath: templatesPath,
+        templateSrcPath: templateSrcPath,
 
-        templateStyleguideStylesheetTheme: templateStyleguideStylesheetTheme,
+        templateStyleguideStylesheet: templateStyleguideStylesheet,
 
         templateSrcStylesheets: templateSrcStylesheets,
         templateSrcHeaderScripts: headerScripts,

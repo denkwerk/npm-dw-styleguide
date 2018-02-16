@@ -44,12 +44,15 @@ dw-styleguide CLI
         --template-src-body-start-code   Content(iframe)-Template: Code block at the start of document body
         --template-src-body-end-code     Content(iframe)-Template: Code block at the end of document body
 
-        --template-styleguide-stylesheet-theme  Styleguide-Template: The styleguide css theme set after default styles
+        --template-styleguide-stylesheet  Styleguide-Template: The styleguide css
 
+        --templates-path    The root of the iframe content template file
         --templates-path    The root of the template files
+
         --full-template     The template file for the full styleguide page
         --reduced-template  The template file for the reduced styleguide pages
         --iframe-template   The template file for the iframe content pages
+
         --doc-not-found     The template string for the documentation not found hint
         --web-root          The web-root of the styleguide
     -h, --help              This help page

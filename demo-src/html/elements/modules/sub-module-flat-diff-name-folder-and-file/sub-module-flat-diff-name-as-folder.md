@@ -1,0 +1,1 @@
+doc for sub-module-flat-diff-name-as-folder
