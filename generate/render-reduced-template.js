@@ -16,7 +16,10 @@ function renderReducedTemplate( options, env, navTree, fileContents ) {
             title: 'Reduced Module ' + file.name,
             element: file,
             navigation: navTree,
+
             inputPagesPath: options.setup.inputPagesPath,
+            outputPagesPath: options.setup.outputPagesPath,
+
             templateStyleguideStylesheet: options.setup.templateStyleguideStylesheet,
 
             templateSrcStylesheets: options.setup.templateSrcStylesheets,

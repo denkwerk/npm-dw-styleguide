@@ -111,7 +111,6 @@ function styleGenerateMain( options, callback ) {
                 var pageTree = [];
                 pageTree = getNaviObjData( options, files, pageTree );
 
-
                 renderFullTemplate( options, env, navTree, fileContents,
                     {
                         showContent: false,
