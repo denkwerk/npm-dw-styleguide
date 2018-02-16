@@ -23,7 +23,7 @@
 
             {% if showPageList %}
                 {% import "elements/pagelist.njk" as pagelinklist %}
-                {{ pagelinklist.linklistStart(navigationPages, 0, webPath = '/' + inputPagesPath) }}
+                {{ pagelinklist.linklistStart(navigationPages, 0, webPath = '../../' + inputPagesPath) }}
             {% endif %}
 
             {% if showContent %}
