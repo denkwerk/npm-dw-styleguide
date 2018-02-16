@@ -14,11 +14,14 @@ function copyJsCss( options, callback ) {
             callback();
         }
     } );
-
+    var destPath = process.cwd() + '/' + options.setup.outputPath + 'css';
     copy.one( options.setup.templateStyleguideStylesheet,
-        process.cwd() + '/' + options.setup.outputPath + 'css',
-        {flatten: true}, function( err ) {
+        destPath,
+        {flatten: true, rename: 'test.css'}, function( err, file ) {
             if ( err ) {return console.log( err );}
+            fs.rename(destPath + '/' + file.basename , destPath + '/'+ 'sg-style.css', function(err) {
+                if ( err ) console.log('ERROR: ' + err);
+            });
         } );
 
 }
