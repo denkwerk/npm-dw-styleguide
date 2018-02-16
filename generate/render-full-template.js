@@ -7,13 +7,14 @@ var getWayToRoot = require( './get-way-to-root' );
 //read html files
 function renderFullTemplate( options, env, navTree, fileContents, addOptions ) {
     // Render full styleguide
+    console.log( 1, options.setup.outputPagesPath );
     var full = env.render( options.fullTemplate, {
         title: 'Full styleguide',
         elements: fileContents,
         navigation: navTree,
 
         navigationPages: addOptions.pageTree ? addOptions.pageTree : false,
-        inputPagesPath: options.setup.inputPagesPath,
+        outputPagesPath: options.setup.outputPagesPath,
 
         templateStyleguideStylesheet: options.setup.templateStyleguideStylesheet,
 

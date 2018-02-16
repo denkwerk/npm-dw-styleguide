@@ -19,9 +19,9 @@ function copyJsCss( options, callback ) {
         destPath,
         {flatten: true, rename: 'test.css'}, function( err, file ) {
             if ( err ) {return console.log( err );}
-            fs.rename(destPath + '/' + file.basename , destPath + '/'+ 'sg-style.css', function(err) {
-                if ( err ) console.log('ERROR: ' + err);
-            });
+            fs.rename( destPath + '/' + file.basename, destPath + '/' + 'sg-style.css', function( err ) {
+                if ( err ) {console.log( 'ERROR: ' + err );}
+            } );
         } );
 
 }

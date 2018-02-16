@@ -3,7 +3,8 @@ var styleguide = require('./index');
 var options = {
 
     inputPath: 'demo-src/html/elements',
-    inputPagesPath: 'demo-src/html/pages',// has to be on or below webPath root level- reason: It's linked on directly
+    inputPagesPath: 'demo-src/html/pages',
+    outputPagesPath: 'demo-src/html/pages', // needed, if root is below working dir
     outputPath: 'demo-dist/styleguide',
     webPath : '/demo-dist/styleguide',
     templateStyleguideStylesheet: 'dist/css/sg-style.css',

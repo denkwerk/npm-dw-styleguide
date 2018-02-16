@@ -37,6 +37,11 @@ dw-styleguide CLI
     -o, --output            The output path
     -d, --documentation     The documentation path
 
+        --input-pages-path   The input pages path
+        --output-pages-path  The output pages path
+
+        --template-styleguide-stylesheet  Styleguide-Template: The styleguide css
+
     -s, --template-src-stylesheets       Content(iframe)-Template: Array of stylesheets set in head.
         --template-src-header-scripts    Content(iframe)-Template: The scripts added to the head section of the document
         --template-src-footer-scripts    Content(iframe)-Template: Scripts added at the bottom of the document body
@@ -44,9 +49,7 @@ dw-styleguide CLI
         --template-src-body-start-code   Content(iframe)-Template: Code block at the start of document body
         --template-src-body-end-code     Content(iframe)-Template: Code block at the end of document body
 
-        --template-styleguide-stylesheet  Styleguide-Template: The styleguide css
-
-        --templates-path    The root of the iframe content template file
+        --template-path     The root of the iframe content template file
         --templates-path    The root of the template files
 
         --full-template     The template file for the full styleguide page
@@ -80,13 +83,20 @@ There are a bunch of options you can use:
 - `inputPath`: The path where all the markup can be found. __This is required.__
 - `outputPath`: The path where the rendered files will be put. __This is required.__
 - `docPath`: The path where all documentation files can be found.
-- `stylesheets`: The stylesheets to include.
-- `headerScripts`: The scripts added in the head-section of the document,
-- `footerScripts`: The scripts added at the end of the document body.
-- `headEndCode`: Code block at the end of document head;
-- `bodyStartCode`: Code block at the start of document body;
-- `bodyEndCode`: Code block at the end of document body;
+- `inputPagesPath`: The input pages path.
+- `outputPagesPath`: The output pages path.
+
+- `templateStyleguideStylesheet`: The stylesheets to include.
+
+- `templateSrcStylesheets`: The stylesheets to include.
+- `templateSrcHeaderScripts`: The scripts added in the head-section of the document,
+- `templateSrcFooterScripts`: The scripts added at the end of the document body.
+- `templateSrcHeadEndCode`: Code block at the end of document head;
+- `templateSrcBodyStartCode`: Code block at the start of document body;
+- `templateSrcBodyEndCode`: Code block at the end of document body;
+
 - `templatesPath`: The root folder for the nunjucks-templates
+- `templateSrcPath`: The root folder for the nunjucks-templates for the iframe/content template
 - `fullTemplate`: The filename/relative path to the full styleguide template
 - `reducedTemplate`: The filename/relative path to the reduced (single view) template
 - `iframeTemplate`: The filename/relative path to the sindlge iframe template)

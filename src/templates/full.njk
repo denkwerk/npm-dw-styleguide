@@ -23,13 +23,13 @@
 
             {% if showPageList %}
                 {% import "elements/pagelist.njk" as pagelinklist %}
-                {{ pagelinklist.linklistStart(navigationPages, 0, webPath = '../../' + inputPagesPath) }}
+                {{ pagelinklist.linklistStart(navigationPages, 0, webPath = '/' + outputPagesPath) }}
             {% endif %}
 
             {% if showContent %}
                 {% import "single.njk" as singleView %}
                 {% for element in elements %}
-                    {{ singleView.render( element, webPath=webPath, wayToRoot = wayToRoot ) }}
+                    {{ singleView.render( element, webPath = webPath, wayToRoot = wayToRoot ) }}
                 {% endfor %}
             {% endif %}
 

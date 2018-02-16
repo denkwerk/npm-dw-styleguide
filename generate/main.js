@@ -113,8 +113,13 @@ function styleGenerateMain( options, callback ) {
 
 
                 renderFullTemplate( options, env, navTree, fileContents,
-                    { showContent: false, showPageList: true, pageTree: pageTree, writePath: false,
-                        fileName: 'index-pages' } );
+                    {
+                        showContent: false,
+                        showPageList: true,
+                        pageTree: pageTree,
+                        writePath: false,
+                        fileName: 'index-pages'
+                    } );
 
             } );
         }

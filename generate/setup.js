@@ -51,6 +51,8 @@ function style( options, callback ) {
     var inputPath = path.normalize( options.inputPath ) + path.sep,
         inputPagesPath = options.inputPagesPath && options.inputPagesPath !== '' ?
             path.normalize( options.inputPagesPath ) : false,
+        outputPagesPath = options.outputPagesPath && options.outputPagesPath !== '' ?
+            path.normalize( options.outputPagesPath ) : false,
         docPath = ( typeof options.docPath === 'string' ) ?
             path.normalize( options.docPath ) + path.sep :
             inputPath,
@@ -118,6 +120,7 @@ function style( options, callback ) {
         inputPath: inputPath,
         inputPagesPath: inputPagesPath,
         outputPath: outputPath,
+        outputPagesPath: outputPagesPath,
 
         docPath: docPath,
         templatesPath: templatesPath,
