@@ -1,3 +1,7 @@
+.sg-iframe.lazyloaded {
+   margin-bottom: 0;
+}
+
 .sg-iframe.lazyloading + .iframe-spinner {
     border: 7px solid #d3cfd5;
     border-top: 7px solid #333;
@@ -6,6 +10,8 @@
     height: 30px;
     animation: sg-kf-spin 2s linear infinite;
     margin: 0 50px 20px;/* give it more height to decrease elements to be loaded in view */
+    position: absolute;
+    top: 50%;
 }
 
 @keyframes sg-kf-spin {

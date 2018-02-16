@@ -582,14 +582,17 @@ body {
 .sg-section:last-child .sg-preview {
   padding-bottom: 60px; }
 
-iframe {
+.sg-iframe {
   border: 0;
   height: 50px;
-  margin: 0 auto;
   -webkit-transition: height 0.4s ease, width 0.4s ease;
   -moz-transition: height 0.4s ease, width 0.4s ease;
   transition: height 0.4s ease, width 0.4s ease;
-  width: 100%; }
+  width: 100%;
+  margin: 0 auto 200px; }
+
+.iframe-container {
+  position: relative; }
 
 .sg-refreshing-modules-modal:before {
   background-color: rgba(254, 254, 254, 0.75);
@@ -1461,6 +1464,9 @@ button i {
   margin-left: 10px;
   font-size: 10px; }
 
+.sg-iframe.lazyloaded {
+  margin-bottom: 0; }
+
 .sg-iframe.lazyloading + .iframe-spinner {
   border: 7px solid #d3cfd5;
   border-top: 7px solid #333;
@@ -1471,7 +1477,9 @@ button i {
      -moz-animation: sg-kf-spin 2s linear infinite;
           animation: sg-kf-spin 2s linear infinite;
   margin: 0 50px 20px;
-  /* give it more height to decrease elements to be loaded in view */ }
+  /* give it more height to decrease elements to be loaded in view */
+  position: absolute;
+  top: 50%; }
 
 @-webkit-keyframes sg-kf-spin {
   0% {
