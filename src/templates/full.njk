@@ -15,10 +15,9 @@
             <div class="nav-toggle-helper transform-this"></div>
 
             <script src="{{ wayToRoot }}{{ webPath }}js/sg-priority.js" ></script>
-
             {% if showLinkList %}
                 {% import "elements/linklist.njk" as linklist %}
-                {{ linklist.linklistStart(navigation , levelStart = levelStart, webPath = webPath) }}
+                {{ linklist.linklistStart(navigation, levelStart = levelStart, webPath = webPath) }}
             {% endif %}
 
             {% if showPageList %}

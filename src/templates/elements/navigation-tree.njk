@@ -1,10 +1,9 @@
-{% macro navigation(tree, level = 0) %}
-
+{% macro navigation(tree, level = 0, webPath = webPath, inputPagesPath = inputPagesPath, wayToRoot = wayToRoot) %}
     <ul class="sg-nav-group sg-nav-list sg-nav-lv-{{ level }}">
 
         {% for item in tree %}
             <li class="sg-nav-item sg-nav-item-lv-{{ level }} js-sg-nav-item{% if item.children %} sg-nav-level-parent{% endif %}">
-                {{ navigationItem(item, level) }}
+                {{ navigationItem(item, level, webPath = webPath, inputPagesPath = inputPagesPath, wayToRoot = wayToRoot) }}
             </li>
         {% endfor %}
 
@@ -54,7 +53,7 @@
     </ul>
 {% endmacro %}
 
-{% macro navigationItem(item, level) %}
+{% macro navigationItem(item, level, webPath = webPath, inputPagesPath = inputPagesPath, wayToRoot = wayToRoot) %}
     {% if item.children %}
 
         <h3 class="sg-nav-link sg-nav-link-lv-{{ level }} sg-nav-link-parent js-sg-nav-link-parent sg-h3
@@ -95,7 +94,7 @@
 
         </h3>
 
-        {{ navigation(item.children, level + 1) }}
+        {{ navigation(item.children, level + 1, webPath = webPath, inputPagesPath = inputPagesPath, wayToRoot = wayToRoot) }}
     {% elseif( item.nrOfSiblings > 0 or not item.nameSameAsParent ) %}
         <a class="sg-nav-link sg-nav-link-lv-{{ level }} sg-nav-link-child js-sg-nav-link-child"
            href="{{ wayToRoot }}{{ webPath }}{{ item.pathSum }}/index.html#{{ item.id }}"
@@ -107,5 +106,5 @@
 {% endmacro %}
 
 {% macro navigationStart(tree, levelStart = 0, webPath = webPath, inputPagesPath = inputPagesPath, wayToRoot = wayToRoot) %}
-    {{ navigation(tree, level = levelStart, webPath =  webPath ) }}
+    {{ navigation(tree, level = levelStart, webPath =  webPath, inputPagesPath = inputPagesPath, wayToRoot = wayToRoot ) }}
 {% endmacro %}
