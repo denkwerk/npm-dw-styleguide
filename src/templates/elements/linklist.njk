@@ -32,7 +32,7 @@
                         {% endif %}
 
                 >
-                    item.name::{{ item.name }}
+                    {{ item.name }}
                 </a>
         {% endif %}
         {{ linklist(item.children, levelStart, level + 1, webPath = webPath ) }}
