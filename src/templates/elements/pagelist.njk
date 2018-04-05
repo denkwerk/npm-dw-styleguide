@@ -1,10 +1,10 @@
-{% macro linklist(tree, level = 0, webPath = webPath) %}
+{% macro linklist(tree, levelStart = levelStart, level = level, webPath = webPath) %}
     <ul class="sg-linklist">
         {% for item in tree %}
             {% if level >= levelStart %}
                 <li class="sg-linklist-item sg-linklist-{{ level }}">
             {% endif %}
-            {{ linklistItem(item, level) }}
+            {{ linklistItem(item, levelStart = levelStart, level, webPath = webPath ) }}
             {% if level >= levelStart %}
                 </li>
 
@@ -15,14 +15,14 @@
     </ul>
 {% endmacro %}
 
-{% macro linklistItem(item, level) %}
+{% macro linklistItem(item, levelStart = levelStart, level, webPath = webPath) %}
     {% if item.children %}
         {% if level >= levelStart %}
                 <span class="sg-linklist-link sg-linklist-folder">
                     {{ item.name }}
                 </span>
         {% endif %}
-        {{ linklist(item.children, level + 1) }}
+        {{ linklist(item.children, levelStart, level + 1, webPath = webPath ) }}
     {% else %}
         {% if level >= levelStart %}
             <a class="sg-linklist-link sg-linklist-child"
@@ -36,6 +36,6 @@
 
 {% macro linklistStart(tree, levelStart = 0, webPath = webPath) %}
     <div class="sg-link-list-wp sg-section transform-this">
-        {{ linklist(tree, level = 0, webPath = webPath) }}
+        {{ linklist(tree, levelStart = levelStart, level = 0, webPath = webPath) }}
     </div>
 {% endmacro %}
