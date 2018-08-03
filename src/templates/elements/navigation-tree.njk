@@ -1,0 +1,110 @@
+{% macro navigation(tree, level = 0, webPath = webPath, inputPagesPath = inputPagesPath, wayToRoot = wayToRoot) %}
+    <ul class="sg-nav-group sg-nav-list sg-nav-lv-{{ level }}">
+
+        {% for item in tree %}
+            <li class="sg-nav-item sg-nav-item-lv-{{ level }} js-sg-nav-item{% if item.children %} sg-nav-level-parent{% endif %}">
+                {{ navigationItem(item, level, webPath = webPath, inputPagesPath = inputPagesPath, wayToRoot = wayToRoot) }}
+            </li>
+        {% endfor %}
+
+
+        {% if level == 0 %}
+            <li class="sg-nav-item sg-nav-item-lv-{{ level }} js-sg-nav-item{% if item.children %} sg-nav-level-parent{% endif %}">
+                <h3 class="sg-nav-link sg-nav-link-lv-{{ level }} sg-nav-link-parent sg-h3">
+                    <svg class="vis-hidden" viewbox="0 0 32 32" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <use class="sg-icon sg-icon-plus" xlink:href="#sg-icon-plus"></use>
+                        <use class="sg-icon sg-icon-minus" xlink:href="#sg-icon-minus"></use>
+                    </svg>
+
+                <span class="sg-nav-text">
+                    <a class="sg-nav-text-link" href="{{ wayToRoot }}{{ webPath }}all.html">All elements</a>
+                </span>
+                </h3>
+            </li>
+            <li class="sg-nav-item sg-nav-item-lv-{{ level }} js-sg-nav-item{% if item.children %} sg-nav-level-parent{% endif %}">
+                <h3 class="sg-nav-link sg-nav-link-lv-{{ level }} sg-nav-link-parent sg-h3">
+                    <svg class="vis-hidden" viewbox="0 0 32 32" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <use class="sg-icon sg-icon-plus" xlink:href="#sg-icon-plus"></use>
+                        <use class="sg-icon sg-icon-minus" xlink:href="#sg-icon-minus"></use>
+                    </svg>
+
+                    <span class="sg-nav-text">
+                        <a class="sg-nav-text-link" href="{{ wayToRoot }}{{ webPath }}index.html">List of all elements</a>
+                    </span>
+                </h3>
+            </li>
+            {%  if inputPagesPath %}
+                <li class="sg-nav-item sg-nav-item-lv-{{ level }} js-sg-nav-item{% if item.children %} sg-nav-level-parent{% endif %}">
+                    <h3 class="sg-nav-link sg-nav-link-lv-{{ level }} sg-nav-link-parent sg-h3">
+                        <svg class="vis-hidden" viewbox="0 0 32 32" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <use class="sg-icon sg-icon-plus" xlink:href="#sg-icon-plus"></use>
+                            <use class="sg-icon sg-icon-minus" xlink:href="#sg-icon-minus"></use>
+                        </svg>
+                        <span class="sg-nav-text">
+                            <a class="sg-nav-text-link" href="{{ wayToRoot }}{{ webPath }}index-pages.html">Pages</a>
+
+                        </span>
+                    </h3>
+                </li>
+            {% endif %}
+        {% endif %}
+
+
+    </ul>
+{% endmacro %}
+
+{% macro navigationItem(item, level, webPath = webPath, inputPagesPath = inputPagesPath, wayToRoot = wayToRoot) %}
+    {% if item.children %}
+
+        <h3 class="sg-nav-link sg-nav-link-lv-{{ level }} sg-nav-link-parent js-sg-nav-link-parent sg-h3
+        {% if item.hasOneSameNamedChildOnly %} js-sg-nav-link-parent-one-child-with-same-name {% endif %}">
+            {% if not item.hasOneSameNamedChildOnly %}
+            <svg viewbox="0 0 32 32" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <use class="sg-icon sg-icon-plus" xlink:href="#sg-icon-plus"></use>
+                    <use class="sg-icon sg-icon-minus" xlink:href="#sg-icon-minus"></use>
+            </svg>
+            {% endif %}
+
+            <span class="sg-nav-text{% if item.hasOneSameNamedChildOnly %} sg-nav-text-one-child-with-same-name {% endif %}">
+                {% if item.hasOneSameNamedChildOnly %}
+                    <a class="sg-nav-text-link" href="{{ wayToRoot }}{{ webPath }}{{ item.pathSum }}/{{ item.name }}.html"
+                    >
+                        {{ item.name }}
+                    </a>
+                {% else %}
+
+                {{ item.name }}
+
+                {% endif %}
+
+                {% if not item.hasOneSameNamedChildOnly %}
+                    <a class="sg-nav-text-link"
+
+                        {% if item.children.length == 1 %}
+                            href="{{ webPath }}{{ item.pathSum }}/{{ item.children[ 0 ].name }}"
+                        {% else %}
+                            href="{{ webPath }}{{ item.pathSum }}/index.html"
+                        {% endif %}
+
+                    >
+                        (&#8594; page)
+                    </a>
+                {% endif %}
+            </span>
+
+        </h3>
+
+        {{ navigation(item.children, level + 1, webPath = webPath, inputPagesPath = inputPagesPath, wayToRoot = wayToRoot) }}
+    {% elseif( item.nrOfSiblings > 0 or not item.nameSameAsParent ) %}
+        <a class="sg-nav-link sg-nav-link-lv-{{ level }} sg-nav-link-child js-sg-nav-link-child"
+           href="{{ wayToRoot }}{{ webPath }}{{ item.pathSum }}/index.html#{{ item.id }}"
+        >
+            <span class="sg-nav-text js-sg-nav-text">{{ item.hash }}</span>
+        </a>
+    {% endif %}
+
+{% endmacro %}
+
+{% macro navigationStart(tree, levelStart = 0, webPath = webPath, inputPagesPath = inputPagesPath, wayToRoot = wayToRoot) %}
+    {{ navigation(tree, level = levelStart, webPath =  webPath, inputPagesPath = inputPagesPath, wayToRoot = wayToRoot ) }}
+{% endmacro %}

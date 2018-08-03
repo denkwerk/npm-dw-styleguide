@@ -3,4 +3,7 @@
 /markup-full
 /reduced
 /node_modules
-index.html
+
+/.idea
+/demo-dist/styleguide
+/frontend

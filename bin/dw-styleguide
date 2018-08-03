@@ -11,6 +11,8 @@ var styleguide = require('../index.js');
 var knownOpts = {
     'output': path,
     'documentation': path,
+    'input-pages-path': path,
+    'output-pages-path': path,
     'stylesheets': [String, Array],
     'header-scripts': [String, Array],
     'footer-scripts': [String, Array],
@@ -38,12 +40,24 @@ function renderHelp() {
     console.log('    dw-styleguide [opts] -o|--output output-path input-path');
     console.log('');
     console.log('  Avalilable Options:');
-    console.log('    -o, --output            The output path');
-    console.log('    -d, --documentation     The documentation path');
-    console.log('    -s, --stylesheets       Array of stylesheets');
-    console.log('        --header-scripts    The scripts added to the head section of the document');
-    console.log('        --footer-scripts    Scripts added at the bottom of the document body');
-    console.log('        --templates-path    The root of the template files');
+    console.log('    -o, --output                         The output path');
+    console.log('    -d, --documentation                  The documentation path');
+
+    console.log('        --input-pages-path                   The input pages path');
+    console.log('        --output-pages-path                  The output pages path');
+
+    console.log('        --template-styleguide-stylesheet  Styleguide-Template: The styleguide css');
+
+    console.log('    -s, --template-src-stylesheets       Content(iframe)-Template: Array of stylesheets set in head.');
+    console.log('        --template-src-header-scripts    Content(iframe)-Template: The scripts added to the head section of the document');
+    console.log('        --template-src-footer-scripts    Content(iframe)-Template: Scripts added at the bottom of the document body');
+    console.log('        --template-src-head-end-code     Content(iframe)-Template: Code block at the end of document head');
+    console.log('        --template-src-body-start-code   Content(iframe)-Template: Code block at the start of document body');
+    console.log('        --template-src-body-end-code     Content(iframe)-Template: Code block at the end of document body');
+
+    console.log('        --template-src-path    The root of the iframe content template file');
+    console.log('        --templates-path       The root of the template files');
+
     console.log('        --full-template     The template file for the full styleguide page');
     console.log('        --reduced-template  The template file for the reduced styleguide pages');
     console.log('        --iframe-template   The template file for the iframe content pages');
@@ -95,13 +109,26 @@ if (opts.help) {
         inputPath: inputPath,
         outputPath: outputPath,
         docPath: docsPath,
-        stylesheets: opts.stylesheets,
-        headerScripts: opts['header-scripts'],
-        footerScripts: opts['footer-scripts'],
+
+        inputPagesPath: opts['input-pages-path'],
+        outputPagesPath: opts['output-pages-path'],
+
+        templateStyleguideStylesheet: opts['template-styleguide-stylesheet'],
+
+        templateSrcStylesheets: opts['template-src-stylesheets'],
+        templateSrcHeaderScripts: opts['template-src-header-scripts'],
+        templateSrcFooterScripts: opts['template-src-footer-scripts'],
+        templateSrcHeadEndCode: opts['template-src-head-end-code'],
+        templateSrcBodyStartCode: opts['template-src-body-start-code'],
+        templateSrcBodyEndCode: opts['template-src-body-end-code'],
+
+        templateSrcPath: opts['templates-src-path'],
         templatesPath: opts['templates-path'],
+
         fullTemplate: opts['full-template'],
         reducedTemplate: opts['reduced-template'],
         iframeTemplate: opts['iframe-template'],
+
         docNotFoundTemplate: opts['doc-not-found'],
         webPath: opts['web-root']
     };

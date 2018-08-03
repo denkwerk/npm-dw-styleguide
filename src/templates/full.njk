@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include "elements/head.njk" %}
+    </head>
+    <body class="styleguide-full">
+
+
+        {% include "elements/svgmap.njk" %}
+
+        {% include "elements/navigation.njk" %}
+
+        <main class="sg-main">
+
+            <div class="nav-toggle-helper transform-this"></div>
+
+            <script src="{{ wayToRoot }}{{ webPath }}js/sg-priority.js" ></script>
+            {% if showLinkList %}
+                {% import "elements/linklist.njk" as linklist %}
+                {{ linklist.linklistStart(navigation, levelStart = levelStart, webPath = webPath) }}
+            {% endif %}
+
+            {% if showPageList %}
+                {% import "elements/pagelist.njk" as pagelinklist %}
+                {{ pagelinklist.linklistStart(navigationPages, levelStart = levelStart, webPath = '/' + outputPagesPath) }}
+            {% endif %}
+
+            {% if showContent %}
+                {% import "single.njk" as singleView %}
+                {% for element in elements %}
+                    {{ singleView.render( element, webPath = webPath, wayToRoot = wayToRoot ) }}
+                {% endfor %}
+            {% endif %}
+
+
+        </main>
+
+        {% include "elements/prism.njk" %}
+
+        {% if not showLinkList and not showPageList %}
+            <script src="{{ wayToRoot }}{{ webPath }}js/sg-scripts.js" ></script>
+        {% endif %}
+
+    </body>
+</html>

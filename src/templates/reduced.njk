@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include "elements/head.njk" %}
+    </head>
+    <body class="styleguide-single">
+
+        {% include "elements/svgmap.njk" %}
+
+        {% include "elements/navigation.njk" %}
+
+        <main class="sg-main">
+
+            <div class="nav-toggle-helper transform-this"></div>
+
+            <script src="{{ wayToRoot }}{{ webPath }}js/sg-priority.js" ></script>
+
+            {% import "single.njk" as singleView %}
+            {{ singleView.render(
+            element,
+            webPath=webPath,
+            iframeLazyload = false,
+            wayToRoot = wayToRoot,
+            setSrcLinkOnElementName = true ) }}
+        </main>
+
+        {% include "elements/prism.njk" %}
+
+        <script src="{{ wayToRoot }}{{ webPath }}js/sg-scripts.js" ></script>
+    </body>
+</html>
