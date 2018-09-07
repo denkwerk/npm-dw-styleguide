@@ -8,7 +8,7 @@
 
         {# Pattern & Module Styles #}
         {% for styles in templateSrcStylesheets %}
-            <link rel="stylesheet" href="{{ styles }}" />
+            <link rel="stylesheet" type="text/css" href="{{ styles }}" />
         {% endfor %}
 
         {% for script in templateSrcHeaderScripts %}

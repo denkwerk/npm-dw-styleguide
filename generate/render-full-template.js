@@ -17,6 +17,7 @@ function renderFullTemplate( options, env, navTree, fileContents, addOptions ) {
         outputPagesPath: options.setup.outputPagesPath,
 
         templateStyleguideStylesheet: options.setup.templateStyleguideStylesheet,
+        templateStyleguideAdditionalStylesheets: options.setup.templateStyleguideAdditionalStylesheets,
 
         templateSrcStylesheets: options.setup.templateSrcStylesheets,
         templateSrcHeaderScripts: options.setup.templateSrcHeaderScripts,

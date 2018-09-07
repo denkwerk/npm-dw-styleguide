@@ -86,9 +86,10 @@ There are a bunch of options you can use:
 - `inputPagesPath`: The input pages path.
 - `outputPagesPath`: The output pages path.
 
-- `templateStyleguideStylesheet`: The stylesheets to include.
+- `templateStyleguideStylesheet`: The basic stylesheets of the styleguide (can be overwritten, not recommended).
+- `templateStyleguideAdditionalStylesheets`: The additional stylesheets to include for customizing the whole theme.
 
-- `templateSrcStylesheets`: The stylesheets to include.
+- `templateSrcStylesheets`: The stylesheets for the single/iframe document.
 - `templateSrcHeaderScripts`: The scripts added in the head-section of the document,
 - `templateSrcFooterScripts`: The scripts added at the end of the document body.
 - `templateSrcHeadEndCode`: Code block at the end of document head;
