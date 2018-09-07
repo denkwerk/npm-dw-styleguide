@@ -74,11 +74,11 @@ function style( options, callback ) {
     options.templateStyleguideStylesheet !== '' ? options.templateStyleguideStylesheet :
         __dirname + '/../dist/css/sg-style.css';
 
-    if ( Array.isArray( options.templateStyleguideAdditionalStylesheet ) ) {
-        templateStyleguideAdditionalStylesheet = options.templateStyleguideAdditionalStylesheet;
-    } else if ( typeof options.templateStyleguideAdditionalStylesheet === 'string' ) {
-        templateStyleguideAdditionalStylesheet = [
-            options.templateStyleguideAdditionalStylesheet
+    if ( Array.isArray( options.templateStyleguideAdditionalStylesheets ) ) {
+        templateStyleguideAdditionalStylesheets = options.templateStyleguideAdditionalStylesheets;
+    } else if ( typeof options.templateStyleguideAdditionalStylesheets === 'string' ) {
+        templateStyleguideAdditionalStylesheets = [
+            options.templateStyleguideAdditionalStylesheets
         ];
     }
 
@@ -135,7 +135,7 @@ function style( options, callback ) {
         templateSrcPath: templateSrcPath,
 
         templateStyleguideStylesheet: templateStyleguideStylesheet,
-        templateStyleguideAdditionalStylesheet: templateStyleguideAdditionalStylesheet,
+        templateStyleguideAdditionalStylesheets: templateStyleguideAdditionalStylesheets,
 
         templateSrcStylesheets: templateSrcStylesheets,
         templateSrcHeaderScripts: headerScripts,
