@@ -74,6 +74,14 @@ function style( options, callback ) {
     options.templateStyleguideStylesheet !== '' ? options.templateStyleguideStylesheet :
         __dirname + '/../dist/css/sg-style.css';
 
+    if ( Array.isArray( options.templateStyleguideBrandingStylesheet ) ) {
+        templateStyleguideBrandingStylesheet = options.templateStyleguideBrandingStylesheet;
+    } else if ( typeof options.templateStyleguideBrandingStylesheet === 'string' ) {
+        templateStyleguideBrandingStylesheet = [
+            options.templateStyleguideBrandingStylesheet
+        ];
+    }
+
     // Scripts
     var footerScripts = [],
         headerScripts = [];
@@ -127,6 +135,7 @@ function style( options, callback ) {
         templateSrcPath: templateSrcPath,
 
         templateStyleguideStylesheet: templateStyleguideStylesheet,
+        templateStyleguideBrandingStylesheet: templateStyleguideBrandingStylesheet,
 
         templateSrcStylesheets: templateSrcStylesheets,
         templateSrcHeaderScripts: headerScripts,

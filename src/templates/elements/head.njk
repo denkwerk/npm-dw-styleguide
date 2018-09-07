@@ -9,6 +9,11 @@
 {# Style Guide Styles #}
 <link rel="stylesheet" href="{{ wayToRoot }}{{ webPath }}css/sg-style.css">
 
+{# Styleguide Branding Styles #}
+{% for styles in templateStyleguideBrandingStylesheet %}
+    <link rel="stylesheet" href="{{ styles }}" />
+{% endfor %}
+
 {# prism Syntax Highlighting Styles #}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css">
 
