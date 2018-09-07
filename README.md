@@ -87,7 +87,7 @@ There are a bunch of options you can use:
 - `outputPagesPath`: The output pages path.
 
 - `templateStyleguideStylesheet`: The basic stylesheets of the styleguide (can be overwritten, not recommended).
-- `templateStyleguideBrandingStylesheet`: The additional stylesheets to include for customizing the whole theme.
+- `templateStyleguideAdditionalStylesheet`: The additional stylesheets to include for customizing the whole theme.
 
 - `templateSrcStylesheets`: The stylesheets for the single/iframe document.
 - `templateSrcHeaderScripts`: The scripts added in the head-section of the document,
