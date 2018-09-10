@@ -74,6 +74,8 @@ function style( options, callback ) {
     options.templateStyleguideStylesheet !== '' ? options.templateStyleguideStylesheet :
         __dirname + '/../dist/css/sg-style.css';
 
+    var templateStyleguideAdditionalStylesheets = [];
+
     if ( Array.isArray( options.templateStyleguideAdditionalStylesheets ) ) {
         templateStyleguideAdditionalStylesheets = options.templateStyleguideAdditionalStylesheets;
     } else if ( typeof options.templateStyleguideAdditionalStylesheets === 'string' ) {
