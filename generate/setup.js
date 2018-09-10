@@ -82,8 +82,6 @@ function style( options, callback ) {
         templateStyleguideAdditionalStylesheets = [
             options.templateStyleguideAdditionalStylesheets
         ];
-    } else {
-        templateStyleguideAdditionalStylesheets = [];
     }
 
     // Scripts
